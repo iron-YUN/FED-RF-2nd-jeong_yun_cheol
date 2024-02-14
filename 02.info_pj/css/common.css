@@ -1,3 +1,5 @@
+@charset "utf-8";
+
 /* Info PJ 공통 CSS - common.css */
 
 /* 웹폰트 구글CDN(Content Delivery Network) */
@@ -112,6 +114,11 @@ footer.part {
 /* 타이틀 */
 .tit {
   font-family: "Black Han Sans", sans-serif;
+  font-size: 50px;
+  color: darkgreen;
+  text-shadow: 5px 6px 5px #999;
+  margin: 0;
+  margin-bottom: 31px;
 }
 /* 메뉴 */
 .menu {

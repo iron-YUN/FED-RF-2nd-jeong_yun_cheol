@@ -1,3 +1,7 @@
+@charset "utf-8";
+/* 맨위에 utf-8 인코딩 설정 필수!
+-외부 css파일은 파일자체적으로 처리되므로 인코딩 형식도 따로 지정해야한다! */
+
 /* Info PJ 서브페이지용 CSS - sub.css */
 
 /* 공통 외부CSS 불러오기 */
@@ -9,10 +13,16 @@
     html의 랜더링 속도가 향상된다!
 */
 
+/* 서브페이지 글씨체 지정하기 */
+#main-area{
+    font-family: "Noto Sans KR", sans-serif;
+
+}
+
 /* 서브페이지 파이틀 */
 h2.sub-title{
     /* 글자색 : c */
-    color: #298f29;
+    /* color: #298f29; */
     /* color: #40e440b0; */
          /* color: rgba(64, 228, 64, 0.69); */
     /* color: hsla(120, 75%, 57%, 0.69); */
@@ -75,12 +85,79 @@ h2.sub-title{
 /* 정치 */
     .pt{
         /* 배경이미지 :bgi   개별적으로줌!*/
-        background-image: url(../images/titbg1.jpg);}
+        background-image: url(../images/titbg1.jpg);
+        /* 글자색 */
+        color: #ffe241;
+    }
 /* 경제 */
-    .nn{background-image: url(../images/titbg2.jpg);}   
+    .nn{
+        background-image: url(../images/titbg2.jpg);
+        color: #51ff2e;
+    }   
 /* 사회 */
-    .sn{background-image: url(../images/titbg3.jpg);}
+    .sn{
+        background-image: url(../images/titbg3.jpg);
+        color: #ffffff;
+    }
 /* 과학 */
-    .it{background-image: url(../images/titbg4.jpg);}
+    .it{
+        background-image: url(../images/titbg4.jpg);
+        color: #298f29;
+    }
 /* 연예 */
-    .tv{background-image: url(../images/titbg5.jpg);}
+    .tv{
+        background-image: url(../images/titbg5.jpg);
+        color: #ff38de;
+    }   
+
+/* 언론사 로고
+.press-logo : 는 박스크기 조정
+.press-logo img : 는 박스안의 이미지 크기 조정 */
+.press-logo img{
+    height: 32px;
+}
+/* 기사 타이틀 */
+.article-title{
+font-size: 30px;
+color: #111;
+}
+
+/* 기사이미지박스 */
+.article-picture{
+margin: 20px 0;
+}
+
+/* 기사 이미지 */
+.article-picture img{
+    width: 100%;
+    padding-bottom: 15px;
+
+}
+
+/* 기사 이미지 설명 */
+.article-picture figcaption{
+    /* tac - 글자중앙정렬 */
+    text-align: center; 
+    padding: 0 5px;
+
+}
+/* 기사 이미지 설명 글자크기변경 */
+.article-picture figcaption small{
+font-size: 15px;
+/* small 에 글자크기가 지정되어 있으므로
+여기에서 글자크기를 변경해야 한다 */
+}
+
+/* 기사내용 */
+.contexts p{
+    /* 글자크기 */
+    font-size: 17px;
+    /* 줄간격 : lh
+    line-height 줄간격은 글자의 중앙에서
+    위아래 높이값을 말하며 글자는 중앙에 흐른다
+    단위는 없을 경우 글자크기의 배수로 셋팅됨
+     */
+    line-height: 1.56;
+    /* 글자색 */
+    color: #333;
+}

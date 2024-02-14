@@ -9,7 +9,7 @@
     <!-- CSS 인터널방식 코드 -->
     <style></style>
     <!-- CSS 익스터널방식 코드 -->
-    <link rel="stylesheet" href="./css/sub.css">
+    <link rel="stylesheet" href="./css/sub.css" />
   </head>
   <body>
     <!-- 1. 상단영역 : 제목, 메뉴 -->
@@ -20,16 +20,14 @@
       <nav class="menu">
         <a href="index.html">
           <img
-          src="./images/naver-icon-style-1.png"
-          alt="네이버로고"
-          style="width: 50px; vertical-align: middle"
+            src="./images/naver-icon-style-1.png"
+            alt="네이버로고"
+            style="width: 50px; vertical-align: middle"
           />
           <!-- style속성으로 개별요소에 CSS를 설정할 수 있다! 이런방식을 인라인방식이라고 함 -->
         </a>
-        <a href="sub1.html">정치</a> | 
-        <a href="sub2.html">경제</a> | 
-        <a href="sub3.html">사회</a> |
-        <a href="sub4.html">IT/과학</a> |
+        <a href="sub1.html">정치</a> | <a href="sub2.html">경제</a> |
+        <a href="sub3.html">사회</a> | <a href="sub4.html">IT/과학</a> |
         <a href="sub5.html">TV/연예</a>
       </nav>
     </header>
@@ -39,19 +37,23 @@
       <h2 class="sub-title tv">TV/연예 뉴스</h2>
       <!-- 2-2 언론사로고 -->
       <div class="press-logo">
-        <img src="" alt="아이뉴스24" />
+        <img src="./images/NEWS1_LOGO.png" alt="뉴스원LOGO" />
       </div>
       <!-- 2-3 기사제목 -->
       <h3 class="article-title">
-        
+        "손흥민, 4강 앞두고 이강인 등과 다투다 손가락 골절"…KFA "다툼
+        사실"(종합)
       </h3>
       <!-- 2-4. 기사사진 -->
       <figure class="article-picture">
         <!-- 이미지 -->
-        <img src="" alt="기사이미지" />
+        <img src="./images/article_picture.5-1.jpg" alt="기사이미지" />
         <!-- 이미지설명 -->
         <figcaption>
-          
+          대한민국 손흥민이 6일(현지시간) 카타르 알라이얀 아흐메드 빈 알리
+          스타디움에서 열린 2023 아시아축구연맹(AFC) 카타르 아시안컵 준결승
+          요르단과 대한민국의 경기에서 0-2로 패배하며 결승 진출이 좌절된 후
+          아쉬워하고 있다. 2024.2.7/뉴스1 ⓒ News1 김성진 기자
         </figcaption>
       </figure>
       <!--
@@ -63,7 +65,43 @@
 
       <!-- 2-5. 기사내용 -->
       <section class="contexts">
-        
+        <p>
+          (서울=뉴스1) 이재상 기자 = 영국 매체들이 한국 축구대표팀의 주장
+          손흥민(토트넘)이 아시안컵 4강을 앞두고 후배들과 다투다 손가락이
+          골절됐다고 폭로했다. 대한축구협회(KFA) 확인 결과 선수들 간 다툼이
+          있었던 것도, 그 과정에서 손흥민이 부상을 입은 것도 사실이었다.
+        </p>
+
+        <p>
+          영국 매체 '더선'은 14일(한국시간) "한국이 요르단과의 아시안컵
+          4강전에서 충격적인 패배를 당했다"면서 "손흥민이 아시안컵 탈락 전날 팀
+          동료와 몸싸움을 벌이다 손가락 탈골 부상을 당했다"고 전했다.
+        </p>
+
+        <p>
+          실제 손흥민은 지난 7일 요르단과의 4강전(0-2 패)에서 손가락에 붕대를
+          감고 나왔으며, 11일 브라이튼과의 잉글랜드 프리미어리그(EPL)
+          홈경기에서도 마찬가지였다.
+        </p>
+
+        <p>
+          매체에 따르면 주장인 손흥민은 대표팀 선수 중 일부 어린 선수가 탁구를
+          치기 위해 저녁 식사를 빨리한 것에 불만을 나타냈다. 팀 결속이 중요한
+          시점에서 식사 자리를 일찍 떠나는 것이 마음에 들지 않았다고 매체는
+          해석했다.
+        </p>
+
+        <p>
+          더선은 "손흥민이 문제로 삼은 후배 중에는 파리 생제르맹의 에이스
+          이강인도 있었다"고 전했다.
+        </p>
+
+        <p>
+          매체는 어린 선수 몇몇이 재빨리 식사하고 탁구를 하러 떠났고, 손흥민이
+          화를 내면서 다툼이 벌어졌다고 설명했다. 그 과정에서 일부 선수가
+          손흥민에게 무례한 언행을 했고, 선수들을 진정시키던 중 손가락 탈구
+          부상을 당했다고 전했다.
+        </p>
       </section>
       <!-- 
                 [p 요소 : 문단 (Paragraph)]
@@ -72,12 +110,12 @@
                -->
 
       <!-- 2-6. 기자정보 -->
-      <div class="reporter"></div>
+      <div class="reporter">이재상 기자 (alexei@news1.kr)</div>
 
       <!-- 2-7. 기사원문 -->
       <h5 class="article-link">
         <a
-          href=""
+          href="https://n.news.naver.com/article/421/0007349513?cds=news_media_pc&type=editn"
           target="_blank"
           >기사원문</a
         >
