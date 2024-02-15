@@ -33,7 +33,7 @@
         /* html에 배경을 넣지 말자! 전체배경은 body에!! */
 
         /* 1.배경색 : bgc */
-        background-color: pink;
+        background-color: lightyellow;
 
         /* 2.배경이미지 : bgi
         ->기본적으로 반복됨! */
@@ -93,6 +93,41 @@
       /* body아래 .wrap박스 */
       .wrap{
         height: 100%;
+        /* 높이값을 body에 채운것 */
+        /* 배경한번에쓰기를 사용하면 여러개의 배경이미지를 넣을수 있다!
+
+        특징
+        -> 위 셋팅된 배경이미지가 위에 위치함!
+        -> 위치값의 가로는 left, 세로는 center가 기본값이다!
+        -> 위치나 크기의 특정값을 쓰지 않으면 기본값 적용됨
+        -> 위치값을 0을 쓰면 기본값인 left conter 가 적용됨
+        -> 위치값을 %로 쓰면 설정박스의 %위치를 이미지 중심을
+          기준으로 위치하게됨 */
+        background:
+        /* 도깨비이름 */
+        url(./imgs/d01.png) no-repeat 50% 60%/150px,
+        /* 도깨비 */
+         url(./imgs/dc1.png) no-repeat center/400px,
+
+        /* 지은탁이름 */
+        url(./imgs/d02.png) no-repeat 80% 13.5%/100px,
+        /* 지은탁 */
+         url(./imgs/dc2.png) no-repeat right top/300px,
+         
+         /* 저승사자이름 */
+         url(./imgs/d03.png) no-repeat 22% 86.5%/100px,
+         /* 저승사자 */
+         url(./imgs/dc3.png) no-repeat left bottom/300px,
+
+        /* 써니이름*/
+        url(./imgs/d04.png) no-repeat 83% 58%/100px,
+        /* 써니 */
+         url(./imgs/dc4.png) no-repeat right center/300px,
+
+         /* 포스터 */
+         url(./imgs/bg_mainvisual.jpg) no-repeat left center/60%,
+         /* 배경꽃 */
+         url(./imgs/eachBG.jpg) no-repeat 50% top/40% 100%;
       }
 
 
