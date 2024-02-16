@@ -187,15 +187,15 @@ font-size: 15px;
     font-family: 'Single Day', cursive;
     font-weight: bold;
 }
-/* 인용구박스 */
-.quote-box{
+/* 구분박스 공통 */
+.bd-box{
     border-top: 2px dashed #999090;
     border-bottom: 2px dashed #999090;
     padding: 10px;
     margin: 20px 0;
 }
-/* 인용구 제목 */
-.quote-box h4{
+/* 구분박스 제목 */
+.bd-box h4{
     /* 기본 display가 block 이어서
     글씨만큼 크기를 가지려면 inline-bloc로 바꿔야한다 */
     display: inline-block;
@@ -260,4 +260,25 @@ font-size: 15px;
         /* 박스그림자 */
         box-shadow: 5px 5px 3px #8a8a8a;
 
+}
+
+/* 동영상 박스 : 유튜브 iframe */
+.mvbox{
+    /* 비율유지 박스설정 
+    aspect-ratio : 가로비/세로비
+    -> 주의: 가로 세로가 유동적이므로
+    특정값을 셋팅하지 말것!(w,h)*/
+    aspect-ratio: 16/9;
+
+    /* height: 550px; */
+    /* 
+    div 와 같은 block 요소는 width설정을 하지 않으면
+    width:auto 로 자동설정됨! */
+
+}
+/* 아이프레임 */
+.mvbox iframe{
+    border: none;   /* bdn */
+    width: 100%;
+    height: 100%;
 }

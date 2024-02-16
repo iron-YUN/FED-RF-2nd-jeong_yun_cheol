@@ -16,6 +16,7 @@ html,body{
     padding: 0;
     height: 100%;
 }
+
 body{
    
     /* [선형 그라데이션]
@@ -24,8 +25,7 @@ body{
      */
 
      background: 
-     url(../images/1.jpg) no-repeat 10% 35%/120%,
-     url(../images/2.png) no-repeat 10% right bottom/70%;
+     url(../images/1.jpg) no-repeat 10% 35%/120%;
      /*  */
      /* background-color: ;  */
      /*  */
@@ -81,3 +81,5 @@ body{
         font-style: oblique;
         font-family: "Bagel Fat One", system-ui;
     }
+    
+    /*      background: {url(../images/2.png) no-repeat 10% bottom/300px;} */
