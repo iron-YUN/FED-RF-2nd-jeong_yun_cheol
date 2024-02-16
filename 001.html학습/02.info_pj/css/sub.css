@@ -305,6 +305,7 @@ h2.sub-title {
   color: hotpink;
   background-color: aquamarine;
   box-shadow: 0 0 10px 5px darkblue; /* bsh : x y blur (spread) color */
+  
 }
 /* 오늘의 작품&느낌 */
 .work {
@@ -328,10 +329,14 @@ h2.sub-title {
     rgb(212, 90, 110) 60%,
     #42e89d 95%
   );
+
   
+
+
   /* padding */
   padding: 21px;
   border: 13px dotted blue;
+ 
   /* 
   부모박스에 패딩이 없는 상태에서
   첫번째 자식 블록박스의 마진은
@@ -344,15 +349,31 @@ h2.sub-title {
   패딩의 내부공간을 밀게된다!
   */
 
-  /* 배경색관련 영역지정 */
-  background-clip: border-box;
-  /* 배경이미지관련 영역지정 */
+  /* 배경색관련 표시 영역지정  : background-clip
+    값 : border-box 보더 영역까지 표시(기본값)
+    값 : padding-box 패딩 영역까지 표시
+    값 : content-box 내용 영역까지 표시 */
+    background-clip: border-box;
+    
+
+    /* 배경이미지관련 시작 영역지정 :background-origin
+    값 : border-box 보더 영역부터 표시
+    값 : padding-box 패딩 영역부터 표시(기본값)
+    값 : content-box 내용 영역부터 표시 */
   background-origin: padding-box;
+
+  /* 배경 반복 제거 */
+   background-repeat: no-repeat;
+   box-shadow: inset 0 0 10px#333;
+
+   
+
+   
 }
 
 /* 작품 타이틀 */
 .work h4 {
-  font-family: "Nanum Brush Script", system-ui;
+    font-family: "Nanum Brush Script", cursive;
   font-weight: normal;
   font-size: 40px;
   color: #222;
@@ -362,4 +383,22 @@ h2.sub-title {
   첫번째 자식마진은 부모바깥으로 나감!
   참고)마지막 자식블록요소도
   부모 박스 하단 마진은 바깥으로 나감! */
+}
+
+/* 작품명 */
+.work figcaption{
+    font-family: "Gugi", sans-serif;
+    font-size: 20px;
+    margin-top: 20px;
+}
+.work figure img{
+    border: 12px ridge goldenrod;
+}
+
+/* 작품명 인용구 */
+.work cite{
+    /* 이탈릭해제 */
+    font-style: normal;
+    /* 글자색 */
+    color: #7d1c78;
 }
