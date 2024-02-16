@@ -23,7 +23,9 @@ body{
      linear-gradient(방향,색1,색2,색3...); 
      */
 
-     background: url(../images/lange.jpg) no-repeat 10% 35%/120%;
+     background: 
+     url(../images/1.jpg) no-repeat 10% 35%/120%,
+     url(../images/2.png) no-repeat 10% right bottom/70%;
      /*  */
      /* background-color: ;  */
      /*  */
