@@ -3,7 +3,7 @@
 /* Info PJ 공통 CSS - common.css */
 
 /* 웹폰트 구글CDN(Content Delivery Network) */
-@import url("https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Noto+Sans+KR:wght@100..900&family=Bagel+Fat+One&family=Dokdo&family=Single+Day&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Noto+Sans+KR:wght@100..900&family=Bagel+Fat+One&family=Dokdo&family=Single+Day&display=swap&family=Nanum+Brush+Script&display=swap");
 /* family=Bagel+Fat+One */
 /* 
     font-family: 'Black Han Sans', sans-serif;
@@ -11,6 +11,7 @@
     font-family: 'Single Day', cursive; 
     font-family: "Noto Sans KR", sans-serif;
     font-family: "Bagel Fat One", system-ui;
+    font-family: "Nanum Brush Script", cursive;
 */
 
 /* CSS코딩구역 */

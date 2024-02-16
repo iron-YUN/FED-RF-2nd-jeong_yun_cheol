@@ -14,198 +14,192 @@
 */
 
 /* 서브페이지 글씨체 지정하기 */
-#main-area{
-    font-family: "Noto Sans KR", sans-serif;
-
+#main-area {
+  font-family: "Noto Sans KR", sans-serif;
 }
 
 /* 서브페이지 파이틀 */
-h2.sub-title{
-    /* 글자색 : c */
-    /* color: #298f29; */
-    /* color: #40e440b0; */
-         /* color: rgba(64, 228, 64, 0.69); */
-    /* color: hsla(120, 75%, 57%, 0.69); */
-    /* color: hwb(120 25% 11% / 0.69); */
+h2.sub-title {
+  /* 글자색 : c */
+  /* color: #298f29; */
+  /* color: #40e440b0; */
+  /* color: rgba(64, 228, 64, 0.69); */
+  /* color: hsla(120, 75%, 57%, 0.69); */
+  /* color: hwb(120 25% 11% / 0.69); */
 
-    /* 글자크기 : font-size (fz) */
-    font-size: 38px;
-    /* 글자두께 : font-weight (fw),(fwb) */
-    /* font-weight: bold; */
-    font-weight: normal;
-    
-    /* 글자체 : font-family
+  /* 글자크기 : font-size (fz) */
+  font-size: 38px;
+  /* 글자두께 : font-weight (fw),(fwb) */
+  /* font-weight: bold; */
+  font-weight: normal;
+
+  /* 글자체 : font-family
     -콤마로 구분된 글자체는 대체체임 */
-    /* font-family: '궁서','돋음','맑은 고딕'; */
+  /* font-family: '궁서','돋음','맑은 고딕'; */
 
-    font-family: "Bagel Fat One", system-ui;
+  font-family: "Bagel Fat One", system-ui;
 
-    /* 텍스트 정렬 - text-align:container: ;
+  /* 텍스트 정렬 - text-align:container: ;
     (tac : 중앙정렬  */
-    text-align: center;
+  text-align: center;
 
-    /* 글자 그림자 : text-shadow */
-    text-shadow: 4px 4px 2px rgb(0, 0, 0, 0.35);
-    
-    /* 박스 테두리 -border(bd) :두께 종류 색상
+  /* 글자 그림자 : text-shadow */
+  text-shadow: 4px 4px 2px rgb(0, 0, 0, 0.35);
+
+  /* 박스 테두리 -border(bd) :두께 종류 색상
         -두께 : 선두께
         -종류 : 선종류(solid실선,dotted점선,dashed데쉬선 등)
         -색상 : 테두리색상 */
-    border: 5px solid #a825a2;
+  border: 5px solid #a825a2;
 
-    /* 둥근 모서리 -border-radius(brad) */
-    border-radius: 20px;
+  /* 둥근 모서리 -border-radius(brad) */
+  border-radius: 20px;
 
-    /* 페딩 -p */
-    padding: 20px;
+  /* 페딩 -p */
+  padding: 20px;
 
-    /* 배경색 : bgc */
-    background-color: #ffffff;
-    
-    /* 배경이미지 : bgi */
+  /* 배경색 : bgc */
+  background-color: #ffffff;
 
+  /* 배경이미지 : bgi */
 
-    /* 배경 반복여부 bgr */
-    background-repeat: no-repeat;
-    /* 배경고정 */
+  /* 배경 반복여부 bgr */
+  background-repeat: no-repeat;
+  /* 배경고정 */
 
-    /* 배경위치 (bgp)*/
-    background-position: center;
+  /* 배경위치 (bgp)*/
+  background-position: center;
 
-    /* 배경크기 (bgz)
+  /* 배경크기 (bgz)
     -cover 는 박스를 빈틈없이 비율유지하여 채움! */
-    background-size: cover;
-    
+  background-size: cover;
 
-    /* 외부CSS 에서 이미지경로 주의!!
+  /* 외부CSS 에서 이미지경로 주의!!
     html파일이 아닌 CSS파일 위치에서 상대경로를 잡아야 이미지가 나온다!! */
-
 }
 
 /* 정치 */
-    .pt{
-        /* 배경이미지 :bgi   개별적으로줌!*/
-        background-image: url(../images/titbg1.jpg);
-        /* 글자색 */
-        color: #ffe241;
-    }
+.pt {
+  /* 배경이미지 :bgi   개별적으로줌!*/
+  background-image: url(../images/titbg1.jpg);
+  /* 글자색 */
+  color: #ffe241;
+}
 /* 경제 */
-    .nn{
-        background-image: url(../images/titbg2.jpg);
-        color: #51ff2e;
-    }   
+.nn {
+  background-image: url(../images/titbg2.jpg);
+  color: #51ff2e;
+}
 /* 사회 */
-    .sn{
-        background-image: url(../images/titbg3.jpg);
-        color: #ffffff;
-    }
+.sn {
+  background-image: url(../images/titbg3.jpg);
+  color: #ffffff;
+}
 /* 과학 */
-    .it{
-        background-image: url(../images/titbg4.jpg);
-        color: #298f29;
-    }
+.it {
+  background-image: url(../images/titbg4.jpg);
+  color: #298f29;
+}
 /* 연예 */
-    .tv{
-        background-image: url(../images/titbg5.jpg);
-        color: #ff38de;
-    }   
+.tv {
+  background-image: url(../images/titbg5.jpg);
+  color: #ff38de;
+}
 
 /* 언론사 로고
 .press-logo : 는 박스크기 조정
 .press-logo img : 는 박스안의 이미지 크기 조정 */
-.press-logo img{
-    height: 32px;
+.press-logo img {
+  height: 32px;
 }
 /* 기사 타이틀 */
-.article-title{
-font-size: 30px;
-color: #111;
+.article-title {
+  font-size: 30px;
+  color: #111;
 }
 
 /* 기사이미지박스 */
-.article-picture{
-margin: 20px 0;
+.article-picture {
+  margin: 20px 0;
 }
 
 /* 기사 이미지 */
-.article-picture img{
-    width: 100%;
-    padding-bottom: 15px;
-
+.article-picture img {
+  width: 100%;
+  padding-bottom: 15px;
 }
 
 /* 기사 이미지 설명 */
-.article-picture figcaption{
-    /* tac - 글자중앙정렬 */
-    text-align: center; 
-    padding: 0 5px;
-
+.article-picture figcaption {
+  /* tac - 글자중앙정렬 */
+  text-align: center;
+  padding: 0 5px;
 }
 /* 기사 이미지 설명 글자크기변경 */
-.article-picture figcaption small{
-font-size: 15px;
-/* small 에 글자크기가 지정되어 있으므로
+.article-picture figcaption small {
+  font-size: 15px;
+  /* small 에 글자크기가 지정되어 있으므로
 여기에서 글자크기를 변경해야 한다 */
 }
 
 /* 기사내용 */
-.contexts p{
-    /* 글자크기 */
-    font-size: 18px;
-    /* 줄간격 : lh
+.contexts p {
+  /* 글자크기 */
+  font-size: 18px;
+  /* 줄간격 : lh
     line-height 줄간격은 글자의 중앙에서
     위아래 높이값을 말하며 글자는 중앙에 흐른다
     단위는 없을 경우 글자크기의 배수로 셋팅됨
      */
-    line-height: 1.7;
-    /* 글자색 */
-    color: #333;
+  line-height: 1.7;
+  /* 글자색 */
+  color: #333;
 }
 
 /* 인라인 인용구 디자인 변경*/
-.contexts q{
-    font-weight: bold;
+.contexts q {
+  font-weight: bold;
 }
 /* mark 요소 디자인 변경 */
-.contexts mark{
-    display: block;
-    /* 크기요소는 인라인일때 적용안됨! */
-    width: 65%;
-    /* 크기를 가진 블록요소 중앙정렬
+.contexts mark {
+  display: block;
+  /* 크기요소는 인라인일때 적용안됨! */
+  width: 65%;
+  /* 크기를 가진 블록요소 중앙정렬
     - 마영오! margin: 0 auto */
-    margin: 15px auto;
-    /* 글자중앙정렬 tac */
-    text-align: center;
-    padding: 20px 50px;
-    border-top: 2px solid gray;
-    border-bottom: 2px solid gray;
-    /* 배경색 */
-    background-color: #b3abab;
-    /* 글자색 */
-    color: #b83232;
-    /* 글자체 */
-    font-family: 'Single Day', cursive;
-    font-weight: bold;
+  margin: 15px auto;
+  /* 글자중앙정렬 tac */
+  text-align: center;
+  padding: 20px 50px;
+  border-top: 2px solid gray;
+  border-bottom: 2px solid gray;
+  /* 배경색 */
+  background-color: #b3abab;
+  /* 글자색 */
+  color: #b83232;
+  /* 글자체 */
+  font-family: "Single Day", cursive;
+  font-weight: bold;
 }
 /* 구분박스 공통 */
-.bd-box{
-    border-top: 2px dashed #999090;
-    border-bottom: 2px dashed #999090;
-    padding: 10px;
-    margin: 20px 0;
+.bd-box {
+  border-top: 2px dashed #999090;
+  border-bottom: 2px dashed #999090;
+  padding: 10px;
+  margin: 20px 0;
 }
 /* 구분박스 제목 */
-.bd-box h4{
-    /* 기본 display가 block 이어서
+.bd-box h4 {
+  /* 기본 display가 block 이어서
     글씨만큼 크기를 가지려면 inline-bloc로 바꿔야한다 */
-    display: inline-block;
-    font-size: 20px;
-    border: 1px solid #000;
-    border-radius: 30px;
-    /* width: 300px; */
-    text-align: center;
-    padding: 15px;
-    /* 박스그림자 
+  display: inline-block;
+  font-size: 20px;
+  border: 1px solid #000;
+  border-radius: 30px;
+  /* width: 300px; */
+  text-align: center;
+  padding: 15px;
+  /* 박스그림자 
     box-shadow : x축 y축 blur spread 색
     1.x축 - 가로축이동
     2.y축 - 세로축이동
@@ -215,102 +209,157 @@ font-size: 15px;
     ->내부그림자일 경우 inset 키워드를 앞에씀
     box-shadow :inset x y b #
     spread는 필요시에만 작성*/
-    
-    /* box-shadow:  4px 4px 2px 10px #333;/ */
-    box-shadow: inset 0 0 20px #807f7f;
-    /* 기본마진 없앰 */
-    margin: 0;
+
+  /* box-shadow:  4px 4px 2px 10px #333;/ */
+  box-shadow: inset 0 0 20px #807f7f;
+  /* 기본마진 없앰 */
+  margin: 0;
 }
 
 /* 블록인용박스 */
-.quote-box blockquote{
-    /* 기본마진 없애기 */
-    font-size: 15px;
-    margin: 0;
-    line-height: 2.1;
-    /* 양쪽정렬 taj */
-    text-align: justify;
-    /* 자식요소인 이미지에 float 속성을 사용할 경우
+.quote-box blockquote {
+  /* 기본마진 없애기 */
+  font-size: 15px;
+  margin: 0;
+  line-height: 2.1;
+  /* 양쪽정렬 taj */
+  text-align: justify;
+  /* 자식요소인 이미지에 float 속성을 사용할 경우
     부모박스에서 자식요소를 인식하지 못하는 경우가 발생함
     이것을 해결하기 위한 한가지 방법으로 넘치는 요소 숨기기
     속성을 셋팅하면 된다 oh */
-    overflow: hidden;
+  overflow: hidden;
 
-    /* 넘치는 자식요소 숨기는 설정때문에
+  /* 넘치는 자식요소 숨기는 설정때문에
     그림자가 잘리므로 이를 패딩으로 처리함 */
-    padding: 5px 5px 5px ;
+  padding: 5px 5px 5px;
 }
 
 /* 블록인용 이미지 */
-.quote-box img{
-    /* 기본적으로 이미지는 인라인요소이며
+.quote-box img {
+  /* 기본적으로 이미지는 인라인요소이며
     글자가 왼쪽으로 한줄 하단에 나열됨
     글자가 옆에 올라와서 흘러가게 하려면
     float속성을 사용해야한다!
         float: left 이미지는 왼쪽에 글자는 오른쪽
         float: right 이미지는 오른쪽에 글자는 왼쪽
         */
-        float: right;
-        /* 이미지 옆에 공간주기 */
-        margin-left: 10px;
-        /* 상단여백으로 이미지 이동 */
-        margin-top: 10px;
-        /* 둥근모서리 */
-        border-radius: 10px;
-        /* 박스그림자 */
-        box-shadow: 5px 5px 3px #8a8a8a;
-
+  float: right;
+  /* 이미지 옆에 공간주기 */
+  margin-left: 10px;
+  /* 상단여백으로 이미지 이동 */
+  margin-top: 10px;
+  /* 둥근모서리 */
+  border-radius: 10px;
+  /* 박스그림자 */
+  box-shadow: 5px 5px 3px #8a8a8a;
 }
 
 /* 동영상 박스 : 유튜브 iframe */
-.mvbox{
-    /* 비율유지 박스설정 
+.mvbox {
+  /* 비율유지 박스설정 
     aspect-ratio : 가로비/세로비
     -> 주의: 가로 세로가 유동적이므로
     특정값을 셋팅하지 말것!(w,h)*/
-    aspect-ratio: 16/9;
+  aspect-ratio: 16/9;
 
-    /* height: 550px; */
-    /* 
+  /* height: 550px; */
+  /* 
     div 와 같은 block 요소는 width설정을 하지 않으면
     width:auto 로 자동설정됨! */
-
 }
 /* 아이프레임 */
-.mvbox iframe{
-    border: none;   /* bdn */
-    width: 100%;
-    height: 100%;
+.mvbox iframe {
+  border: none; /* bdn */
+  width: 100%;
+  height: 100%;
 }
 
 /* 기사원문 */
-.article-link{
-    text-align: right;
+.article-link {
+  text-align: right;
 }
 /* 기사원문 a요소 */
-.article-link a{
-    /* 부모박스 인라인 정렬도 적용되고
+.article-link a {
+  /* 부모박스 인라인 정렬도 적용되고
     크기 디자인도 적용되는 display는? inline-block */
-    display: inline-block;
-    width: 100px;
-    height: 100px;
-    border: 1px solid darkcyan;
-    border-radius: 50%;   /* 정원 */
-    /* 글자 가로중앙 */
-    text-align: center;
-    /* 줄간격을 높이값과 같이주면 세로중앙됨! */
-    line-height: 100px;
-    font-size: 20px;
-    /* a요소 기본 글자색,밑줄 없앰 */
-    color: #222;
-    text-decoration: none;
-    /* 배경색 */
-    background-color: #ccc;
+  display: inline-block;
+  width: 100px;
+  height: 100px;
+  border: 1px solid darkcyan;
+  border-radius: 50%; /* 정원 */
+  /* 글자 가로중앙 */
+  text-align: center;
+  /* 줄간격을 높이값과 같이주면 세로중앙됨! */
+  line-height: 100px;
+  font-size: 20px;
+  /* a요소 기본 글자색,밑줄 없앰 */
+  color: #222;
+  text-decoration: none;
+  /* 배경색 */
+  background-color: #ccc;
 }
 
 /* 기사원문 adyth akdntm dhqjtl */
-.article-link a:hover{
-    color: hotpink;
-    background-color: aquamarine;
-    box-shadow: 0 0 10px 5px darkblue;  /* bsh : x y blur (spread) color */
+.article-link a:hover {
+  color: hotpink;
+  background-color: aquamarine;
+  box-shadow: 0 0 10px 5px darkblue; /* bsh : x y blur (spread) color */
+}
+/* 오늘의 작품&느낌 */
+.work {
+  /* 글자크기,글자정렬은 자식요소로 상속됨 */
+  text-align: center;
+  /* 그라데이션
+  [선형그라데이션 : linear-gradient 
+  linear-gradient(방향,색1,색2.....);
+  linear-gradient(방향,색1 몇% ,색2 몇%.....);
+  linear-gradient(각도,색1 몇% ,색2 몇%.....);
+  -옵션 : 
+  1.방향 : to top , to bottom , to right , to ,left
+  2.각도 : 각도deg
+  3.콤마로 나열된 색상 뒤에 %tnclfmf Tmaus qldbfwhwjdrksmd
+  */
+
+  background-image: linear-gradient(
+    60deg,
+    #44a3de 5%,
+    rgb(212, 90, 110) 40%,
+    rgb(212, 90, 110) 60%,
+    #42e89d 95%
+  );
+  
+  /* padding */
+  padding: 21px;
+  border: 13px dotted blue;
+  /* 
+  부모박스에 패딩이 없는 상태에서
+  첫번째 자식 블록박스의 마진은
+  부모바깥쪽으로 나가서 셋팅된다!
+  이유는 마진은 바깥쪽으로 셋팅하는 개념이고
+  부모가 이를 셋팅하지 않았다면
+  첫번째 블록박스에서 마진을 셋팅할수있도록
+  기본 설계 되어있다.
+  -> 패딩을 주는 순간 자식의 마진은
+  패딩의 내부공간을 밀게된다!
+  */
+
+  /* 배경색관련 영역지정 */
+  background-clip: border-box;
+  /* 배경이미지관련 영역지정 */
+  background-origin: padding-box;
+}
+
+/* 작품 타이틀 */
+.work h4 {
+  font-family: "Nanum Brush Script", system-ui;
+  font-weight: normal;
+  font-size: 40px;
+  color: #222;
+
+  margin: 0;
+  /* 부모에 패딩없는 상태에서
+  첫번째 자식마진은 부모바깥으로 나감!
+  참고)마지막 자식블록요소도
+  부모 박스 하단 마진은 바깥으로 나감! */
 }
