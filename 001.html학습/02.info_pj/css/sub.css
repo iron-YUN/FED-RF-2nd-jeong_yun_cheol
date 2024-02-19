@@ -402,3 +402,62 @@ h2.sub-title {
     /* 글자색 */
     color: #7d1c78;
 }
+
+/* 뉴스박스 공통 클래스 */
+.news-box{
+  border-top: 2px dashed #ccc;
+  margin: 20px 0; /*마진 위아래 양쪽*/
+  padding: 20px 0; /*패딩 위아래 양쪽*/
+}
+/* 뉴스파트 공통a요소 */
+.news-box a{
+  /* 글자크기 : fz */
+  font-size: 17px;
+  /* 줄간격 : lh */
+  line-height: 2.5;
+  /* 글자색 :c */
+  color: #222;
+  /* 밑줄없앰 :tdn */
+  text-decoration: none;
+}
+/* 공통 a요소 오버스 */
+.news-box a:hover{
+  color: yellowgreen;
+  text-shadow: 1px 1px 1px #000;
+}
+
+.news-box h3{
+  font-family: 'Single Day', cursive;
+  font-weight: normal; /*fwn*/
+  font-size: 30px; /*fz30*/
+  background-image: 
+  linear-gradient(to right,lightblue,transparent);
+  /* 색상명을 transparent 로 쓰면 투명색 */
+  padding: 10px;
+}
+
+/* 주요뉴스 ul 변경하기 */
+.main-news ul{
+  /* 기본리스트 숨기기 */
+  list-style: none;
+  /* 기본 마진,패딩 없애기 */
+  margin: 0;
+  padding: 0;
+}
+
+/* 주요뉴스에 가상요소로 아이콘 넣기 */
+.main-news ul li::before{
+  content: '🍉';
+}
+.main-news ul li::after{
+  content: '🍓';
+}
+
+/* 
+    [CSS의 가상요소 : before,after]
+    -모든 요소는 맨앞과 맨뒤에 가상요소를 사용할 수 있다.
+    -가상요소 표기법은 요소명 뒤에 콜론2개를 겹쳐씀(::)
+    -맨앞은 brfore, 맨뒤는 after
+    -필수속성 : content
+    -이미지는 content속성값으로 url() 사용
+*/
