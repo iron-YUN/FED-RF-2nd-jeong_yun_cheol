@@ -426,6 +426,22 @@ h2.sub-title {
   text-shadow: 1px 1px 1px #000;
 }
 
+/* 뉴스 공통 말줄임표시 넣기 + 분야별뉴스 추가 */
+.news-box li,.sec-news dd {
+  /* 기본적으로 블록박스는 내용이 넘치면
+  줄바꿈이 되는 랩핑박스가 기본이다 
+  줄바꿈 방지하는 속성은 white-space:nowrap:
+  (기본값은 normal) */
+
+  /* 1. 줄바꿈방지 */
+  white-space: nowrap; /* whs */
+  /* 2.넘치는내용 숨기기 */
+  overflow: hidden; /* oh */
+  /* 3.넘치는 택스트 말줄임표(입,립스..) */
+  text-overflow: ellipsis; /* tov */
+}
+
+/* 뉴스타이틀 공통 */
 .news-box h3{
   font-family: 'Single Day', cursive;
   font-weight: normal; /*fwn*/
@@ -437,7 +453,7 @@ h2.sub-title {
 }
 
 /* 주요뉴스 ul 변경하기 */
-.main-news ul{
+.news-box ul,.news-box ol{
   /* 기본리스트 숨기기 */
   list-style: none;
   /* 기본 마진,패딩 없애기 */
@@ -453,6 +469,22 @@ h2.sub-title {
   content: '🍓';
 }
 
+/* 주요뉴시 li의 가상클래스를 사용한 선택법
+[ 같은종류의 자식욧일 경우 선택법]
+:first-child -> 첫번쨰 자식
+:last-child -> 마지막 자식
+:nth-child(n) -> n번째 자식 (n은 1부터) */
+.main-news li:first-child a{
+  color: #298f29;
+}
+.main-news li:nth-child(2) a{
+ color: #7d1c78;
+}
+.main-news li:last-child a{
+color: #44a3de;
+}
+
+
 /* 
     [CSS의 가상요소 : before,after]
     -모든 요소는 맨앞과 맨뒤에 가상요소를 사용할 수 있다.
@@ -461,3 +493,141 @@ h2.sub-title {
     -필수속성 : content
     -이미지는 content속성값으로 url() 사용
 */
+
+
+
+
+/* 분야별 뉴스 : dl */
+.sec-news dl{
+  margin: 0;
+}
+/* 분야별 뉴스 : dt */
+.sec-news dt{
+  font-family: 'Single Day', cursive; 
+  font-size: 25px;
+  border: 4px dashed darkcyan;
+  padding: 10px;
+  display: inline-block;
+  border-radius: 50%;
+
+}
+/* 분야별 뉴스 : dd 가상요소 아이콘넣기 */
+.sec-news dd::before{
+  content: '🎁';
+}
+
+/* 분야별 뉴스 dt의 가상클래스를 사용한 선택법
+[ 2가지 이상의 종류의 자식욧일 경우 선택법]
+:first-of-type -> 같은타입 (요소)중 첫번째
+:last-of-type -> 같은타입 (요소)중 마지막째
+:nth-of-type(n) -> 같은타입 (요소)중 n번째 (n은 1부터) */
+
+/* 분야별뉴스 dt 별 글자색,배경색 변경하기 */
+
+/* 경제 */
+.sec-news dt:first-of-type{
+  color: red;
+  background-color: lightgreen;
+  border-color: #e145da;
+}
+/* 사회 */
+.sec-news dt:nth-of-type(2){
+  color: rgb(39, 49, 192);
+  background-color: rgb(211, 188, 77);
+  border-color: #dd4905;
+}
+/* TV/연예 */
+.sec-news dt:last-of-type{
+  color: rgb(20, 210, 227);
+  background-color: rgb(90, 78, 0);
+  border-color: #21e3e0;
+}
+
+/* 첫번쨰 dt를 제외한 나머지 dt에 마진 */
+.sec-news dd+dt{
+  margin-top: 30px;
+}
+
+/* 사진뉴스 박스 */
+/* 타이틀 변경하기 */
+.photo-news h3{
+  /* 배경 그라데이션 없애기 */
+  background-image: none;
+  /* 중앙정렬 */
+  text-align: center;
+}
+/* 타이틀 앞 가상요소 아이콘넣기 */
+.photo-news h3::before{
+  content: '📷';
+  font-size: 40px;
+  margin-right: 10px;
+  vertical-align: -4px;
+}
+/* 타이틀 뒤 가상요소 아이콘넣기 */
+.photo-news h3::after{
+  content: '📺';
+  font-size: 40px;
+  margin-left: 10px;
+  vertical-align: -4px;
+}
+
+
+/* 사진뉴스 테이블 
+-테이블은 기본적으로 내용만큼 가로크기를 가지며
+부모박스의 크기가 작아질경우 그 크기에 맞춰진다*/
+.photo-news table{
+  max-width: 500px;
+
+  margin: 0 auto;
+
+  /* 테두리 */
+  border: 2px solid #ccc;
+
+  /* 테이블 기본 간격없앰 */
+  border-collapse: collapse;
+  /* separate 기본값 (사이즈간격있음)
+  -> table태그에 border="1" */
+  
+}
+
+/* tr 이나 td 에 child 선택자 사용가능!
+왜 ? table tr td 정해짐! 같은 종류의 형제요소들만 올수있음! */
+
+/* 첫번째 td -숫자부분 */
+.photo-news td:first-child{
+  /* 가로크기 */
+  width: 50px;
+  /* 세로크기 */
+  height: 84px;
+  /* 글자중앙 */
+  text-align: center;
+  /* 배경색 */
+  background-color: #ccc;
+}
+
+/* 두번째 td - 기사제목 링크 */
+.photo-news td:nth-child(2){
+  /* 배경색 bgc */
+  background-color: #eeeeee;
+  /* 패딩양쪽 */
+  padding: 0 20px;
+}
+
+/* 세번째 td */
+.photo-news td:last-child{
+  background-color: #eeeeee;
+  
+}
+ 
+
+/* 사진뉴스 이미지 */
+.photo-news img{
+  height: 70px;
+  /* 이미지 높이값주면 가로크기는 자동 */
+  vertical-align: middle;
+  
+}
+
+.photo-news tr+tr>td+td{
+  border-top:2px solid #070707;
+}

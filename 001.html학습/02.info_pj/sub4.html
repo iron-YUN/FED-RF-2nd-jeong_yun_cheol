@@ -256,17 +256,114 @@
           <!-- <ol style="list-style-type: lower-roman;" start="3" reversed> -->
           <!-- ol은 start로 시작한 번호 지정옵션 -->
             <li>
-              <a href="https://n.news.naver.com/mnews/ranking/article/031/0000813542?ntype=RANKING" target="_blank">한동훈 "개혁신당, 돈때문에 모였나…이혼하면 보조금 사기"</a>
+              <a href="https://n.news.naver.com/mnews/ranking/article/031/0000813542?ntype=RANKING" target="_blank">1.한동훈 "개혁신당, 돈때문에 모였나…이혼하면 보조금 사기"</a>
             </li>
             <li>
-              <a href="https://n.news.naver.com/mnews/ranking/article/031/0000813564?ntype=RANKING" target="_blank">김경율, 카이스트 강제 퇴장 "우발적 아냐…사전 준비한 듯"</a>
+              <a href="https://n.news.naver.com/mnews/ranking/article/031/0000813564?ntype=RANKING" target="_blank">2.김경율, 카이스트 강제 퇴장 "우발적 아냐…사전 준비한 듯"</a>
             </li>
             <li>
-              <a href="https://n.news.naver.com/mnews/ranking/article/031/0000813532?ntype=RANKING" target="_blank">bhc, '값싼 브라질산 닭' 쓰면서 가격도 인상</a>
+              <a href="https://n.news.naver.com/mnews/ranking/article/031/0000813532?ntype=RANKING" target="_blank">3.bhc, '값싼 브라질산 닭' 쓰면서 가격도 인상</a>
             </li>
           </ol>
         </article>
+
         
+
+
+
+        <!-- 
+          [ 용어정의리스트 : dl ]
+          dl>dt + dd (형제)
+          _________________
+          dl : 용어 리스트
+          (defines the description list)
+          dt : 용어정의
+          (defines the term)
+          dd : 용어설명
+          (description each term)
+          _________________
+          주의 - dl은 반드시 자식요소로 dt 와 dd가
+          반드시 한번이상 사용되어야 함
+          주의 - dt 와 dd는 형제관계임 (자식아님)
+         -->
+
+         <!-- 분야별뉴스 : dl -->
+         <article class="sec-news news-box">
+          <h3>분야별 뉴스</h3>
+          <dl>
+
+            <dt>경제</dt>
+            <dd>
+              <a href="https://n.news.naver.com/mnews/article/123/0002327763" target="_blank">
+                국세청, '혁신 벤처·원천기술' R&D 세액공제 우선심사</a>
+            </dd>
+            <dd>
+              <a href="https://n.news.naver.com/mnews/article/018/0005675800" target="_blank">GS25, ‘혜자브랜드’ 재출시 1년만에 누적 2800만개 판매</a>
+            </dd>
+
+            <dt>사회</dt>
+            <dd>
+              <a href="https://n.news.naver.com/mnews/article/001/0014513264" target="_blank">
+                병원협회, 의료현안 상황대응위원회 구성…"필수의료 유지"</a>
+            </dd>
+            <dd>
+              <a href="https://n.news.naver.com/mnews/article/001/0014512467" target="_blank">
+                전남도, 해빙기 재난취약 시설물 안전 강화</a>
+            </dd>
+
+            <dt>TV/연예</dt>
+            <dd>
+              <a href="https://entertain.naver.com/read?oid=609&aid=0000824699" target="_blank">
+                김나영 "'노래의 신' 신용재 만나고 보니 같이 늙어가는 동네 오빠"(라디오쇼)</a>
+            </dd>
+            <dd>
+              <a href="https://entertain.naver.com/read?oid=003&aid=0012380225" target="_blank">
+                김영옥, 남편 군입대에 "출산 12일 만에 생업 복귀·육아 병행"</a>
+            </dd>
+
+          </dl>
+         </article>
+        
+         <!-- 
+          [테이블 요소 : table]
+          table > tbody > tr > td
+          ->tbody는 안쓰고 tr부터 구현해도
+          브라우저가 자동으로 그려준다
+
+          주의 : table > tr 로 직계선택하게되면
+          위와같은 구조적인 이유로 선택되지 않는다
+
+            ______________________________________
+
+            (간단한 테이블 작성시 필수요소 3가시)
+            table : 테이블 박스 부모요소
+            tr : 테이블 행요소 (table row)
+            td : 테이블 데이터요소 (table data)
+         -->
+
+         <!-- 사진뉴스 : table -->
+         <article class="photo-news news-box">
+          <h3>사진뉴스</h3>
+          <!-- 3행3열 테이블 구성하기 -->
+          <!-- <table border="1"> -->
+          <table>
+          <tr>
+              <td>1</td>
+              <td><a href="https://n.news.naver.com/mnews/article/001/0014512925" target="_blank">벤츠코리아, '디 올 뉴 CLE 쿠페' 국내 출시-200·450 4MATIC 2개 모델…3세대 MBUX 인포테인먼트 탑재</a></td>
+              <td><img src="./images/car.jpg" alt=""></td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td><a href="https://n.news.naver.com/mnews/article/277/0005381620" target="_blank">bhc치킨 "5월부터 브라질산→국내산 바꾼다"-수입 물량 소진되면 국내산 냉장육으로 전환</a></td>
+              <td><img src="./images/chicken.jpg" alt=""></td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td><a href="https://n.news.naver.com/mnews/article/346/0000070772" target="_blank">쌀 씻는데, 물 '이 색'으로 변하면… 당장 버려야-쌀뜨물은 국물에 구수함을 더할 때, 음식 비린내</a></td>
+              <td><img src="./images/water.jpg" alt=""></td>
+            </tr>
+          </table>
+         </article>
 
 
     </main>
