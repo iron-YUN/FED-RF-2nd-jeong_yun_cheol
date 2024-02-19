@@ -335,7 +335,7 @@ h2.sub-title {
 
   /* padding */
   padding: 21px;
-  border: 13px dotted blue;
+  border: 13px dotted rgb(142, 207, 187);
  
   /* 
   부모박스에 패딩이 없는 상태에서
