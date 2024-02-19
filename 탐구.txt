@@ -1,7 +1,15 @@
 주제선정 : 멕켈란
 https://www.themacallan.com/en/single-malt-scotch-whisky/double-cask
 
+크로스오버 https://wglass.co.kr/
+기능 : 랜딩페이지 
+or
+크로스오버 https://justinesoulie.fr/
+기능: 무한 스크롤 랜딩
+적용위치 => 1.멕켈란 제품들 메인사진이 무한으로 넘어감 
+            2.소개 사진들 이 무한됨
 
-부주제 : 글렌케런 코리아
-기능 : 랜딩페이지
-https://wglass.co.kr/
+크로스오버 : https://www.studio-kiln.com/
+기능: 백그라운드 영상재생 (소리x) - 주제선정 페이지에 메인사진 대신 메인영상으로 대체함
+기능2 : 스크롤 내려가면 백그라운드 영상이 가려짐
+=> 각 메인페이지 들이 앞의 페이지를 가리며 내려옴

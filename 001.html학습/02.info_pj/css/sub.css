@@ -576,7 +576,12 @@ color: #44a3de;
 -테이블은 기본적으로 내용만큼 가로크기를 가지며
 부모박스의 크기가 작아질경우 그 크기에 맞춰진다*/
 .photo-news table{
-  max-width: 500px;
+  max-width: 450px;
+  /* 최대width 지정시 부모박스가
+      이 크기 보다 작아질때 auto로 전환됨 */
+  
+      /* 테이블 중앙 - 마영오!
+      (블록,테이블 모두 공통) */
 
   margin: 0 auto;
 
@@ -629,5 +634,24 @@ color: #44a3de;
 }
 
 .photo-news tr+tr>td+td{
-  border-top:2px solid #070707;
+  border-top:2px solid #ccc;
+}
+
+/* 사진뉴스 기사링크 2줄 말줄임 셋팅하기 */
+.photo-news td:nth-child(2) a{
+  /* 말줄임 처리(2줄) */
+  
+  /* 1.넘치는 컨텐츠 숨기기 */
+  overflow: hidden;
+  /* 2.넘치는 글 말줄임표시 */
+  text-overflow: ellipsis;
+  /* 3. display를 -webkit-box로 변경 */
+  display: -webkit-box;
+  /* 3. 말줄임표시 라인설정 : 숫자가 줄수임 */
+  -webkit-line-clamp: 2;
+  /* 5.기준축 진행방향 설정 */
+  -webkit-box-orient: vertical;
+  
+  /* 줄간격 변경 */
+  line-height: 1.5;
 }
