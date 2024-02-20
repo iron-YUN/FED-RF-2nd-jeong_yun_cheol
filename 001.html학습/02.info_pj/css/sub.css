@@ -469,6 +469,15 @@ h2.sub-title {
   content: '🍓';
 }
 
+/* 
+    [CSS의 가상요소 : before,after]
+    -모든 요소는 맨앞과 맨뒤에 가상요소를 사용할 수 있다.
+    -가상요소 표기법은 요소명 뒤에 콜론2개를 겹쳐씀(::)
+    -맨앞은 brfore, 맨뒤는 after
+    -필수속성 : content
+    -이미지는 content속성값으로 url() 사용
+*/
+
 /* 주요뉴시 li의 가상클래스를 사용한 선택법
 [ 같은종류의 자식욧일 경우 선택법]
 :first-child -> 첫번쨰 자식
@@ -483,18 +492,6 @@ h2.sub-title {
 .main-news li:last-child a{
 color: #44a3de;
 }
-
-
-/* 
-    [CSS의 가상요소 : before,after]
-    -모든 요소는 맨앞과 맨뒤에 가상요소를 사용할 수 있다.
-    -가상요소 표기법은 요소명 뒤에 콜론2개를 겹쳐씀(::)
-    -맨앞은 brfore, 맨뒤는 after
-    -필수속성 : content
-    -이미지는 content속성값으로 url() 사용
-*/
-
-
 
 
 /* 분야별 뉴스 : dl */
