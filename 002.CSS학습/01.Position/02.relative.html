@@ -34,7 +34,7 @@
                 4.원래있던 위치는 그대로 보존된다!
                 (의미: 기존위치가 보존되기 때문에 본래의 디자인이 망가지지 않는다.)
                 5.위치값 설정시 한방향당 한가지 기준으로 셋팅한다
-                -위,아래 중 하나
+                -위,아래 중 하나***
                 -좌,우 중 하나
                 top,left / top,right
                 bottom,left / bottom,right
@@ -56,6 +56,8 @@
                 3) z-index 속성으로 숫자가 크면 위!
                 
                 9. 부모자격
+
+                
                 __________________________________________
 
                 [ z-index 란?]
@@ -109,6 +111,7 @@
         [ 젠코딩(에밋코딩) ]
 
         .bx#s${s$}*3
+
         ____________________
         . : 클래스
         # : 아이디
@@ -121,6 +124,52 @@
         () : 요소구분하기
 
      -->
+
+
+     <!-- 테스트 -->
+
+     <!-- .bx#s${s$}*3 -->
+     <div class="bx" id="s1">s1</div>
+     <div class="bx" id="s2">s2</div>
+     <div class="bx" id="s3">s3</div>
+
+
+     <!-- .bx#s$*3 -->
+     <div class="bx" id="s1"></div>
+     <div class="bx" id="s2"></div>
+     <div class="bx" id="s3"></div>
+
+     <!-- .bx#s${s$} -->
+     <div class="bx" id="s1">s1</div>
+
+     <!-- .bx#s{s$}*3 -->
+     <div class="bx" id="s">s1</div>
+     <div class="bx" id="s">s2</div>
+     <div class="bx" id="s">s3</div>
+
+     <!-- .bx#s${s}*3 -->
+     <div class="bx" id="s1">s</div>
+     <div class="bx" id="s2">s</div>
+     <div class="bx" id="s3">s</div>
+
+     <!-- .bx{s$}*3 -->
+     <div class="bx">s1</div>
+     <div class="bx">s2</div>
+     <div class="bx">s3</div>
+
+     <!-- #aaa$.bbb${ccc$}*4 -->
+     <div id="aaa1" class="bbb1">ccc1</div>
+     <div id="aaa2" class="bbb2">ccc2</div>
+     <div id="aaa3" class="bbb3">ccc3</div>
+     <div id="aaa4" class="bbb4">ccc4</div>
+     
     
+     
+
+    
+
+
+
+
 </body>
 </html>
