@@ -10,11 +10,12 @@
                 margin: 0;
                 padding: 0;
                 list-style: none;
-
+                overflow: hidden; 
+                 
                 /* overflow: hidden; 
 
                 만약 아래의 설정이 없는 상태로 overflow: hidden; 을 한다면
-                끝맺음 처리가 되어있지 않아 , 다음 요소(태그)들도 이상이 생긴다.
+                끝맺음 처리가 되어있지 않아 , 다음에 요소(태그)들도 이상이 생긴다.
 
                  .menu::after{ 
                     content: '';  
@@ -25,7 +26,7 @@
                  */  
                 
                 outline: 10px dotted blue;
-            }
+            }   
 
             /* flaoat : left 를 사용할경우
             가상요소로 클리어 설정하기 */
@@ -75,6 +76,13 @@
     </head>
     
     <body>
+        <ul class="menu">
+            <li>메뉴임</li>
+            <li>메뉴임</li>
+            <li>메뉴임</li>
+            <li>메뉴임</li>
+        </ul>
+
         <ul class="menu">
             <li>메뉴임</li>
             <li>메뉴임</li>

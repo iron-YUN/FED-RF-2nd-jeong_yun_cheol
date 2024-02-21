@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>포스터연습</title>
+
+    <style>
+         /* ------------------------------------------------------- */
+        /* <!-- 포스터 보기 fixed 적용박스 --> */
+        .fixed-poster{
+            position: fixed;
+            top: 250px;
+            right: -190px;
+            z-index: 999;
+            /* 트랜지션 trs */
+            transition: 0.5s;
+        }
+        /* 오버시 보이기 */
+        .fixed-poster:hover{
+            right: 0;
+        }
+
+        /* 글자 span */
+        .fixed-poster span{
+            position: absolute;
+            top: 0;
+            left: -50px;
+            /* 부모는? fixed-poster */
+            width: 50px;
+            height: 300px;
+            background-color: lightblue;
+
+            /* 글자 세로 */
+            writing-mode: vertical-lr; /*세로방향 왼쪽에서 오른쪽으로*/
+            font-size: 25px;
+            text-align: center;
+            padding-left: 20px;
+            /* 자간 ls */
+            letter-spacing: 10px;
+            border-radius: 15px 0 0 15px;
+            /* border-radius:왼위 오위 오아 왼아 ; */
+        }
+        /* 포스터 이미지 */
+        .fixed-poster img{
+            height: 300px;
+            /* 하단간극 없앰 vam */
+            vertical-align: middle;
+        }
+
+        /* ************---------------------------------------------- */
+    </style>
+
+</head>
+<body>
+      <!-- 포스터 보기 fixed 적용박스 -->
+      <div class="fixed-poster">
+        <img src="../002.CSS학습/01.Position/images/ab0.jpg" alt="포스터">
+        <span>포스터보기</span>
+    </div>
+</body>
+</html>
