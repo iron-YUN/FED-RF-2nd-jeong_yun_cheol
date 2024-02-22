@@ -1,0 +1,124 @@
+@charset "utf-8";
+
+/* Robot PJ 메인 CSS - robot.css */
+
+/* 웹폰트 CDN */
+@import url('https://fonts.googleapis.com/css2?family=Barlow&family=Black+Ops+One&family=Chakra+Petch&family=Orbitron:wght@500&display=swap');
+
+/* 
+    font-family: 'Barlow', sans-serif;
+    font-family: 'Black Ops One', cursive;
+    font-family: 'Chakra Petch', sans-serif;
+    font-family: 'Orbitron', sans-serif;
+*/
+
+/* 초기화 : 마진0 ,패딩0 */
+html,body,h1,h2,h3,ul,ol{
+    margin: 0;
+    padding: 0;
+}
+/* 전체 배경이미지 */
+body{
+    background: url(../images/bg.jpg) no-repeat fixed top/cover;
+
+}
+
+/* 공사중 표시 */
+body * {
+    outline: 2px dashed yellow;
+}
+
+/************************ 공통 클래스 ************************/
+.metal1{
+    background: url(../images/metal01.jpg) no-repeat center/cover;
+}
+.metal2{
+    background: url(../images/metal02.jpg) no-repeat center/cover;
+}
+/************************ 1.상단영역 ************************/
+
+/************************ 2.메인영역 ************************/
+/* 2-1. 로봇박스 */
+.robot-box{
+
+}
+/* 2-1-1. 로봇머리 */
+.head{
+    position: relative; /*부모자격- .eye의 부모*/
+    width: 250px;
+    height: 250px;
+    /* 특정크기를 가지는 블록요소를 
+    가로중앙으로 이동하기 - 마영오! */
+    margin: 0 auto;
+
+    /* 모서리 라운드 */
+    border-radius: 90px 90px 30px 30px;
+}
+/* 눈공통 */
+.eye{
+    position: absolute;
+    /* 부모는? head */
+    /* 크기공통 */
+    width: 50px;
+    height: 50px;
+    /* 배경공통 */
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-color: #fff;
+    top: 50px;
+    /* 둥근눈 */
+    border-radius: 50%;
+    /* 이중테두리 */
+    border: 4px double #000;
+}
+/* 왼눈 */
+.eye1{
+    left: 50px;
+    background-image: url(../images/e1.jpg);}
+/* 오른눈 */
+.eye2{
+    right: 50px;
+    background-image: url(../images/e2.jpg);}
+/* 코 */
+.nose{
+    position: absolute;
+    width: 50px;
+    height: 60px;
+    top: 105px;
+    left: 105px;
+    background: url(../images/nose.jpg) no-repeat center/cover;
+    border-radius: 30%;
+}
+/* 입 */
+.mouth{
+    position: absolute;
+    width: 100px;
+    height: 50px;
+    top: 175px;
+    left: 80px;
+    background: url(../images/mouth.png) no-repeat center/cover;
+
+}
+
+/* 귀공통 */
+.ear{
+    position: absolute;
+    top: 70px;
+    width: 50px;
+    height: 90px;
+    background: url(../images/metal02.jpg) no-repeat center/cover;
+
+  
+}
+.ear1{
+    left: -50px;
+    /* 라운드처리 */
+    border-radius: 20px 0 0 20px;
+}
+
+.ear2{
+    right: -50px;
+    border-radius: 0 20px 20px 0;
+}
+
+/************************ 3.하단영역 ************************/
