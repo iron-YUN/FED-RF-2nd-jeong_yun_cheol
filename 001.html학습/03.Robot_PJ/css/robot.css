@@ -121,4 +121,81 @@ body * {
     border-radius: 0 20px 20px 0;
 }
 
+/*2-1-2. 몸통 */
+.body{
+    position: relative;  /* 부모자격-하위직계 자식 div들 */
+    width: 220px;
+    height: 480px;
+    /* 마영오! */
+    margin: 0 auto;
+    margin-top: 50px;
+    /* 배경이미지 조정 */
+    background-repeat: repeat;
+    background-size: 50%;
+}
+/* 목 */
+.neck{
+    position: absolute;
+    top: -50px;
+    left: calc(50% - 50px/2); 
+    /* 가로 또는 세로 중앙보내기 계산법
+    left: calc(50% - 크기px/2); 
+    top: calc(50% - 크기px/2); 
+
+    ->크기는 left 일경우 width 이고
+    top 일 경우 height 값이다!!! */
+    width: 50px;
+    height: 50px;
+}
+/* 팔 공통 */
+.arm{
+    position: absolute;
+    top: 0;
+    width: 50px;
+    height: 200px;
+}
+/* 팔 하단공통 */
+.arm span{
+    position: absolute;
+    /* span 부모는? .arm */
+    top: 100%;
+    left: 10%;
+    width: 80%;
+    height: 80%;
+}
+/* 왼팔 */
+.arm1{
+    left: -50px;
+}
+/* 오른팔 */
+.arm2{
+    right:-50px;
+}
+
+
+/* 다리 공통 */
+.leg{
+    position: absolute;
+    top: 100%;
+    width: 70px;
+    height: 200px;
+}
+/* 다리 하단공통 */
+.leg span{
+    position: absolute;
+    /* span 부모는? .arm */
+    top: 100%;
+    left: 10%;
+    width: 80%;
+    height: 80%;
+}
+/* 왼다리 */
+.leg1{
+    left: 0;
+}
+/* 오른다리 */
+.leg2{
+   right: 0;
+}
+
 /************************ 3.하단영역 ************************/
