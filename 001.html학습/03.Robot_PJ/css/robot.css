@@ -17,6 +17,11 @@ html,body,h1,h2,h3,ul,ol{
     margin: 0;
     padding: 0;
 }
+/* html 루트 설정 */
+html{
+    font-size: 10px;
+    /* rem단위  */
+}
 /* 전체 배경이미지 */
 body{
     background: url(../images/bg.jpg) no-repeat fixed top/cover;
@@ -36,12 +41,31 @@ body * {
     background: url(../images/metal02.jpg) no-repeat center/cover;
 }
 /************************ 1.상단영역 ************************/
+h1.logo{
+    position: fixed;
+    top: calc(50% - 10vw);
+    left: calc(50% - 10vw);
+    width: 20vw;
+    height: 20vw;
+    border-radius: 50%;
+    z-index: 999;
+    background: pink url(../images/robot_03.png) no-repeat center center/auto 100%;
+    box-shadow: inset 0px 0px 50px 5px #000
+    ,0 0 20px 5px aqua;
+    text-align: center;
+    line-height: 20vw;
+    font-size: 3vw;
+    font-family: 'Orbitron', sans-serif;
+    color: chartreuse;
+    text-shadow: 0 0 10px #000;
+}
+
 
 /************************ 2.메인영역 ************************/
 /* 2-1. 로봇박스 */
 .robot-box{
 padding-top: 200px;
-margin-bottom: 900px;
+margin-bottom: 600px;
 }
 /* 2-1-1. 로봇머리 */
 .head{
@@ -150,13 +174,13 @@ margin-bottom: 900px;
 .body{
     position: relative;  /* 부모자격-하위직계 자식 div들 */
     width: 220px;
-    height: 350px;
+    height: 370px;
     /* 마영오! */
     margin: 0 auto;
     margin-top: 50px;
     /* 배경이미지 조정 */
-    background-repeat: repeat;
-    background-size: 50%;
+    /* background-repeat: repeat; */
+    background-size: 90%;
 }
 
 /* 몸통 가상요소 상의만들기 */
@@ -168,6 +192,7 @@ margin-bottom: 900px;
     width: 110%;
     height: 50%;
     background-image: linear-gradient(to bottom,#ffc68a,#d18800);
+    border-radius: 10px;
 }
 
 /* 몸통 가상요소 하의만들기 */
@@ -425,4 +450,99 @@ margin-bottom: 900px;
     border-radius: 10px;
     
 }
+
+/* 로봇설명박스 */
+.text-box{
+    max-width: 800px;
+    margin: 0 auto;
+    color: #fff;
+    padding: 15px 30px;
+    background-color: #00000049;
+    border-radius: 20px;
+    box-shadow: inset 0px 0px 20px blue
+    ,inset 0px 0px 20px 10px cyan;
+
+    /* 백드롭필터효과
+    -filter
+    <filter-function> 값
+    backdrop-filter: blur(2px); 흐림
+    backdrop-filter: brightness(60%); 밝기
+    backdrop-filter: contrast(40%); 대비
+    backdrop-filter: drop-shadow(4px 4px 10px blue); 그림자
+    backdrop-filter: grayscale(30%); 흑백
+    backdrop-filter: hue-rotate(120deg); 색상변경
+    backdrop-filter: invert(70%); 반전
+    backdrop-filter: opacity(20%); 투명도
+    backdrop-filter: sepia(90%); 세피아효과
+    backdrop-filter: saturate(80%); 채도
+    
+     다중 필터 =복합적용 가능
+    backdrop-filter:blur(4px) saturate(150%);
+    */
+    backdrop-filter: blur(6px);
+}
+
+
+
+
+
+/* 2-2-1. 제목 */
+.text-box h2{
+    position: sticky;
+    top: 10px;
+    font-size: 3.5rem;
+    font-family: 'Chakra Petch', sans-serif;
+    text-align: center;
+    background-color: #ffffff86;
+    color: cyan;
+    text-shadow: 2px 2px 2px #000000;
+    border-radius: 20px;
+    font-weight: normal;
+    
+}
+/* 2-2-2. 출처 */
+.text-box small{
+    display: block;
+    text-align: center;
+    font-size: 1.2rem;
+    font-family: 'Chakra Petch', sans-serif;
+    color: yellow;
+    text-shadow: 1px 1px 1px #000000;
+    padding: 10px;
+}
+/* 2-2-3. 내용단락 */
+.text-box p{
+    font-family: 'Barlow', sans-serif;
+    font-size: 1.7rem;
+    line-height: 1.7em;/* 줄간격 */ 
+    letter-spacing: 1px;/* 자간 */
+    word-spacing: 2px;/* 단어간격 */
+    /* 
+        [다단설정하기]
+        -다중열 속성
+        ->column-count : 다중열개수
+        ->column-rule : 다중열구분선
+        ->column-gap : 다중열사이간격
+    */
+
+    column-count:3; /* 다단수 */
+    /* 사이구분선은 border와 유사 */
+    column-rule: 5px dotted lightgreen; /* 구분선 두종색 */
+    column-gap: 55px; /* 사이간격 */
+    text-align: justify; /* 양쪽정렬 */
+    word-break: break-all; /* 영문자 단어 깨기 */
+    /* 첫줄 들여쓰기 : text- */
+    text-indent: 10px;
+}
+
+/* 
+.desc::first-letter{
+*/
+.text-box p::first-letter{
+    color: hotpink;
+    font-size: 2.8rem;
+    font-weight: bold;
+}
+
+
 /************************ 3.하단영역 ************************/
