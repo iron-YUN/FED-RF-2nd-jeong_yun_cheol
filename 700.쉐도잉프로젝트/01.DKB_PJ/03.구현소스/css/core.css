@@ -18,8 +18,18 @@
 */
 
 /* **********************공통 클래스************************ */
+/* 임시표시 타이틀 */
+.temp-tit{
+    position: absolute;
+    font-size: 2vw;
+    color: #ccc;
+}
 /* 중앙속박스 */
 .inbox{
     max-width: 1360px; /*최대가로*/
     margin: 0 auto ; /*블록박스 중앙정렬 : 마영오*/
+}
+/* 컨텐츠박스 */
+.cont-box{
+    height: 100%;
 }
