@@ -85,6 +85,7 @@
     logo-ani 3s linear 1s alternate forwards,
     /* 4초우 스윙애니 영원히 셋팅 */
     swing-ani .4s ease-in-out 4s infinite alternate;
+
     /* animation: logo-ani 2s ease-in-out 1s 3 alternate forwards; */
 }
 @keyframes logo-ani {
@@ -144,3 +145,32 @@
         transform: scale(1) rotate(-30deg);
     }
 }
+
+/* 2. 로봇이동애니 */
+.robot-box{
+    /* 애니메이션 : 이지이지반방마 */
+    animation: move-robot 4s ease-in-out 4s forwards;
+}
+@keyframes move-robot {
+    to{
+        transform:  translate(-50%, -0%) scale(0.7);
+    }
+}
+.leg{
+    transform-origin:center top ;
+}
+.leg1 {
+    animation: move-leg 1s ease-in-out 4.4s 4 alternate forwards; 
+}
+.leg2 {
+    animation: move-leg 1s ease-in-out 3.4s 4 alternate forwards; 
+}
+@keyframes move-leg {
+    from{
+        transform:scale(1) ;
+    }
+    to{
+        transform: scale(0.9);
+    }
+}
+

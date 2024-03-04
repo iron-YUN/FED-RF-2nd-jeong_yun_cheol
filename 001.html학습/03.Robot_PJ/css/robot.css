@@ -3,7 +3,7 @@
 /* Robot PJ 메인 CSS - robot.css */
 
 /* 웹폰트 CDN */
-@import url('https://fonts.googleapis.com/css2?family=Barlow&family=Black+Ops+One&family=Chakra+Petch&family=Orbitron:wght@500&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Barlow&family=Black+Ops+One&family=Chakra+Petch&family=Orbitron:wght@500&display=swap");
 
 /* 
     font-family: 'Barlow', sans-serif;
@@ -13,19 +13,25 @@
 */
 
 /* 초기화 : 마진0 ,패딩0 */
-html,body,h1,h2,h3,ul,ol{
+html,
+body,
+h1,
+h2,
+h3,
+ul,
+ol {
     margin: 0;
     padding: 0;
 }
 /* html 루트 설정 */
-html{
+html {
     font-size: 10px;
     /* rem단위  */
 }
 /* 전체 배경이미지 */
-body{
+body {
     background: url(../images/bg.jpg) no-repeat fixed top/cover;
-
+    padding-top: 100vh;
 }
 
 /* 공사중 표시 */
@@ -34,14 +40,14 @@ body * {
 }
 
 /************************ 공통 클래스 ************************/
-.metal1{
+.metal1 {
     background: url(../images/metal01.jpg) no-repeat center/cover;
 }
-.metal2{
+.metal2 {
     background: url(../images/metal02.jpg) no-repeat center/cover;
 }
 /************************ 1.상단영역 ************************/
-h1.logo{
+h1.logo {
     position: fixed;
     top: calc(50% - 10vw);
     left: calc(50% - 10vw);
@@ -50,25 +56,27 @@ h1.logo{
     border-radius: 50%;
     z-index: 999;
     background: pink url(../images/robot_03.png) no-repeat center center/auto 100%;
-    box-shadow: inset 0px 0px 50px 5px #000
-    ,0 0 20px 5px aqua;
+    box-shadow: inset 0px 0px 50px 5px #000, 0 0 20px 5px aqua;
     text-align: center;
     line-height: 20vw;
     font-size: 3vw;
-    font-family: 'Orbitron', sans-serif;
+    font-family: "Orbitron", sans-serif;
     color: chartreuse;
     text-shadow: 0 0 10px #000;
 }
 
-
 /************************ 2.메인영역 ************************/
 /* 2-1. 로봇박스 */
-.robot-box{
-padding-top: 200px;
-margin-bottom: 600px;
+.robot-box {
+    position: fixed;
+    transform:  translate(124%, -10%) scale(0.3);
+    left: 50%;
+    top: 0;
+    /* padding-top: 200px; */
+    margin-bottom: 600px;
 }
 /* 2-1-1. 로봇머리 */
-.head{
+.head {
     position: relative; /*부모자격- 앱솔루트의 부모*/
     width: 250px;
     height: 250px;
@@ -80,8 +88,8 @@ margin-bottom: 600px;
     border-radius: 90px 90px 30% 30%;
 }
 /* 로봇머리 가상요소 가발 만들기 */
-.head::before{
-    content: '';
+.head::before {
+    content: "";
     position: absolute;
     /* 부모는? .head */
     top: -110px;
@@ -92,8 +100,8 @@ margin-bottom: 600px;
     z-index: 1;
 }
 /* 로봇머리 가상요소 수염 만들기 */
-.head::after{
-    content: '';
+.head::after {
+    content: "";
     position: absolute;
     /* 부모는? .head */
     top: 110px;
@@ -104,7 +112,7 @@ margin-bottom: 600px;
     z-index: 1;
 }
 /* 눈공통 */
-.eye{
+.eye {
     position: absolute;
     /* 부모는? head */
     /* 크기공통 */
@@ -121,15 +129,17 @@ margin-bottom: 600px;
     border: 4px double #000;
 }
 /* 왼눈 */
-.eye1{
+.eye1 {
     left: 50px;
-    background-image: url(../images/e1.jpg);}
+    background-image: url(../images/e1.jpg);
+}
 /* 오른눈 */
-.eye2{
+.eye2 {
     right: 50px;
-    background-image: url(../images/e2.jpg);}
+    background-image: url(../images/e2.jpg);
+}
 /* 코 */
-.nose{
+.nose {
     position: absolute;
     width: 50px;
     height: 60px;
@@ -139,40 +149,37 @@ margin-bottom: 600px;
     border-radius: 30%;
 }
 /* 입 */
-.mouth{
+.mouth {
     position: absolute;
     width: 100px;
     height: 50px;
     top: 175px;
     left: 80px;
     background: url(../images/mouth.png) no-repeat center/cover;
-
 }
 
 /* 귀공통 */
-.ear{
+.ear {
     position: absolute;
     top: 70px;
     width: 50px;
     height: 90px;
     background: url(../images/metal02.jpg) no-repeat center/cover;
-
-  
 }
-.ear1{
+.ear1 {
     left: -50px;
     /* 라운드처리 */
     border-radius: 20px 0 0 20px;
 }
 
-.ear2{
+.ear2 {
     right: -50px;
     border-radius: 0 20px 20px 0;
 }
 
 /*2-1-2. 몸통 */
-.body{
-    position: relative;  /* 부모자격-하위직계 자식 div들 */
+.body {
+    position: relative; /* 부모자격-하위직계 자식 div들 */
     width: 220px;
     height: 370px;
     /* 마영오! */
@@ -184,34 +191,34 @@ margin-bottom: 600px;
 }
 
 /* 몸통 가상요소 상의만들기 */
-.body::before{
-    content: '';
+.body::before {
+    content: "";
     position: absolute; /*부모는? .body*/
     top: 0;
     left: -5%;
     width: 110%;
     height: 50%;
-    background-image: linear-gradient(to bottom,#ffc68a,#d18800);
+    background-image: linear-gradient(to bottom, #ffc68a, #d18800);
     border-radius: 10px;
 }
 
 /* 몸통 가상요소 하의만들기 */
-.body::after{
-    content: '';
+.body::after {
+    content: "";
     position: absolute; /*부모는? .body*/
     bottom: -20%;
     left: -5%;
     width: 110%;
     height: 35%;
-    background-image: linear-gradient(to bottom,#ff8787,#ff0000);
+    background-image: linear-gradient(to bottom, #ff8787, #ff0000);
     border-radius: 40px 40px 70% 70%;
 }
 
 /* 목 */
-.neck{
+.neck {
     position: absolute;
     top: -50px;
-    left: calc(50% - 50px/2); 
+    left: calc(50% - 50px / 2);
     /* 가로 또는 세로 중앙보내기 계산법
     left: calc(50% - 크기px/2); 
     top: calc(50% - 크기px/2); 
@@ -223,7 +230,7 @@ margin-bottom: 600px;
 }
 /* ************************************************* */
 /* 팔 공통 */
-.arm{
+.arm {
     position: absolute;
     top: 20px;
     width: 50px;
@@ -231,11 +238,11 @@ margin-bottom: 600px;
 }
 /* 팔관절원 가상요소 공통 */
 /* 큰원 */
-.arm::before{
-    content: '';
+.arm::before {
+    content: "";
     position: absolute;
     /* 부모는? .arm */
-    top: calc(100% - 50px/2);
+    top: calc(100% - 50px / 2);
     left: 0;
     width: 50px;
     height: 50px;
@@ -247,25 +254,24 @@ margin-bottom: 600px;
     box-sizing: border-box;
 }
 /* 작은원 */
-.arm::after{
-    content: '';
+.arm::after {
+    content: "";
     position: absolute;
     /* 부모는? .arm */
-    top: calc(100% - 40px/2); /*부모박스 바깥으로 모두밀고 원크기 절반빼기*/
-    left: calc(50% - 40px/2); /*부모박스 절반만큼 밀고 원크기 절반 빼기 (가로중앙)*/
+    top: calc(100% - 40px / 2); /*부모박스 바깥으로 모두밀고 원크기 절반빼기*/
+    left: calc(50% - 40px / 2); /*부모박스 절반만큼 밀고 원크기 절반 빼기 (가로중앙)*/
     width: 40px;
     height: 40px;
     z-index: 1;
 
     border-radius: 50%;
     /* 그라데이션 배경 */
-    background-image: linear-gradient(to bottom,#ccc,#222);
+    background-image: linear-gradient(to bottom, #ccc, #222);
     /* 박스 내부 그림자 : bsh : inset */
     box-shadow: inset 0 0 5px #222;
-    
 }
 /* 팔 하단공통 */
-.arm span{
+.arm span {
     position: absolute;
     /* span 부모는? .arm */
     top: 100%;
@@ -275,8 +281,8 @@ margin-bottom: 600px;
 }
 
 /* 팔 하단 가상요소 손말들기 공통 */
-.arm span::after{
-    content: '';
+.arm span::after {
+    content: "";
     position: absolute;
     /* 부모는? span */
     top: 100%;
@@ -288,26 +294,26 @@ margin-bottom: 600px;
     background-repeat: no-repeat;
 }
 /* 왼손 */
-.arm1 span::after{
+.arm1 span::after {
     background-image: url(../images/hand_left.png);
     left: -12px;
 }
 /* 오른손 */
-.arm2 span::after{
+.arm2 span::after {
     background-image: url(../images/hand_right.png);
     right: -12px;
 }
 /* 왼팔 */
-.arm1{
+.arm1 {
     left: -65px;
 }
 /* 오른팔 */
-.arm2{
-    right:-65px;
+.arm2 {
+    right: -65px;
 }
 /* *****************************************************************  */
 /* 다리 공통 */
-.leg{
+.leg {
     position: absolute;
     top: 100%;
     width: 70px;
@@ -316,11 +322,11 @@ margin-bottom: 600px;
 /* *****************************************************************  */
 /* 다리관절원 가상요소 공통 */
 /* 큰사각 */
-.leg::before{
-    content: '';
+.leg::before {
+    content: "";
     position: absolute;
     /* 부모는? .arm */
-    top: calc(100% - 70px/2);
+    top: calc(100% - 70px / 2);
     left: 0;
     width: 70px;
     height: 60px;
@@ -332,25 +338,26 @@ margin-bottom: 600px;
     box-sizing: border-box;
 }
 /* 작은사각 */
-.leg::after{
-    content: '';
+.leg::after {
+    content: "";
     position: absolute;
     /* 부모는? .arm */
-    top: calc(100% - 50px/2); /*부모박스 바깥으로 모두밀고 원크기 절반빼기*/
-    left: calc(50% - 50px/2); /*부모박스 절반만큼 밀고 원크기 절반 빼기 (가로중앙)*/
+    top: calc(100% - 50px / 2); /*부모박스 바깥으로 모두밀고 원크기 절반빼기*/
+    left: calc(50% - 50px / 2); /*부모박스 절반만큼 밀고 원크기 절반 빼기 (가로중앙)*/
     width: 50px;
     height: 40px;
     z-index: 1;
     border-radius: 20px;
     /* 그라데이션 배경 */
-    background-image: linear-gradient(to bottom,#ccc,#222);
+    background-image: linear-gradient(to bottom, #ccc, #222);
     /* 박스 내부 그림자 : bsh : inset */
-    box-shadow: inset 0 0 5px #222;}
-    
-    /* *****************************************************************  */
-    
-    /* 다리 하단공통 */
-.leg span{
+    box-shadow: inset 0 0 5px #222;
+}
+
+/* *****************************************************************  */
+
+/* 다리 하단공통 */
+.leg span {
     position: absolute;
     /* span 부모는? .arm */
     top: 100%;
@@ -359,21 +366,21 @@ margin-bottom: 600px;
     height: 80%;
 }
 /* 다리 하단 가상요소 부츠말들기 상단 */
-.leg span::before{
-    content: '';
+.leg span::before {
+    content: "";
     position: absolute;
     /* 부모는? span */
     top: 60%;
     left: -10%;
     width: 120%;
     height: 120%;
-    background-image: linear-gradient(to right,#222,#ccc);
+    background-image: linear-gradient(to right, #222, #ccc);
     border: 5px solid #222;
     border-top-width: 20px;
     box-sizing: border-box;
 }
-.leg span::after{
-    content: '';
+.leg span::after {
+    content: "";
     position: absolute;
     /* 부모는? span */
     top: 150%;
@@ -381,53 +388,53 @@ margin-bottom: 600px;
     width: 140%;
     height: 40%;
     z-index: 1;
-    background-image: linear-gradient(30deg,#222,#ccc);
+    background-image: linear-gradient(30deg, #222, #ccc);
     border: 5px solid #222;
     box-sizing: border-box;
     border-bottom-width: 20px;
-    border-radius: 40px 40px 0 0 ;
+    border-radius: 40px 40px 0 0;
 }
 
 /* 왼다리 */
-.leg1{
+.leg1 {
     left: 0;
 }
 /* 오른다리 */
-.leg2{
+.leg2 {
     right: 0;
 }
 
 /* *****************************************************************  */
 
 /* 어깨 공통 */
-.shdr{
+.shdr {
     position: absolute;
     width: 70px;
     height: 70px;
 }
 /* 왼어깨 */
-.shdr1{
+.shdr1 {
     left: -82px;
-    border-radius: 30% 0 0 30% ;
+    border-radius: 30% 0 0 30%;
 }
 /* 오른어깨 */
-.shdr2{
+.shdr2 {
     right: -82px;
     border-radius: 0 30% 30% 0;
 }
 /* *****************************************************************  */
 /* TV */
-.tv{
+.tv {
     position: absolute;
     width: 170px;
     height: 130px;
     background: url(../images/tv.jpg) no-repeat 0/100% 100%;
-    left: calc(220px/2 - 170px/2);
+    left: calc(220px / 2 - 170px / 2);
     top: 20px;
 }
 
 /* 스크린 */
-.screen{
+.screen {
     position: absolute;
     /* 부모는? .tv */
     top: 17px;
@@ -439,7 +446,7 @@ margin-bottom: 600px;
     overflow: hidden;
 }
 /* 유튭 아이프레임 */
-.screen iframe{
+.screen iframe {
     position: absolute;
     /* 부모는? .screen */
     top: -4px;
@@ -448,19 +455,17 @@ margin-bottom: 600px;
     height: 100px;
     opacity: 1;
     border-radius: 10px;
-    
 }
 
 /* 로봇설명박스 */
-.text-box{
+.text-box {
     max-width: 800px;
     margin: 0 auto;
     color: #fff;
     padding: 15px 30px;
     background-color: #00000049;
     border-radius: 20px;
-    box-shadow: inset 0px 0px 20px blue
-    ,inset 0px 0px 20px 10px cyan;
+    box-shadow: inset 0px 0px 20px blue, inset 0px 0px 20px 10px cyan;
 
     /* 백드롭필터효과
     -filter
@@ -482,41 +487,36 @@ margin-bottom: 600px;
     backdrop-filter: blur(6px);
 }
 
-
-
-
-
 /* 2-2-1. 제목 */
-.text-box h2{
+.text-box h2 {
     position: sticky;
     top: 10px;
     font-size: 3.5rem;
-    font-family: 'Chakra Petch', sans-serif;
+    font-family: "Chakra Petch", sans-serif;
     text-align: center;
     background-color: #ffffff86;
     color: cyan;
     text-shadow: 2px 2px 2px #000000;
     border-radius: 20px;
     font-weight: normal;
-    
 }
 /* 2-2-2. 출처 */
-.text-box small{
+.text-box small {
     display: block;
     text-align: center;
     font-size: 1.2rem;
-    font-family: 'Chakra Petch', sans-serif;
+    font-family: "Chakra Petch", sans-serif;
     color: yellow;
     text-shadow: 1px 1px 1px #000000;
     padding: 10px;
 }
 /* 2-2-3. 내용단락 */
-.text-box p{
-    font-family: 'Barlow', sans-serif;
+.text-box p {
+    font-family: "Barlow", sans-serif;
     font-size: 1.7rem;
-    line-height: 1.7em;/* 줄간격 */ 
-    letter-spacing: 1px;/* 자간 */
-    word-spacing: 2px;/* 단어간격 */
+    line-height: 1.7em; /* 줄간격 */
+    letter-spacing: 1px; /* 자간 */
+    word-spacing: 2px; /* 단어간격 */
     /* 
         [다단설정하기]
         -다중열 속성
@@ -525,7 +525,7 @@ margin-bottom: 600px;
         ->column-gap : 다중열사이간격
     */
 
-    column-count:3; /* 다단수 */
+    column-count: 3; /* 다단수 */
     /* 사이구분선은 border와 유사 */
     column-rule: 5px dotted lightgreen; /* 구분선 두종색 */
     column-gap: 55px; /* 사이간격 */
@@ -538,11 +538,10 @@ margin-bottom: 600px;
 /* 
 .desc::first-letter{
 */
-.text-box p::first-letter{
+.text-box p::first-letter {
     color: hotpink;
     font-size: 2.8rem;
     font-weight: bold;
 }
-
 
 /************************ 3.하단영역 ************************/
