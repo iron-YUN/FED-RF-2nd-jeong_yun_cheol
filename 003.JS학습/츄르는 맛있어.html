@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>츄르는 맛있어!!!!!</title>
+    <!-- JS코드구역 -->
+    <script>
+      /***************************************************************************/
+      var 김룡옥 = "정윤철";
+      // variable => 다양한, 몇번이고 재할당 가능한 변수 키워드
+      // 변수를 사용한 불린값체크
+      var condition; // 변수 초기화 혹은 변수 선언
+      // console.log('할당안된변수값:',condition);
+
+      // f(x)
+      //function 랑이(){}
+      //function 멍멍이(먹이){}
+
+      var 랑이 = function (츄르) {
+        if (츄르) {
+          console.log("맛있군");
+        } else {
+          console.log("츄르내놔");
+        }
+      } //청사진, 설계도
+
+      랑이(true); //랑이를 불렀따
+      랑이(false); //랑이를 불렀따
+      //////////////////////////////////////////////////////////////////////////
+      function 랑이2(츄르2) {
+        if (츄르2) {
+          console.log("역시는 역시군");
+        } else {
+          console.log("배고팡");
+        }
+      } //랑이2 설계도
+
+      랑이2(true); //랑이를 불렀따
+      랑이2(false); //랑이를 불렀따
+
+      //////////////////////////////////////////////////////////////////////////
+      function 랑이2(츄르2, 츄르, 츄르3) {
+        console.log(츄르3 + 츄르2 + 츄르);
+    } //랑이2 설계도
+    //  1+2+3=6
+    랑이2(3, 2, 1); //랑이를 불렀따
+
+    
+    function sum(a, b) {
+      // parameter = 패러미터
+      console.log(a + b);
+    }
+
+    sum(10, 7); // 3 출력
+    // argument = 인자
+      //////////////////////////////////////////////////////////////////////////
+
+      function 이토(e, q) {
+        if (e) {
+            console.log("소 소환");
+        }
+        if (q) {
+          console.log("오니의 왕이 ~~");
+        }
+      }
+
+      /* 
+        함수의 장점
+        1. 재사용성
+        2. 원하는 순간에 코드 실행
+       */
+      이토(true, true); //둘다실행
+      이토(true, false); //하나만실행
+      이토(false, true); //하나만실행
+      이토(false, false); //실행안함
+
+      function 이토(e, q) {
+        if (e) {
+          console.log("소 소환");
+        } else {
+          console.log("오니의 왕이 ~~");
+        }
+        // if(q){
+        //   console.log("오니의 왕");
+        // }
+      }
+
+      이토(false); // 류웨이 개자식아 궁극기 왜나감 ?? 별점 테러한다고/ // 버그 남
+      //  패치노트 q스킬 나가던거 수정
+
+
+      /***************************************************************************/
+
+      // if문처리결과 찍기 함수
+      var showResult = function () {
+        // 프로그래밍 언어에서 1은 true, 0은 false
+        // 컴퓨터는 0,1로만 언어를 해석
+        if (condition) {
+          console.log(condition, "통과!");
+        } else {
+          console.log(condition, "는 false처리됨!");
+        }
+      }; /////////////// showResult 함수 ////////////////
+      /* => 위에랑 같음 
+      function showResult(){
+        if(condition){
+          console.log(condition,'통과!');
+        }
+        else{
+          console.log(condition,'는 false처리됨!');
+        }
+      } // 청사진, 설계도
+      
+      */ /////////////// showResult 함수 ////////////////
+
+      //  테스트 1 : undefined
+      // 선언후 할당되지 않은 변수값은 undefined
+      showResult(); // 실행을 한다.
+
+      // 테스트 2 : 숫자
+      // 0 은 false , 이외의 모든수는 true
+      // true = 1 , false = 0  -> 1:1 매칭됨!!
+      //   condition = 1; //재할당 덮어쓰기   a = b
+      //   showResult();
+      //   condition = 0;
+      //   showResult();
+      //   condition = -15188.44;  // 0 빼고는 다 true 라서 통과
+      //   showResult();
+
+      //   // 테스트 3 : null -> '빈값' 을 의미한다
+      //   condition = null;
+      //   showResult();
+
+      //   // 테스트 4 : 비교연산자
+      //   // 비교연산자는 결과로 true/false 가 나옴
+      //   condition = 34<1;
+      //   showResult();
+
+      //   // 테스트 5 : 선언된적이 없는 변수//////////////////////////////
+      //   // var mymy = 'ㅋㅋ'; // 변수 초기화
+      //   // mymy = 'ㅋㅋ'; // 변수 재할당  머리에서 지울것
+      //   // 전역변수 - window 객체에 속해있다.  window.mymy
+      //   //var, let, const 키워드 없이 선언시 전역 변수가 기본값~~~~
+      //   // 하지만 키워드 없이 변수 선언은 절대 하지 말것
+      //   condition = mymy;
+      //   showResult();
+    </script>
+
+    <style>
+
+    </style>
+  </head>
+  <body>
+
+  </body>
+</html>
