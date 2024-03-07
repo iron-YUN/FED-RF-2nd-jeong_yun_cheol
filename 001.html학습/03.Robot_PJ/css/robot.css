@@ -27,6 +27,8 @@ ol {
 html {
     font-size: 10px;
     /* rem단위  */
+    scroll-behavior: smooth;
+    /* 부드러운 스크롤 애니이동 */
 }
 /* 전체 배경이미지 */
 body {
@@ -36,7 +38,7 @@ body {
 
 /* 공사중 표시 */
 body * {
-    outline: 2px dashed yellow;
+    /* outline: 2px dashed yellow; */
 }
 
 /************************ 공통 클래스 ************************/
@@ -47,6 +49,7 @@ body * {
     background: url(../images/metal02.jpg) no-repeat center/cover;
 }
 /************************ 1.상단영역 ************************/
+/* 1-1 로고 */
 h1.logo {
     position: fixed;
     top: calc(50% - 10vw);
@@ -64,6 +67,40 @@ h1.logo {
     color: chartreuse;
     text-shadow: 0 0 10px #000;
 }
+/* 1-2.탑이동버튼 */
+.btn-top{
+    position: fixed;
+    bottom: 50px;
+    right: 50px;
+
+    width: 5vw;
+    height: 5vw;
+    border-radius: 50%;
+    border: 5px outset #fff;
+    background-color: #ccc;
+    z-index: 10;
+}
+.btn-top a{
+    display: block;
+    width: 100%;
+    height: 100%;
+    /* border-radius: 50%; */
+    
+    /* 글자셋팅 */
+    color: blue;
+    text-decoration: none ;
+    font: 1.5vw/5vw 'Black Ops One' ;
+    /* font: 스두크/줄체; */
+}
+/* 오버시 설정 */
+.btn-top:hover{
+    background-color: #ff0;
+    border-style: inset;
+}
+.btn-top:hover a{
+    color: #ff0000;
+}
+
 
 /************************ 2.메인영역 ************************/
 /* 2-1. 로봇박스 */
@@ -74,7 +111,51 @@ h1.logo {
     top: 0;
     /* padding-top: 200px; */
     margin-bottom: 600px;
+    /* 박스내에있는 모든 요소의 외곽선에
+    그림자(글로우)효과 주기는 filter:drop-shadow() 를 사용함!*/
+    filter: drop-shadow(0 0 20px cyan);
 }
+
+
+/* 로봇 말풍선 오버시 */
+.link-title:hover{
+    color: #fff;
+    background-image:
+     radial-gradient(circle,red 10%,blue 30%,yellow);
+}
+/* 
+    [ 원형 그라데이션 ]
+
+    - 기본형, 영역지정형은 박스모양을 따라감!
+
+    1) 기본형: 중앙중심, 모양은 박스크기에 맞춤
+    background-image: 
+        radial-gradient(색1,색2,색3,...);
+    - 시작색으로부터 중앙에서 시작됨
+
+    2) 영역 지정형:
+    background-image: 
+        radial-gradient(색1 몇%,색2 몇%,색3 몇%,...);
+    - 색 뒤에 한칸 띄고 %수치로 영역지정함
+
+    3) 그라데이션 모양을 원형으로 사용할 경우:
+    background-image: 
+        radial-gradient(circle,색1,색2,색3,...);
+    - circle 키워드를 첫번째에 사용함
+
+    4) 영역옵션 지정형: 중심점 변경
+    background-image: 
+        radial-gradient(옵션 at 가로위치 세로위치,색1,색2,색3,...);
+    - 옵션4가지 : closest-side / farthest-side
+                closest-corner / farthest-corner
+                ___________________________________
+                - closest는 중심점으로 좀더 모아진것
+                - farthest는 중심점에서 멀리 퍼진것
+                - side와 corner는 경계선과 끝부분옵션임
+    - 가로위치, 세로위치 (중심점) - 단위는 px / %
+*/
+
+
 /* 2-1-1. 로봇머리 */
 .head {
     position: relative; /*부모자격- 앱솔루트의 부모*/
@@ -284,6 +365,7 @@ h1.logo {
 .arm span::after {
     content: "";
     position: absolute;
+    /* z-index: 1; */
     /* 부모는? span */
     top: 100%;
     width: 70px;
@@ -295,6 +377,7 @@ h1.logo {
 }
 /* 왼손 */
 .arm1 span::after {
+    
     background-image: url(../images/hand_left.png);
     left: -12px;
 }
@@ -545,23 +628,75 @@ h1.logo {
     font-weight: bold;
 }
 
+
+
+
+
+
 .link-title{
     position: absolute;
-    display: inline-block;
+    /* display: inline-block; */
     top: -15%;
-    left: 150%;
-    text-align: center;
+    left: 50%;
     width: 40vw;
     height: 15vw;
     line-height: 15vw;
-
+    
+    text-align: center;
     font-size: 5vw;
     font-weight: bold;
-    color: rgb(252, 0, 0);
+
+    
+    transform: translateX(200px) scale(0);
+    transform-origin: left bottom; 
+      /* 로봇머리로 부터 위치 일정하게 */
+  /* transform: translateX(200px) scale(0); */
+  /* 로봇쪽에서 커지게 하기위해
+  트랜스폼 기준 변경(왼쪽아래) */
+  /* transform-origin: left bottom; */
+
+    
+    color: red;
     text-decoration: none;
     background: #fff;
     /* border: red dotted 10px; */
-    outline: 10px lime dotted; 
-    border-radius: 50%;
+    outline: 1vw lime dotted; 
+    border-radius: 45%;
+}
+
+/* 가상요소로 삼각형 만들기 */
+.link-title::after{
+    content: '';
+    position: absolute;
+    top: 60%;
+    left: -10%;
+    /* 왜%인가 ? 유동적인 부모를 기준한 위치값이다! */
+    transform: rotate(47deg) ;
+    /* 가로세로 크기 0 */
+    width: 0;
+    height: 0;
+    border-top: 9vw solid lime;
+    border-left: 2vw solid transparent;
+    border-right: 2vw solid transparent;
+
 }
 /************************ 3.하단영역 ************************/
+/* 3-1.회사정보 */
+#bottom-area{
+    position: relative;
+    z-index: 9;
+    color: #fff;
+    /* 글자크기 30
+    글자체 black ops one */
+    font: 3rem 'Black Ops One';
+    /* 글자그림자 */
+    text-shadow: 2px 2px 2px #000;
+    /* 글자중앙 */
+    text-align: center;
+    /* 패딩 : 가로/세로중 작은화면기준 7% 
+    -> vmin(작은쪽기준) , vmax(큰쪽기준*/
+    padding: 7vmin;
+    /* 반투명 배경넣기 : 검은색 반투명 0.5 */
+    background-color: rgb(0 0 0 / 0.5);
+    margin-top: 100px;
+}

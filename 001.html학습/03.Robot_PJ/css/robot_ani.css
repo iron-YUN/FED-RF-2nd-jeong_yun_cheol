@@ -179,36 +179,77 @@
 }
 /* 4. 로복 왼쪽팔 허리에 올리기 */
 .arm1 {
-  animation: left-arm-ani1 0.4s 8s forwards;
+  animation: left-arm-ani1 .4s 8s forwards,
+   left-arm-ani1-1 .4s 9s forwards,
+   left-arm-ani1-2 .5s ease-in-out 10s alternate infinite;
 }
 @keyframes left-arm-ani1 {
   to {
-    transform: rotate(30deg);
+    transform: rotate(120deg);
+    /* transform: rotate(30deg); */
   }
 }
-.arm1 span {
-  animation: left-arm-ani2 0.4s 8s forwards;
-}
-@keyframes left-arm-ani2 {
+@keyframes left-arm-ani1-1 {
   to {
-    transform: rotate(-80deg);
+    transform: rotate(40deg);
+    /* transform: rotate(30deg); */
   }
 }
-.arm1 span::after {
-  animation: left-arm-ani3 0.4s 8s forwards;
-}
-@keyframes left-arm-ani3 {
+@keyframes left-arm-ani1-2 {
   to {
     transform: rotate(70deg);
   }
 }
 
+
+
+.arm1 span {
+  animation: left-arm-ani2 0.4s 8s forwards,
+  left-arm-ani2-1 0.5s ease-in-out 10.1s infinite alternate;
+}
+@keyframes left-arm-ani2 {
+  to {
+    transform: rotate(120deg);
+    /* transform: rotate(-80deg); */
+  }
+}
+@keyframes left-arm-ani2-1{
+    to{
+        transform: rotate(130deg);
+    }
+}
+
+.arm1 span::after {
+  animation: left-arm-ani3 .4s 8s forwards,
+  /* left-arm-ani3-0 .4s 8s forwards, */
+  left-arm-ani3-1 .5s ease-in-out 10.5s alternate infinite;
+}
+@keyframes left-arm-ani3-0 {
+  to {
+    transform: rotateY(180deg);
+    /* transform: rotate(70deg); */
+  }
+}
+@keyframes left-arm-ani3 {
+  to {
+    transform: rotate(30deg);
+    /* transform: rotate(70deg); */
+  }
+}
+@keyframes left-arm-ani3-1 {
+    from{
+        transform: rotate(0deg);
+    }
+  to {
+    transform: rotate(-40deg) ;
+    /* transform: rotate(70deg); */
+  }
+}
+
 .arm2 {
   animation: 
-  /* 팔올리기 */
- right-arm-ani1 0.4s 9s forwards,
- /*팔 흔들기  */
- right-arm-ani2 0.4s ease-in-out 9.4s infinite alternate;
+  /* 팔올리기 */ right-arm-ani1 0.4s 9s forwards,
+    /*팔 흔들기  */ right-arm-ani2 0.4s ease-in-out 9.4s infinite alternate;
 }
 @keyframes right-arm-ani1 {
   to {
@@ -222,11 +263,9 @@
   }
 }
 
-
 .arm2 span {
-  animation:
-   right-arm-ani3 0.4s 9s forwards,
-  right-arm-ani4 0.4s ease-in-out 9.8s infinite alternate;
+  animation: right-arm-ani3 0.4s 9s forwards,
+    right-arm-ani4 0.4s ease-in-out 9.8s infinite alternate;
 }
 @keyframes right-arm-ani3 {
   to {
@@ -240,8 +279,7 @@
 }
 /* 오른손 y축 회전 */
 .arm2 span::after {
-  animation:
-   right-arm-ani5 0.2s 9s forwards;
+  animation: right-arm-ani5 0.2s 9s forwards;
 }
 @keyframes right-arm-ani5 {
   to {
@@ -250,39 +288,54 @@
   }
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-  .head{
-    position: relative;
-    z-index: 30;
-    /* transform-origin: bottom; */
-    /* translate: rotate(-30deg); */
-    animation: head-ani 1s ease-in-out 8s alternate infinite ;
+/* 말풍선 등장 */
+.link-title {
+  animation: link-title-ani 0.6s ease-in-out 10s forwards;
+}
+@keyframes link-title-ani {
+  to {
+    transform: translateX(200px) scale(1);
   }
+}
 
-  @keyframes head-ani {
-    to {
-      transform: rotate(-30deg);
-    }
-    fron {
-      transform: rotate(30deg);
-    }
-    
+.head {
+  position: relative;
+  z-index: 30;
+  /* transform-origin: bottom; */
+  /* translate: rotate(-30deg); */
+  animation: head-ani 0.4s 9s forwards,
+  head-ani2 0.4s 9s forwards,
+    head-ani3 1s ease-in-out 10s alternate infinite,
+    head-ani4 .5s ease-in-out 10.1s alternate infinite;
+}
+
+@keyframes head-ani {
+  from {
+    right: 0;
+    top: 0;
   }
+  to {
+    right: 300px;
+    top: 50px;
+  }
+}
+@keyframes head-ani2 {
+  to {
+    transform: rotate(-20deg);
+  }
+}
+@keyframes head-ani3 {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes head-ani4 {
+    from {
+        right: 300px;
+        top: 50px;
+      }
+  to {
+    right: 300px;
+    top: -150px;
+  }
+}
