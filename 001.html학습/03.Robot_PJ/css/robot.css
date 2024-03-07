@@ -365,7 +365,6 @@ h1.logo {
 .arm span::after {
     content: "";
     position: absolute;
-    /* z-index: 1; */
     /* 부모는? span */
     top: 100%;
     width: 70px;
@@ -378,6 +377,7 @@ h1.logo {
 /* 왼손 */
 .arm1 span::after {
     
+    /* z-index: 1; */
     background-image: url(../images/hand_left.png);
     left: -12px;
 }
