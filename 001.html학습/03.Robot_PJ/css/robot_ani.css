@@ -78,99 +78,211 @@
 
 /* 1.로고애니 */
 .logo {
-    transform: scale(2);
+  transform: scale(2);
 
-    animation: 
-    /* 1초후 3초간 이동애니 셋팅 */
-    logo-ani 3s linear 1s alternate forwards,
-    /* 4초우 스윙애니 영원히 셋팅 */
-    swing-ani .4s ease-in-out 4s infinite alternate;
+  animation: 
+    /* 1초후 3초간 이동애니 셋팅 */ logo-ani 3s linear 1s alternate
+      forwards,
+    /* 4초우 스윙애니 영원히 셋팅 */ swing-ani 0.4s ease-in-out 4s infinite
+      alternate;
 
-    /* animation: logo-ani 2s ease-in-out 1s 3 alternate forwards; */
+  /* animation: logo-ani 2s ease-in-out 1s 3 alternate forwards; */
 }
 @keyframes logo-ani {
-    /* 정가운데 출발 */
-    0%{
-        top: calc(50% - 10vw);
-        left: calc(50% - 10vw);
-        transform: scale(2);
-    }
-    /* 처음위치이동 : 왼쪽위 */
-    20%{
-        top: calc(0% + 5vw);
-        left: calc(0% + 5vw);
-        transform: scale(0.5);
-    }
-    /* 두번째 위치이동 : 오른쪽위 */
-    40%{
-        top: calc(0% + 5vw);
-        left: calc(100% - 25vw);
-        transform: scale(0.5);
-    }
-    /* 세번째 위치이동 : 오른쪽아래 */
-    60%{
-        top: calc(100% - 25vw);
-        left: calc(100% - 25vw);
-        transform: scale(0.5);
-    }
-    /* 네번째 위치이동 : 왼쪽아래 */
-    80%{
-        top: calc(100% + -25vw);
-        left: calc(0% + 5vw);
-        transform: scale(0.5);
-    }
-    /* 마지막  : 왼쪽위 */
-    90%{
-        top: calc(0% + 5vw);
-        left: calc(0% + 5vw);
-        transform: scale(1);
-       
-    }
-    /* 각도 돌리기 : 다음 스윙애니 출발각도로 변경!*/
-    100%{
-        top: calc(0% + 5vw);
-        left: calc(0% + 5vw);
-        transform: scale(1) rotate(30deg);
-       
-    }
-
+  /* 정가운데 출발 */
+  0% {
+    top: calc(50% - 10vw);
+    left: calc(50% - 10vw);
+    transform: scale(2);
+  }
+  /* 처음위치이동 : 왼쪽위 */
+  20% {
+    top: calc(0% + 5vw);
+    left: calc(0% + 5vw);
+    transform: scale(0.5);
+  }
+  /* 두번째 위치이동 : 오른쪽위 */
+  40% {
+    top: calc(0% + 5vw);
+    left: calc(100% - 25vw);
+    transform: scale(0.5);
+  }
+  /* 세번째 위치이동 : 오른쪽아래 */
+  60% {
+    top: calc(100% - 25vw);
+    left: calc(100% - 25vw);
+    transform: scale(0.5);
+  }
+  /* 네번째 위치이동 : 왼쪽아래 */
+  80% {
+    top: calc(100% + -25vw);
+    left: calc(0% + 5vw);
+    transform: scale(0.5);
+  }
+  /* 마지막  : 왼쪽위 */
+  90% {
+    top: calc(0% + 5vw);
+    left: calc(0% + 5vw);
+    transform: scale(1);
+  }
+  /* 각도 돌리기 : 다음 스윙애니 출발각도로 변경!*/
+  100% {
+    top: calc(0% + 5vw);
+    left: calc(0% + 5vw);
+    transform: scale(1) rotate(30deg);
+  }
 }
 
 /* 제자리 스윙 애니 */
 @keyframes swing-ani {
-    from{
-        transform: scale(1) rotate(30deg);
-    }
-    to{
-        transform: scale(1) rotate(-30deg);
-    }
+  from {
+    transform: scale(1) rotate(30deg);
+  }
+  to {
+    transform: scale(1) rotate(-30deg);
+  }
 }
 
 /* 2. 로봇이동애니 */
-.robot-box{
-    /* 애니메이션 : 이지이지반방마 */
-    animation: move-robot 4s ease-in-out 4s forwards;
+.robot-box {
+  /* 애니메이션 : 이지이지반방마~!! */
+  animation: move-robot 4s ease-in-out 4s forwards;
 }
 @keyframes move-robot {
-    to{
-        transform:  translate(-50%, -0%) scale(0.7);
-    }
+  to {
+    transform: translate(-50%, -0%) scale(0.7);
+  }
 }
-.leg{
-    transform-origin:center top ;
+.leg {
+  transform-origin: center top;
 }
 .leg1 {
-    animation: move-leg 1s ease-in-out 4.4s 4 alternate forwards; 
+  animation: move-leg 0.5s ease-in-out 4.2s 6 alternate forwards;
 }
 .leg2 {
-    animation: move-leg 1s ease-in-out 3.4s 4 alternate forwards; 
+  animation: move-leg 0.5s ease-in-out 4.7s 6 alternate forwards;
 }
 @keyframes move-leg {
-    from{
-        transform:scale(1) ;
-    }
-    to{
-        transform: scale(0.9);
-    }
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(0.9);
+  }
 }
 
+/* 팔공통 트랜스폼 세로축 기준 top으로 변경*/
+.arm,
+.arm span,
+.arm span::after {
+  transform-origin: top;
+}
+/* 4. 로복 왼쪽팔 허리에 올리기 */
+.arm1 {
+  animation: left-arm-ani1 0.4s 8s forwards;
+}
+@keyframes left-arm-ani1 {
+  to {
+    transform: rotate(30deg);
+  }
+}
+.arm1 span {
+  animation: left-arm-ani2 0.4s 8s forwards;
+}
+@keyframes left-arm-ani2 {
+  to {
+    transform: rotate(-80deg);
+  }
+}
+.arm1 span::after {
+  animation: left-arm-ani3 0.4s 8s forwards;
+}
+@keyframes left-arm-ani3 {
+  to {
+    transform: rotate(70deg);
+  }
+}
+
+.arm2 {
+  animation: 
+  /* 팔올리기 */
+ right-arm-ani1 0.4s 9s forwards,
+ /*팔 흔들기  */
+ right-arm-ani2 0.4s ease-in-out 9.4s infinite alternate;
+}
+@keyframes right-arm-ani1 {
+  to {
+    transform: rotate(-150deg);
+  }
+}
+/* 팔흔들기 키프레임 */
+@keyframes right-arm-ani2 {
+  to {
+    transform: rotate(-130deg);
+  }
+}
+
+
+.arm2 span {
+  animation:
+   right-arm-ani3 0.4s 9s forwards,
+  right-arm-ani4 0.4s ease-in-out 9.8s infinite alternate;
+}
+@keyframes right-arm-ani3 {
+  to {
+    transform: rotate(0deg);
+  }
+}
+@keyframes right-arm-ani4 {
+  to {
+    transform: rotate(-20deg);
+  }
+}
+/* 오른손 y축 회전 */
+.arm2 span::after {
+  animation:
+   right-arm-ani5 0.2s 9s forwards;
+}
+@keyframes right-arm-ani5 {
+  to {
+    transform: rotateY(180deg);
+    right: -20px;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  .head{
+    position: relative;
+    z-index: 30;
+    /* transform-origin: bottom; */
+    /* translate: rotate(-30deg); */
+    animation: head-ani 1s ease-in-out 8s alternate infinite ;
+  }
+
+  @keyframes head-ani {
+    to {
+      transform: rotate(-30deg);
+    }
+    fron {
+      transform: rotate(30deg);
+    }
+    
+  }

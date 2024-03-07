@@ -302,6 +302,7 @@ h1.logo {
 .arm2 span::after {
     background-image: url(../images/hand_right.png);
     right: -12px;
+    /* translate: rotate-y(180deg); */
 }
 /* 왼팔 */
 .arm1 {
@@ -544,4 +545,23 @@ h1.logo {
     font-weight: bold;
 }
 
+.link-title{
+    position: absolute;
+    display: inline-block;
+    top: -15%;
+    left: 150%;
+    text-align: center;
+    width: 40vw;
+    height: 15vw;
+    line-height: 15vw;
+
+    font-size: 5vw;
+    font-weight: bold;
+    color: rgb(252, 0, 0);
+    text-decoration: none;
+    background: #fff;
+    /* border: red dotted 10px; */
+    outline: 10px lime dotted; 
+    border-radius: 50%;
+}
 /************************ 3.하단영역 ************************/
