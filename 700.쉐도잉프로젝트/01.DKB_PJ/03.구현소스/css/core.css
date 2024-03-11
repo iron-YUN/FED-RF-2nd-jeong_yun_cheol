@@ -17,6 +17,16 @@
     font-family: 'Nanum Gothic', sans-serif;
 */
 
+/* 전체 글자크기  */
+html{
+    font-size: 10px;
+    /* rem단위 계산편의를 위함 */
+}
+body{
+    /* 글자체 */
+    font-family: 'Nanum Gothic', sans-serif;
+}
+
 /* **********************공통 클래스************************ */
 /* 임시표시 타이틀 */
 .temp-tit{
@@ -28,8 +38,4 @@
 .inbox{
     max-width: 1360px; /*최대가로*/
     margin: 0 auto ; /*블록박스 중앙정렬 : 마영오*/
-}
-/* 컨텐츠박스 */
-.cont-box{
-    height: 100%;
 }
