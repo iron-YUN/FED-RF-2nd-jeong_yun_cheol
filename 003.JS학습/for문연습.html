@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<script>
+
+  
+          window.addEventListener("DOMContentLoaded", () => {
+        console.log("로딩완료!");
+        // for문 연습 : 선택박스 이벤트 연결하기
+        // 대상 : select#sel
+        let sel = document.querySelector("#sel");
+        // console.log('선택박스:',sel);
+        // change 이벤트로 showGugu 함수와 연결
+
+        // 이벤트 등록방법1
+        sel.onchange = showGugu;  // 함수를 만들지 않으면 함수명이 오류로 인식 : 찾을수없음
+        // 이벤트 등록방법2
+        // sel.addEventListener('change',showGugu);
+
+        /* 
+                [ 이벤트와 함수 연결방법 2가지]
+
+                1. 이벤트속성에 함수할당하기
+                선택요소.on이벤트명 = 함수
+                예) document.querySelector('.my').conclick = myFunction
+
+                2. 이벤트등록 메서드 사용하기
+                선택요소.addEventListener(이벤트명,함수)
+                예) document.querySelector('.my').addEventListener('click', myFunction);
+              */
+
+
+
+              //while 문 연습 : 선택박스 이벤트 연결하기
+            let sel2 = document.querySelector('#sel2');
+            sel2.addEventListener('change', showGugu2);
+      }); ////////////////////// 로드구역 /////////////////
+      function showGugu() {}
+
+</script>
+<style>
+          h1 {
+        font-size: 4vw;
+      }
+      h2 {
+        font-size: 3vw;
+      }
+      body,
+      h3,
+      input,
+      button,
+      select {
+        font-size: 2vw;
+      }
+      .tit {
+        text-align: center;
+        background-image: linear-gradient(to bottom, lightgreen, lightsalmon);
+      }
+
+      body {
+        text-align: center;
+      }
+
+      /* 칭찬스티커박스 */
+      .jshow {
+        position: absolute;
+        top: 18vw;
+        left: 74vw;
+        /* 부모는? .bx-if */
+        width: 15vw;
+        height: 15vw;
+        outline: 5px dotted lightgreen;
+        background: url(./images/ifshow.jpg) no-repeat;
+        /* 배경위치 : 처음에 안보임 */
+        background-position: -50% 0%;
+        /* 배경크기 */
+        background-size: 300%;
+        /* 트랜지션 : 배경위치만! */
+        transition: background-position 1s;
+        border-radius: 50%;
+      }
+      .jshow::before {
+        position: relative;
+        z-index: -1;
+        /* 글자를 배경보다 아애로 하려면 z인덱스-1
+          이때 포지션 있어야함 */
+        content: "칭찬스티커";
+        line-height: 15vw;
+        font-size: 2.5vw;
+        font-weight: bold;
+        color: blueviolet;
+      }
+      .jshow::after {
+        position: absolute;
+        z-index: -1;
+        content: "💖";
+        line-height: 15vw;
+        font-size: 3vw;
+        top: -30%;
+        left: 35%;
+      }
+
+
+    /* 구구단 출력박스 */
+    .gugu{
+                width: 40vw;
+                height: 40vw;
+                border: 2px dashed blue;
+                text-align: center;
+                margin: 3vh auto;
+                /* 박스 y축 스크롤 : 박스보다 내용 많으면
+                 스크롤바생김(스크롤바 트랙나와있음) */
+                overflow-y: scroll;
+                font-size: 2.5vw;
+            }
+            .gugu h2{
+                font-size: 3vw;
+            }
+</style>
+<body>
+    
+
+    <!-- for문 연습 -->
+    <h2 class="tit">for문 연습</h2>
+    <h3>구구단 출력하기</h3>
+    <select name="sel" id="sel">
+        <option value="1">구구단을 선택하세요!</option>
+        <option value="2">2단</option>
+        <option value="3">3단</option>
+        <option value="4">4단</option>
+        <option value="5">5단</option>
+        <option value="6">6단</option>
+        <option value="7">7단</option>
+        <option value="8">8단</option>
+        <option value="9">9단</option>
+        <option value="10">10단</option>
+        <option value="11">11단</option>
+        <option value="12">12단</option>
+        <option value="13">13단</option>
+        <option value="14">14단</option>
+        <option value="15">15단</option>
+        <option value="16">16단</option>
+        <option value="17">17단</option>
+        <option value="18">18단</option>
+        <option value="19">19단</option>
+        <option value="20">20단</option>
+    </select>
+    <!-- 
+        [ select 요소 ]
+
+        1. 보통 정해진 선택값을 나열하여 선택입력을
+        할 수 있는 입력요소
+
+        2. form요소 내부에 주로 사용되고 데이터를
+        DB에 전송하는 목적을 많이 이용됨!
+
+        3. id를 설정할때 name속성을 같이 셋팅할 경우가
+        많은데 이는 post방식 데이터 전송시 서버사이드에서
+        name으로 데이터를 읽어가기 때문에 일반적으로 씀.
+        보통 id명과 동일하게 이름짓는다
+
+        4. 필수하위 요소 : option
+            -> 속성으로 value를 쓰고 값을 사용하면
+                JS등 프로그래밍에서 이 값을 읽어감!
+            -> value속성을 셋팅하지 않으면
+                option의 데이터를 읽어감!
+
+     -->
+    <!-- 구구단 출력박스 -->
+    <div class="gugu g1"></div>
+
+    <br /><br />
+    <hr />
+
+    <!-- while문 연습 -->
+    <h2 class="tit">while문 연습</h2>
+    <h3>구구단 출력하기</h3>
+    <select name="sel2" id="sel2">
+        <option value="1">구구단을 선택하세요!</option>
+        <option value="2">2단</option>
+        <option value="3">3단</option>
+        <option value="4">4단</option>
+        <option value="5">5단</option>
+        <option value="6">6단</option>
+        <option value="7">7단</option>
+        <option value="8">8단</option>
+        <option value="9">9단</option>
+        <option value="10">10단</option>
+        <option value="11">11단</option>
+        <option value="12">12단</option>
+        <option value="13">13단</option>
+        <option value="14">14단</option>
+        <option value="15">15단</option>
+        <option value="16">16단</option>
+        <option value="17">17단</option>
+        <option value="18">18단</option>
+        <option value="19">19단</option>
+        <option value="20">20단</option>
+    </select>
+    <!-- 구구단 출력박스 -->
+    <div class="gugu g2"></div>
+</body>
+
+
+</html>
