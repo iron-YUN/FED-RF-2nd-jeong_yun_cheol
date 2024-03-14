@@ -6,89 +6,142 @@
 /************* 1. 상단영역 *************/
 /* TOP 메뉴 */
 .top-menu ul {
-    display: flex;
-    justify-content: flex-end;
+  display: flex;
+  justify-content: flex-end;
 }
 /* TOP 리스트 */
 .top-menu ul li {
-    padding: 0 10px;
+  padding: 0 10px;
 }
 /* TOP a링크 */
 .top-menu ul a {
-    font-size: 1.4rem;
-    line-height: 40px;
-    font-weight: bold;
+  font-size: 1.4rem;
+  line-height: 40px;
+  font-weight: bold;
 }
 
-
 /* 메인로고 */
-.mlogo img{
-    margin-top: 39px;
+.mlogo img {
+  margin-top: 39px;
 }
 /* GNB 메뉴 */
 .gnb ul {
-    display: flex;
-    justify-content: flex-end;
+  display: flex;
+  justify-content: flex-end;
 }
 /* GNB 리스트 */
 /* .gnb ul li {
 } */
 /* GNB a링크 */
 .gnb ul a {
-    display: block;
-    padding: 20px 13px;
-    font-size: 1.7rem;
-    /* line-height: 60px; */
-    font-weight: bold;
-
+  display: block;
+  padding: 20px 13px;
+  font-size: 1.7rem;
+  /* line-height: 60px; */
+  font-weight: bold;
 }
 /* GNB a링크 오버시 */
 .gnb ul a:hover {
   color: red;
 }
-/* 서브가있는 리스트 선택하기 4~6 까지 */
-.gnb ul li:nth-child(3)~li:nth-child(-n+6) a{
-    /* text-decoration: overline;   */
-    /* 손가락 표시 */
-    cursor: default;
-    /* 커서는 오버시 커서모양을 변경하는 속석 */
+/* 상위메뉴서브가있는 리스트 선택하기 4~6 까지 */
+.gnb ul > li:nth-child(3) ~ li:nth-child(-n + 6) > a {
+  /* text-decoration: overline;   */
+  /* 손가락 표시 */
+  cursor: default;
+  /* 커서는 오버시 커서모양을 변경하는 속석 */
 
-    /* 가상요소로 아래쪽 화살표넣기 */
+  /* 가상요소로 아래쪽 화살표넣기 */
 }
-.gnb ul li:nth-child(3)
-~li:nth-child(-n+6) a::after{
-    content: '∨';
-    display: inline-block;
-    /* 트랜스폼은 inline 에서는 적용안됨 */
-    font-size: 7px;
-    margin-left: 8px;
-    vertical-align: 3px;
-    transform: scale(2);
+.gnb ul > li:nth-child(3) ~ li:nth-child(-n + 6) > a::after {
+  content: "∨";
+  display: inline-block;
+  /* 트랜스폼은 inline 에서는 적용안됨 */
+  font-size: 7px;
+  margin-left: 8px;
+  vertical-align: 3px;
+  transform: scale(2);
 }
 /* 서브메뉴 */
-.smenu{
-    position: absolute;
-    left: 0; /* 부모는? 보이는 화면*/
-    width: 100%;
+.smenu {
+  position: absolute;
+  z-index: 1;
+  left: 0; /* 부모는? 보이는 화면*/
+  width: 100%;
+  max-height: 0;
+  overflow: hidden;
+  transition: 0.4s;
+  background-color: #ff9696;
+}
+/* 상위메뉴 오버시 서브메뉴 보이기 */
+.gnb > ul > li:hover .smenu {
+  max-height: 50vh;
 }
 /* 서브 속박스 */
-.swrap{
-    width: 60vw;
-    margin: 0 auto;
-    padding: 4rem;
-    white-space: nowrap;
+.swrap {
+  width: 60vw;
+  margin: 0 auto;
+  padding: 4.9rem 12.8rem 6rem;
+  white-space: nowrap;
 }
 /* ol 리스트 */
-.smenu ol{
-    /* 플렉스박스 */
-    display: flex;
-    /* 플렉스 랩핑박스 */
-    flex-wrap: wrap;
-    /* justify-content: center; */
+.smenu ol {
+  /* 플렉스박스 */
+  display: flex;
+  /* 플렉스 랩핑박스 */
+  flex-wrap: wrap;
+  /* flex박스 간격 속성 : gap(위아래 양쪽)
+  -> 하나의 값만 쓰면 모두셋팅 */
+  gap: 1rem 2vw;
+  /* justify-content: center; */
 }
 /* 서브타이틀 */
-.smenu h2{
-    font-size: 3rem;
+.smenu h2 {
+  font-size: 3rem;
 }
+
 /************ 2. 메인영역 ************/
+/* 2-1. 배너영역 */
+/* 슬라이드박스 */
+.slide-box{
+    width: 100%;
+    height: 100%;
+}
+/* 슬라이더 */
+.silder{
+    position: relative;
+    /* 슬라이드 위치이동 초기값 */
+    left: 0;
+    display: flex;     /* 하위 li를 옆으로 흐르게함 */
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+.silder li{
+    flex-basis: 100%;
+    flex-shrink: 0;
+    /* 부모크기만큼 옆으로 나가게 하려면
+    flex-shrink 기본값 1을 0으로 변경한다!
+    1의 의미는 자동으로 부모크기에 맞추어 줄어듬
+    0의 의미는 설정된 크기만큼 늘어남! */
+
+    /* 공통배경설정 */
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-size: cover;
+}
+/* 슬라이드 01 */
+.snum-01{
+    background-image: url(../images/bg_mainvisual2.jpg);
+}
+.snum-02{
+    background-image: url(../images/bg_mainvisual4.jpg);
+}
+.snum-03{
+    background-image: url(../images/bg_mainvisual5.jpg);
+}
+
+.cat-cox{
+    position: absolute;
+}
 /************* 3. 하단영역 *************/
