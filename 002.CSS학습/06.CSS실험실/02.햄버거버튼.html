@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>햄버거 버튼 실험실</title>
+    <style>
+      .hambtn {
+        position: relative; /* 부모자격 span */
+        width: 400px;
+        height: 250px;
+        margin: 50px auto;
+        outline: 5px dotted lightcoral;
+        /* 손가락보이기 */
+        cursor: pointer;
+      }
+
+      /* 햄버거 바 공통 */
+      .hambtn span {
+        position: absolute;
+        width: 100%;
+        height: 50px;
+        background-color: #333;
+        border-radius: 25px;
+      }
+
+      /* 1번바 */
+      .hambtn span:nth-child(1) {
+        top: 0;
+        /* 트랜지션 개별설정 */
+        transition: top .3s, transform .3s .3s;
+        /* top값은 바로 0.3초 애니,
+       transform은 0.3초 대기후 0.3초애니
+       중앙이동후 회전함! */
+      }
+      /* 2번바 */
+      .hambtn span:nth-child(2) {
+        top: 100px;
+        left: 0; /* left초기값 있어야 애니메이션됨 (기본값auto) */
+      }
+      /* 3번바 */
+      .hambtn span:nth-child(3) {
+        top: 200px;
+      }
+
+      /* 상위 메뉴에 클래스 on 줄경우 닫기버튼으로 변경*/
+      /* 1번바 */
+      .hambtn.on span:nth-child(1) {
+        top: 100px;
+        transform: rotate(45deg);
+
+        /* 트랜지션 개별설정 */
+        transition: top .3s, transform .3s .3s;
+      }
+      /* 2번바 */
+      .hambtn.on span:nth-child(2) {
+        top: 100px;
+        width: 0;
+        left: 50%;
+        /* 트랜지션 개별설정 */
+        transition: 0.1 0.3;
+    }
+    /* 3번바 */
+    .hambtn.on span:nth-child(3) {
+        top: 100px;
+        transform: rotate(-45deg);
+        /* 트랜지션 개별설정 */
+        transition: top .3s, transform .3s .3s;
+    }
+    
+    /* 두번째 카피 햄버거 버튼 크기/위치  */
+    .hambtn2{
+        position: absolute;
+        transform: scale(0.1);
+        top: 2vw;
+        right: 3vw;
+    }
+    /* 트랜지션 개별설정 */
+    </style>
+  </head>
+
+  <body>
+    <div class="hambtn" onclick="this.classList.toggle('on')">
+      <!-- onclick="this.classList.toggle('on')"
+            ______________________________________
+
+       1. this 는 햄버거버튼 자신 (.hambtn)
+       2. classList 는 클래스를 제어하는 객체
+       3. toggle(클래스명) 
+        -> 설정한 클래스가 없으면 넣고 있으면 빼는 메서드 -->
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <div class="hambtn hambtn2" onclick="this.classList.toggle('on')">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </body>
+</html>
