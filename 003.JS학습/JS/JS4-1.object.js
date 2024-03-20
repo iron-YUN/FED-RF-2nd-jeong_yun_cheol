@@ -281,3 +281,28 @@ jjyObj.trailer = function () {
   // 예고편 플레이 함수호출
   playMovie("_bm91mlFaJI");
 }; ////// trailer 함수 //////
+
+
+
+////////////////////////////////////////////////////////////////////
+        //윤철 오브젝트! -> 변경가능하게 let 으로 선언한다!
+        let myObj = {};
+        // 오브젝트 형만 만들고 객체내용은 아래에서!
+
+        // 1.영화제목
+        myObj.title = "인터스텔라";
+        // 2.감독
+        myObj.director = "크리스토퍼 놀란";
+        // 3.배우
+        myObj.actor = "매튜 맥커너히,앤 해서웨이";
+        // 4.장르
+        myObj.genre = "SF";
+        // 5.관람가
+        myObj.ratings = "12세";
+        // 6.예고편
+        myObj.trailer = function () {
+          console.log("예고편:영화아이디");
+          //  예고편 플레이 함수호출!
+
+          playMovie("vABfjuXZhYY");
+        }; ///////////trailer 메서드 /////////////////

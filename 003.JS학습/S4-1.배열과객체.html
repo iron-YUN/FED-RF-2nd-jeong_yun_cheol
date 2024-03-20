@@ -552,7 +552,7 @@
 
         for (let i = 0; i < cnt; i++) {
           target[6].innerHTML += `
-          <button 
+          <button
 
 
           ${i == 0 ? 'class="on"' : ""}
@@ -600,6 +600,11 @@
             console.log('변경전영화객체',ironObj);
 
             switch(btnTxt){
+              // 자기자신 오브젝트
+              case '윤철초이스':
+              ironObj = myObj;
+              break;
+
               case '탐쌤초이스':
               //객체의 내용을 덮어쓰기 변경함
               ironObj = tomObj;
@@ -652,10 +657,19 @@
               break;
 
             }
-   
+
             console.log('변경후 영화객체',ironObj);
             // 변경데이터 확인후 바로위박스 영화정보 업데이트 함수를 호출한다
             showMovieInfo();
+            // JSz클래스 내장객체: classList
+            // add() / remove() 메서드사용!
+            // 버튼에 클래스 on 모두빼기
+            for(let i=0 ; i < cntBtn ; i++){
+              choiceBtn[i].classList.remove('on');
+            }
+            // 클릭된 버튼에 클래스 on넣기
+            //  클릭된 버튼 자신은 this!!
+            this.classList.add('on');
 
           }; //////////// click이벤트 함수 ///////////////////////
           // console.log(   ' choiceBtn{i]' );
