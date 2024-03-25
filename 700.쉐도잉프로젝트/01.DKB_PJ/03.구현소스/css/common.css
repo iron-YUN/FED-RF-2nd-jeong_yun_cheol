@@ -3,28 +3,25 @@
 /* 도깨비 PJ : 공통 모듈 CSS - common.css */
 /* 공유기능 요소 셋팅 */
 
-
 /* 0.전체레이아웃 영역별 셋팅 */
 /* 1. 상단영역 */
-.top-area{
+.top-area {
   height: 128px;
 }
 /* 2. 배너영역 */
-.ban-area{
+.ban-area {
   position: relative;
   /* 부모자격 : .cat-box */
   height: 680px;
 }
 /* 서브파트메뉴 */
-.spart-menu{
+.spart-menu {
   height: 60px;
 }
 /* 8. 하단영역 */
-.footer-area{
+.footer-area {
   height: 371px;
 }
-
-
 
 /************* 1. 상단영역 *************/
 /* TOP 메뉴 */
@@ -126,50 +123,50 @@
 /************ 2. 메인영역 ************/
 /* 2-1. 배너영역 */
 /* 슬라이드박스 */
-.slide-box{
-    width: 100%;
-    height: 100%;
+.slide-box {
+  width: 100%;
+  height: 100%;
 }
 /* 슬라이더 */
-.silder{
-    position: relative;
-    /* 슬라이드 위치이동 초기값 */
-    left: 0;
-    display: flex;     /* 하위 li를 옆으로 흐르게함 */
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
+.silder {
+  position: relative;
+  /* 슬라이드 위치이동 초기값 */
+  left: 0;
+  display: flex; /* 하위 li를 옆으로 흐르게함 */
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
 }
-.silder li{
-    flex-basis: 100%;
-    flex-shrink: 0;
-    /* 부모크기만큼 옆으로 나가게 하려면
+.silder li {
+  flex-basis: 100%;
+  flex-shrink: 0;
+  /* 부모크기만큼 옆으로 나가게 하려면
     flex-shrink 기본값 1을 0으로 변경한다!
     1의 의미는 자동으로 부모크기에 맞추어 줄어듬
     0의 의미는 설정된 크기만큼 늘어남! */
 
-    /* 공통배경설정 */
-    background-repeat: no-repeat;
-    background-position: center top;
-    background-size: cover;
+  /* 공통배경설정 */
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-size: cover;
 }
 /* 슬라이드 01 */
-.snum-01{
-    background-image: url(../images/bg_mainvisual2.jpg);
+.snum-01 {
+  background-image: url(../images/bg_mainvisual2.jpg);
 }
-.snum-02{
-    background-image: url(../images/bg_mainvisual4.jpg);
+.snum-02 {
+  background-image: url(../images/bg_mainvisual4.jpg);
 }
-.snum-03{
-    background-image: url(../images/bg_mainvisual5.jpg);
+.snum-03 {
+  background-image: url(../images/bg_mainvisual5.jpg);
 }
 
-.cat-cox{
-    position: absolute;
+.cat-cox {
+  position: absolute;
 }
 
 /* 캐릭터박스 */
-.cat-cox{
+.cat-cox {
   position: absolute;
   bottom: 5%;
   left: 0;
@@ -180,11 +177,11 @@
   /* 부모는? .ban-area*/
   width: 100%;
   /* height: 300px; */
-  outline-color:yellow ;
+  outline-color: yellow;
 }
 
 /* 캐릭터 속박스 - static한 박스임!(공간차지) */
-.cat-inbox{
+.cat-inbox {
   /* 플렉스박스 */
   display: flex;
   /* 가로최대크기 설정 */
@@ -193,37 +190,75 @@
   margin: 0 auto;
   /* 위아래 양쪽 */
   gap: 0 1vw;
-  padding:0 1vw;
-  }
+  padding: 0 1vw;
+}
 /* 캐릭터 개별박스 등분할 */
-.cat-inbox article{
+.cat-inbox article {
   flex: 1;
 }
 /* 캐릭터 이미지박스  */
-.imbx img{
+.imbx img {
   width: 100%;
 }
 /* 캐릭터 이름 이미지 박스 */
-.iname{
+.iname {
   display: block;
   text-align: center;
   /* 앱솔루트 없이 마진으로 상단이미지와 겹치게 하기 */
   margin-top: -19%;
 }
 /* 캐릭터별 이름 이미지 */
-.iname img{
+.iname img {
   width: 40%;
 }
-.iname img:last-child{
+.iname img:last-child {
   display: none;
 }
-.imbx:hover .iname img:first-child{
+.imbx:hover .iname img:first-child {
   display: none;
 }
-.imbx:hover .iname img:last-child{
+.imbx:hover .iname img:last-child {
   display: inline;
 }
 
 /* 오버시 두번째 이미지 보이기 */
 /* 오버시 첫번째 이미지 숨기기 */
+
+/* 캐픽터 설명박스 */
+.descbx {
+  height: 0;
+  overflow: auto;
+  /* 넘치는 자식요소 auto일 경우 정해진
+  크기보다 넘치는 세로 스크롤만 생김 */
+  background: url(../images/eachBG.jpg) no-repeat bottom/cover;
+
+  transition: .4s ease-in-out;
+}
+/* 상위 캐릭터 개별박스에 오버시 설명박스 보이기 */
+.cat-inbox article:hover .descbx{
+  height: 200px;  
+}
+/* 상위캐릭터 개별박스에 오버시 이미지박스 트랜지션
+설명박스어ㅏ 동일하게 시 */
+.cat-inbox article .imbx{
+  transition: .4s ease-in-out;
+}
+.cat-inbox article:hover .imbx{
+  margin-top: -200px;
+}
+/* 캐릭터타이틀 */
+.descbx h3 {
+  font-family: "Gugi";
+  font-size: 2.4rem;
+  font-weight: normal;
+  padding: 15px 10px 5px;
+  letter-spacing: -1px;
+}
+.descbx p {
+  font-family: "Single Day", "ZCOOL KuaiLe";
+  font-size: 1.8rem;
+  line-height: 1.6;
+  padding: 1.5rem;
+  text-align: justify;
+}
 /************* 3. 하단영역 *************/
