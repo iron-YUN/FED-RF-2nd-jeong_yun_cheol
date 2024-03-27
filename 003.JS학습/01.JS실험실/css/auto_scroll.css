@@ -103,7 +103,7 @@ a{
 .gnb li.on a {
     display: inline-block; /* 트랜스폼적용위해 */
     color: lime;
-    text-decoration: overline; /* 윗줄 */
+    text-decoration: underline; /* 아랫줄 */
     transform: scale(1.1);
 }
 
