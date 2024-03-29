@@ -3,84 +3,241 @@
 
 /*********** 1. 웹폰트 : CDN ***********/
 /* Cute Font, Jua, Audiowide 체 */
-@import url('https://fonts.googleapis.com/css2?family=Audiowide&family=Cute+Font&family=Jua&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Audiowide&family=Cute+Font&family=Jua&display=swap");
 /* 
     font-family: 'Audiowide', cursive;
     font-family: 'Cute Font', cursive;
     font-family: 'Jua', sans-serif;
 */
 
-/* 초기화 */
-html,body,h1,h1,ul,ol{
-    margin: 0;
-    padding: 0;
-}
-/* 리스트 초기화 */
-ul,ol{
-    /* 블릿,숫자 없앰 : lin */
-    list-style: none;
-}
-body{
-    background-color: #000;
+/* 리셋CSS 불러오기 */
+@import url(./reset.css);
+
+body {
+  background-color: #000;
 }
 /* 공사중 표시 */
 body * {
-    outline: 2px dashed yellow;    /* 두께 종류 색상 */
+  /* outline: 2px dashed yellow;  */
 }
 /* 공통 클래스 */
 /* 파트 공통 */
-.part{
-    width: 1200px; /*중앙정렬 마영오!*/
-    margin: 0 auto;
+.part {
+  max-width: 1200px; /*중앙정렬 마영오!*/
+  margin: 0 auto;
 }
 /**************************** 1.상단영역 ****************************/
-.top-area{
-    height: 80px;
-    /* 배경이미지 */
-    background: url(../images/curtain.jpg) repeat-x ;
+.top-area {
+  position: relative;
+  /* 부모자격 - .gnb */
+  height: 80px;
+  /* 배경이미지 */
+  background: url(../images/curtain.jpg) repeat-x;
 }
 /* 1-1.타이틀 */
-.tit{
-    font-family: 'Jua', sans-serif;
-    font-size: 40px;
-    color: aquamarine;
-    line-height: 80px;
-    text-align: center;
+.tit {
+  font-family: "Jua", sans-serif;
+  font-size: 40px;
+  color: aquamarine;
+  line-height: 80px;
+  text-align: center;
+  /* 글자 글로우효과 */
+  text-shadow: 0 0 4px aquamarine;
+  /* 애니메이션 */
+  animation: tit-ani 0.5s ease-in infinite alternate;
+}
+/* 타이틀 애니 키프레임 */
+@keyframes tit-ani {
+  to {
+    text-shadow: 0 0 12px aquamarine;
+  }
+}
+/* 1-2 BNB메뉴 */
+.gnb {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  z-index: 9;
+}
+.gnb ul {
+  /* 플렉스 박스 */
+  display: flex;
+  font-family: "Jua", sans-serif;
+  gap: 0 15px;
+  font-size: 2rem;
+}
+/* 상위li */
+.gnb > ul > li {
+  position: relative;
+  /* 부모자격 - .smenu */
+  padding-bottom: 10px;
+  /* 하위메뉴와 연결되게 함!
+    오버 이벤트가 끊어지지 않게함 */
+}
+/* 서브메뉴 */
+.smenu {
+  position: absolute;
+  width: 145px;
+  top: 35px;
+  left: 50%;
+  transform: translateX(-50%);
+  /* outline: 2px solid yellow; */
+  /* box-shadow:  0 0 5px #fff ; */
+  /* 모든 외곽선에 그림자 (글로수) 효과를 주려면 filter드랍쉐도우를 사용함 */
+  filter: drop-shadow(0 0 5px #fff);
+  border-radius: 5px;
+  font-size: 1.5rem;
+  line-height: 1.6;
+  padding: 3px;
+  background: url(../images/bg_smenu.png) no-repeat center/cover;
+  /* 처음에안보임 */
+  display: none;
+}
+/* 상위메뉴 오버시 서브 보이기 */
+.gnb ul > li:hover .smenu {
+  display: block;
+}
+/* 서브메뉴 ol */
+.smenu ol {
+  border: 1px solid #ccc;
+  padding: 10px;
+}
+/* 서브 오버시 글자색 */
+.smenu li:hover a {
+  color: red;
+  /* border-top:  1px solid red; */
+}
+/* 서브 오버시 아이콘 */
+.smenu li:hover a::after {
+  content: "🐬";
+  /* 오른쪽끝에 위치 */
+  float: right;
+}
+.gnb ul > li:nth-child(2) .smenu li:hover a::after {
+  content: "👽";
+}
+.gnb ul > li:nth-child(3) .smenu li:hover a::after {
+  content: "🐹";
+}
+.gnb ul > li:nth-child(4) .smenu li:hover a::after {
+  content: "🐨";
+}
+
+/* 영사기박스 */
+.cam {
+  position: absolute;
+  top: -12px;
+  right: -65px;
+}
+.cam img {
+  width: 50px;
+  transform: rotate(30deg);
+  /* rotate: 30deg; */
+  /* 트랜지션 */
+  transition: 0.3s 0.3s;
+}
+/* 오버시 빔박스 보이기 */
+.gnb:hover .cam img {
+  transform: rotate(0deg);
+  transition: 0.3s;
+}
+.gnb:hover .beam {
+  width: 200px;
+  transition: width 0.3s 0.3s;
+  /* 오버시 빔박스 떨리기 */
+  animation: beam-ani 0.01s infinite alternate;
+}
+.gnb:hover .cam::after {
+  opacity: 0.8;
+  transition-delay: 0.4s;
+}
+/* 빔떨림애니 */
+@keyframes beam-ani {
+  to {
+    opacity: 0.4;
+  }
+}
+
+/* 빔박스 */
+.beam {
+  position: absolute;
+  top: -16px;
+  right: 10px;
+  width: 0;
+  height: 70px;
+  /* outline: 2px dashed yellow; */
+  background: url(../images/bim.png) no-repeat right/auto 100%;
+  opacity: 0.8;
+  /* 메뉴보다 아래 & 카메라보다 아래 */
+  z-index: -1;
+  transition: width 0.3s;
+}
+/* 가상요소로 스크린 */
+.cam::after {
+  content: "";
+  position: absolute;
+  z-index: -2;
+  width: 150px;
+  height: 70px;
+  top: -15px;
+  right: 100px;
+  background: url(../images/cgvvvvvv.gif) no-repeat -50% center/auto 80%;
+  opacity: 0;
+  /* transition: .3s .3s;  안맞음 */
+}
+/* 사이구분선 클래스 */
+.bd-top {
+  border-top: 1px solid #ccc;
+}
+/* 가상요소 삼각형만들기 */
+.smenu::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: -15px;
+  transform: translateX(-50%);
+  width: 20px;
+  height: 15px;
+  background-color: #373737;
+  /* 클립패스로 자르기 */
+  clip-path: polygon(0 100%, 50% 0, 100% 100%);
 }
 /**************************** 2.메인영역 ****************************/
-.main-area{
-    position: relative; /* 부모자격 : .screen */
-    height: 788px;
-    background: url(../images/bg.jpg) no-repeat; /* 극장이미지 배경 */
+.main-area {
+  position: relative; /* 부모자격 : .screen */
+  /* height: 788px; */
+  /* 높이값 주지말고 비율박스 만들기 */
+  aspect-ratio: 1200/788;
+  background: url(../images/bg.jpg) no-repeat center/cover; /* 극장이미지 배경 */
 }
 /* 스크린 */
-.screen{
-    position: absolute; /* 부모는? main-area */
-    top: 136px;
-    left: 257px;
-    width: 701px;
-    height: 397px;
-    background-color: #000;
+.screen {
+  position: absolute; /* 부모는? main-area */
+  top: 17%;
+  left: 21%;
+  width: 59%;
+  height: 51%;
+  background-color: #000;
 }
 /* 유튜브 아이프레임 */
-.screen iframe#ifr{
-    width: 100%;
-    height: 100%;
-    /* 기본 프레임보더 없앰 */
-    border: none;
+.screen iframe#ifr {
+  width: 100%;
+  height: 100%;
+  /* 기본 프레임보더 없앰 */
+  border: none;
 }
 /* 포스터메뉴 */
-.poster-menu{
-    /* 한번에 메인영역 하단으로 위치이동 포지셔닝을
+.poster-menu {
+  /* 한번에 메인영역 하단으로 위치이동 포지셔닝을
     하기위한 최적의 포지션은 absolute 다! */
-    position: absolute; 
-    width: 65%;
-    left: 50%;
-    bottom: 5%;
-    transform: translateX(-50%);
-    /*부모는?? .main-area*/
-    bottom: 50px;
-    /* left: calc(1200px/2 - 795px/2); */
+  position: absolute;
+  width: 65%;
+  left: 50%;
+  bottom: 5%;
+  transform: translateX(-50%);
+  /*부모는?? .main-area*/
+  bottom: 50px;
+  /* left: calc(1200px/2 - 795px/2); */
 }
 /* 포스터 ul 가상요소 clear */
 /* .poster-menu ul::after{
@@ -89,65 +246,104 @@ body * {
     clear: both;
 } */
 /* 포스터 리스트 */
-.poster-menu ul{
-    /* 플렉스박스 */
+.poster-menu ul {
+  /* 플렉스박스 */
   display: flex;
   /* 하위요소 사이간격 */
   gap: 0 15px;
 }
 /* 상위 ul>li 리스트 */
-.poster-menu>ul>li{
-    position: relative;
-    /* 부모자격 - 영화정보박스 */
-    overflow: hidden;
-    /* 자식요소인 영화정보박스 숨기기 */
+.poster-menu > ul > li {
+  position: relative;
+  /* 부모자격 - 영화정보박스 */
+  overflow: hidden;
+  /* 자식요소인 영화정보박스 숨기기 */
 }
 /* 포스터 이미지 */
-.poster-menu img{
-/* height: 170px; */
-width: 100%;
+.poster-menu img {
+  /* height: 170px; */
+  width: 100%;
 }
 
 /* 영화정보박스 : 오버시 올라올 박스*/
-.mv-info{
-    position: absolute;
-    /* 부모는? .poster-menu>ul>li */
-    top: 100%;
-    width: 100%;
-    height: 100%;
-    color: #fff;
-    text-align: center;
-    /* 트랜지션 */
-    transition: .3s ease-in-out;
+.mv-info {
+  position: absolute;
+  /* 부모는? .poster-menu>ul>li */
+  top: 100%;
+  width: 100%;
+  height: 100%;
+  color: #fff;
+  text-align: center;
+  /* 트랜지션 */
+  transition: 0.3s ease-in-out;
 }
 
 /* 부모 li 에 오버시 영화정보 박스 올라오기 */
-.poster-menu>ul>li:hover .mv-info{
-    top: 0;
+.poster-menu > ul > li:hover .mv-info {
+  top: 0;
 }
 
 /* 영화정보박스 하위 ol */
-.mv-info ol{
-    /* 플렉스박스
+.mv-info ol {
+  /* 플렉스박스
     -> 옆으로 흘러가지 않아도 
     구성요소의 흐름을 제어할 목적으로 줌! */
-    display: flex;
-    /* 플렉스 진행방향 */
-    flex-direction: column;
-    /* 진행방향정렬 */
-    justify-content: center;
-    /* 부모박스 채우기 */
-    height: 100%;
-    /* 줄바꿈 방지 */
-    white-space: nowrap;
-    /* 글자크기 */
-    font-size: 12px;
-    /* 줄간격 */
-    line-height: 2;
-    /* 반투명배경 */
-    background-color: #0000009b;
+  display: flex;
+  /* 플렉스 진행방향 */
+  flex-direction: column;
+  /* 진행방향정렬 */
+  justify-content: center;
+  /* 부모박스 채우기 */
+  height: 100%;
+  /* 줄바꿈 방지 */
+  white-space: nowrap;
+  /* 글자체 */
+  font-family: 'Cute Font', cursive;
+  /* 글자크기 */
+  font-size: min(15px, 1.3vw);
+  /* 줄간격 */
+  line-height: 2;
+  /* 반투명배경 */
+  background-color: #0000009b;
 }
+/* 영화정보 제목만 글자 변경 */
+.mv-info ol li:first-child {
+    color: aqua;
+    /* font-weight: bold; */
+    font-size: min(17px, 1.5vw);
+}
+
 /**************************** 3.하단영역 ****************************/
-.footer-area{
-    height: 100px;
+.footer-area {
+  display: flex;
+  /* height: 100px; */
+  gap: 0 20px;
+  padding: 30px;
+  /* 진행방향 수직정렬 한줄 */
+  align-items: center
+}
+
+/* 3-1.하단로고  */
+
+
+/* 3-1.회사정보  */
+.co-info address{
+    color: #ccc;
+    font-size: 2rem;
+    /* 이텔릭해제 */
+    font-style: normal;
+    font-family: 'Cute Font', cursive;
+  }
+
+/* 3-1.SNS  */
+.sns-box{
+    /* 플렉스 자식에서 왼쪽마진을 auto로 주면
+    오른쪽 끝으로 이동함 */
+    margin-left: auto;
+}
+.sns-box ol{
+    display: flex;/* 플렉스박스 */
+    /* width: ; */
+    font-size: 4rem;
+    gap:  0 20px;
 }

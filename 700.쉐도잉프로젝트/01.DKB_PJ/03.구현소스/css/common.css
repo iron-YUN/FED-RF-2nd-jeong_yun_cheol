@@ -5,21 +5,21 @@
 
 /* 0. 전체 레이아웃 영역별 셋팅 */
 /* 1. 상단영역 */
-.top-area{
+.top-area {
   height: 120px;
 }
 /* 2. 배너영역 */
-.ban-area{
+.ban-area {
   position: relative;
   /* 부모자격 - .cat-box */
   height: 680px;
 }
 /* 2.5.서브파트메뉴 */
-.spart-menu{
+.spart-menu {
   height: 68px;
 }
 /* 8. 하단영역 */
-.footer-area{
+.footer-area {
   height: 371px;
 }
 
@@ -92,7 +92,7 @@
   left: 0;
   /* 부모는? 보이는 화면 */
   width: 100%;
-z-index: 999;
+  z-index: 999;
   background-color: #fff;
 
   /* 최대높이값 0 */
@@ -133,15 +133,15 @@ z-index: 999;
 /* 2-1. 배너영역 */
 
 /* 슬라이드 박스 */
-.slide-box{
+.slide-box {
   position: relative;
   /* 부모자격 : 이벤트커버 .evt-cover */
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
 }
 /* 이벤트커버박스 */
-.evt-cover{
+.evt-cover {
   position: absolute;
   top: 0;
   left: 0;
@@ -150,18 +150,17 @@ z-index: 999;
   display: flex;
 }
 /* 양분박스 aside */
-.evt-cover aside{
+.evt-cover aside {
   /* 등분할 */
   flex: 1;
   /* 손가락모양 */
   cursor: pointer;
 }
 /* 버튼요소 */
-.abtn{
+.abtn {
   background-color: #000000;
   border-radius: 50%;
 
-  
   position: fixed;
   top: 0;
   left: 0;
@@ -170,36 +169,35 @@ z-index: 999;
   font-size: 24;
   color: #fff;
   text-shadow: 0 0 5px #000;
-  display: none;/* 처음에 숨기기 */
+  display: none; /* 처음에 숨기기 */
   /* translate: -50% , -50% ; */
   /* 따라다니는 버튼요소 오버시 무시하기 */
   pointer-events: none;
-  transition: .1s ease-out;
-  transform: translate(-50% , -90%);
-
+  transition: 0.1s ease-out;
+  transform: translate(-50%, -90%);
 }
 /* 슬라이더 */
-.slider{
-    position: relative;
-    /* 슬라이드 위치이동 초기값 */
-    left: 0;
-    display: flex;
-    /* 하위 li를 옆으로 흐르게함 */
-    width: 100%;
-    height: 100%;
+.slider {
+  position: relative;
+  /* 슬라이드 위치이동 초기값 */
+  left: 0;
+  display: flex;
+  /* 하위 li를 옆으로 흐르게함 */
+  width: 100%;
+  height: 100%;
 }
-.slider li{
-    flex-basis: 100%;
-    flex-shrink: 0;
-    /* 부모크기만큼 옆으로 나가게 하려면
+.slider li {
+  flex-basis: 100%;
+  flex-shrink: 0;
+  /* 부모크기만큼 옆으로 나가게 하려면
     flex-shrink 기본값 1을 0으로 변경한다!
     1의 의미는 자동으로 부모크기에 맞추어 줄어듬
     0의 의미는 설정된 크기만큼 늘어남! */
 
-    /* 공통배경설정 */
-    background-repeat: no-repeat;
-    background-position: center top;
-    background-size: cover;
+  /* 공통배경설정 */
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-size: cover;
 }
 /* 슬라이드 01 */
 .snum-01 {
@@ -212,10 +210,45 @@ z-index: 999;
   background-image: url(../images/bg_mainvisual5.jpg);
 }
 
+/* 블릿박스 */
+.indic-box {
+  position: absolute;
+  top: 20px;
+  left: 30px;
+  width: 450px;
+  height: 5px;
+  z-index: 1;
+}
+.indic {
+  display: flex;
+  gap: 0 15px;
+}
+.indic li{
+  width: 150px;
+  height: 5px;
+  background-color: #ffffff8a;
+}
+/* 가상요소바 */
+.indic li::before{
+  content: '';
+  display: block;
+ width: 0;
+ height: 5px;
+ background-color: #fff;
+}
+
+/* li.on일경우 가상요소 width 변경 */
+.indic li.on::before{
+  transition: width 3s linear;
+  width: 100%;
+
+}
+
+
 
 /* 캐릭터 박스
 -> 캐릭터 속박스가 있는 공간을 확보해준다! */
-.cat-box{
+.cat-box {
   position: absolute;
   left: 0;
   bottom: 5%;
@@ -223,10 +256,9 @@ z-index: 999;
   width: 100%;
   /* height: 300px; */
   outline-color: red;
-
 }
 /* 캐릭터 속박스 - static한 박스임!(공간차지) */
-.cat-inbox{
+.cat-inbox {
   /* 플렉스박스 */
   display: flex;
   /* 플렉스자식 사이간격
@@ -240,15 +272,15 @@ z-index: 999;
   padding: 0 1vw;
 }
 /* 캐릭터 개별박스 등분할 */
-.cat-inbox article{
+.cat-inbox article {
   flex: 1;
 }
 /* 캐릭터 이미지박스 */
-.imbx img{
+.imbx img {
   width: 100%;
 }
 /* 캐릭터 이름이미지 박스 */
-.iname{
+.iname {
   display: block;
   margin-top: -19%;
   /* 앱솔루트없이 마진으로
@@ -258,21 +290,19 @@ z-index: 999;
   text-align: center;
 }
 /* 캐릭터 이름이미지 */
-.iname img{
+.iname img {
   width: 40%;
 }
 /* 두번째 이미지 숨기기 */
-.iname img:last-child{
+.iname img:last-child {
   display: none;
 }
 /* 오버시 두번째 이미지 보이기 */
-.cat-inbox article:hover 
-.iname img:last-child{
+.cat-inbox article:hover .iname img:last-child {
   display: inline;
 }
 /* 오버시 첫번째 이미지 숨기기 */
-.cat-inbox article:hover 
-.iname img:first-child{
+.cat-inbox article:hover .iname img:first-child {
   display: none;
 }
 
@@ -287,7 +317,7 @@ z-index: 999;
   정해진 크기 보다 넘치는 세로 스크롤만 생김! */
   background: url(../images/eachBG.jpg) no-repeat bottom/cover;
   /* 트랜지션 */
-  transition: .4s ease-in-out;
+  transition: 0.4s ease-in-out;
 }
 /* 상위 캐릭터 개별박스에 오버시 설명박스 보이기 */
 .cat-inbox article:hover .descbx {
@@ -297,7 +327,7 @@ z-index: 999;
 설명박스와 동일하게 설정하기 */
 .cat-inbox article .imbx {
   margin-top: 3%;
-  transition: .4s ease-in-out;
+  transition: 0.4s ease-in-out;
 }
 /* 상위 캐릭터 개별박스에 오버시 이미지박스 마이너스
 마진으로 위로 올리기 + 캐릭터 타이틀 마진탑도! */
@@ -306,19 +336,19 @@ z-index: 999;
   margin-top: -55%;
 }
 /* 캐릭터 타이틀 */
-.descbx h3{
+.descbx h3 {
   margin-top: 0;
-  font-family: 'Gugi';
+  font-family: "Gugi";
   /* 글자크기 최대 2.4rem, 기타는 2vw */
   font-size: min(2.4rem, 2vw);
   font-weight: normal;
   padding: 15px 10px 5px;
   letter-spacing: -1px;
   /* 트랜지션 */
-  transition: margin-top .4s ease-in-out;
+  transition: margin-top 0.4s ease-in-out;
 }
-.descbx p{
-  font-family: 'Single Day','ZCOOL KuaiLe';
+.descbx p {
+  font-family: "Single Day", "ZCOOL KuaiLe";
   /* 글자크기 최대 1.8rem, 기타는 1.3vw */
   font-size: min(1.8rem, 1.3vw);
   line-height: 1.6;
@@ -327,9 +357,4 @@ z-index: 999;
   text-align: justify;
 }
 
-
 /************* 3. 하단영역 *************/
-
-
-
-
