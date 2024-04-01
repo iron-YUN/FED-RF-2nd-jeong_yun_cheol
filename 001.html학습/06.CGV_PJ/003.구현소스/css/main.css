@@ -1,17 +1,10 @@
 @charset "utf-8";
 /* CGV PJ 메인 페이지 CSS - main.css */
 
-/*********** 1. 웹폰트 : CDN ***********/
-/* Cute Font, Jua, Audiowide 체 */
-@import url("https://fonts.googleapis.com/css2?family=Audiowide&family=Cute+Font&family=Jua&display=swap");
-/* 
-    font-family: 'Audiowide', cursive;
-    font-family: 'Cute Font', cursive;
-    font-family: 'Jua', sans-serif;
-*/
 
 /* 리셋CSS 불러오기 */
 @import url(./reset.css);
+@import url(./core.css);
 
 body {
   background-color: #000;
@@ -150,6 +143,7 @@ body * {
 .gnb:hover .cam::after {
   opacity: 0.8;
   transition-delay: 0.4s;
+  width: 150px;
 }
 /* 빔떨림애니 */
 @keyframes beam-ani {
@@ -177,7 +171,7 @@ body * {
   content: "";
   position: absolute;
   z-index: -2;
-  width: 150px;
+  width: 0;/* 오버시  width: 150px; */
   height: 70px;
   top: -15px;
   right: 100px;
@@ -239,6 +233,8 @@ body * {
   bottom: 50px;
   /* left: calc(1200px/2 - 795px/2); */
 }
+
+
 /* 포스터 ul 가상요소 clear */
 /* .poster-menu ul::after{
     content: '';
@@ -251,6 +247,8 @@ body * {
   display: flex;
   /* 하위요소 사이간격 */
   gap: 0 15px;
+  /* 원근설정 : 하위li에 적용 */
+  perspective: 100vh;
 }
 /* 상위 ul>li 리스트 */
 .poster-menu > ul > li {
@@ -258,7 +256,29 @@ body * {
   /* 부모자격 - 영화정보박스 */
   overflow: hidden;
   /* 자식요소인 영화정보박스 숨기기 */
+  
+  /* x축회전 */
+  transform: rotateX(40deg);
+  /* 기본회전축 하단변경 */
+  transform-origin: bottom;
+  /* 트랜지션 */
+  transition: transform .3s ease-in-out;
 }
+/* li오버시 일어나기 + .on 줄때 일어나기*/
+.poster-menu > ul > li.on,
+.poster-menu > ul > li:hover {
+  transform: rotateX(0deg);
+  /* 오버요소 항상위 */
+  z-index: 1;
+  /* 아웃라인 */
+  outline: 1px solid aqua
+}
+
+
+
+
+
+
 /* 포스터 이미지 */
 .poster-menu img {
   /* height: 170px; */
@@ -347,3 +367,5 @@ body * {
     font-size: 4rem;
     gap:  0 20px;
 }
+
+
