@@ -41,6 +41,9 @@ for(let x of myText) {
     // 중요!! 지연시간에 곱해질 순번증가하기!
     seqNum++;
 
+
+    
+} ///////////////////// for of ///////////////////////////
     // 5.스테이지에 코드 출력하기
     stage.innerHTML = hcode;
 
@@ -48,6 +51,3 @@ for(let x of myText) {
     setTimeout(() => {
         stage.classList.add('on');
     }, 1000);
-
-    
-} ///////////////////// for of ///////////////////////////
