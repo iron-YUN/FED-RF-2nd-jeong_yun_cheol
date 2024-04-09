@@ -19,7 +19,7 @@ import * as txtData from "./text_data.js";
 // 불러온 객체확인
 // console.log(myFn, mTitle, sTitle, personInfo, mvData);
 // console.log(myFn, mTit, sTit, pInfo, mdt);
-console.log(txtData, txtData.mTitle);
+console.log(txtData, txtData.mTitle, txtData.myObj, txtData.myFunc);
 
 // [단일 함수 export default로 내보낸 단일 함수 불러오기]
 // import makeMessage from "./msg_format.js";
@@ -108,7 +108,7 @@ txtData.personInfo.forEach(function (v) {
 // 데이터는? txtData.mvData 배열임!
 mvBox.innerHTML = "<h2>♥ 영화위시리스트 ♥</h2>";
 txtData.mvData.forEach((v) => {
-    mvBox.innerHTML +=`
+  mvBox.innerHTML += `
         <ol>
             <li>★제목 : ${v[0]}
             </li>
