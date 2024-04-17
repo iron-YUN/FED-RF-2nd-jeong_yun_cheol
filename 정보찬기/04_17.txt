@@ -1,0 +1,48 @@
+데이터 가공 문자/숫자
+JS폴더 7-1,7-2
+
+[1 문자]
+ 1. 문자치환함수: replace(바뀔값,바꿀값)
+
+2. 문자추출
+1) substr(시작순서,개수)
+2) substring(시작순서,끝순서)
+3) 공통사항 : substr(시작순서) / substring(시작순서)
+
+ 3. 문자 자르기 함수 : split(자를기준문자열)
+
+4. String(숫자데이터)
+
+[2 숫자]
+1. 숫자변환 : Number(문자형숫자) -> 숫자형변환
+
+2. 숫자여부판별 : isNaN(값)
+
+3. 숫자추출(숫자형변환)
+ 1) parseInt(숫자+문자)
+2) parseFloat(숫자+문자)
+
+4. 문자로된 숫자계산식 eval(계산식)
+==============================
+드래그
+Js폴더 JS실험실 05드래그기본
+css : grab은 편손, grabbing은 쥔손 
+cursor: grab;
+
+1. 딸mousedown
+2. 각mouseup
+3. 질질mousemove
+mousedown 할때 드래그 상태변수값을 true(1)로 변경
+mouseup 할때 드래그 상태변수값을 false(0)으로 변경
+
+프로세스
+(1) mousedown: touchstart
+ (2) mousemove: touchmove
+(3)mousemove  left,top 값
+(4) mouseup: touchend
+(5) mousemove 이동을 계산함
+
+
+
+
+
