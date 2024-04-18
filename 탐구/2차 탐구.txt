@@ -1,0 +1,7 @@
+1. 리조트피플
+https://www.resortpeople.net/#section1
+-리조트 라는 하나의주제
+-서브페이지에서 비슷한 정보는 뿌려주기 수월함
+-적은 서브페이지 량
+-직관적이고 단순한 디자인패턴
+-stiky + 인딕, 드래그슬라이드 ,getboundclientrec 등의
