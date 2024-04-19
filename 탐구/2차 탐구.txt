@@ -1,3 +1,11 @@
+사이트 벤치마킹 포털
+(1) 디비컷
+https://www.dbcut.com/
+(2) 굿디자인웹
+https://www.gdweb.co.kr/main/
+(3) 어워즈
+https://www.awwwards.com/
+
 1. 리조트피플 : 보류 : 너무단순함
 https://www.resortpeople.net/#section1
 -리조트 라는 하나의주제
@@ -30,3 +38,10 @@ https://www.vwxgolf.com/
 - 편리한 UI 
 - 스크린위치값에따른 동적요소 (많지는 않음)
 단점 : 미구현된 ABOUT 서브페이지
+
+5. 코오롱 워크웨어
+https://www.kolonworkwear.com/
+-한가지의 주제
+
+6.위디스플레이
+https://wedisplay.solutions/
