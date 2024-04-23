@@ -1,0 +1,94 @@
+@charset "utf-8";
+
+@import url(./reset.css);
+@import url(./common.css);
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Body styles */
+  body {
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Background image */
+  .bg-image {
+    background: url(./자료수집/IMG/fuck2.jpg) no-repeat center/cover;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* filter: brightness(0.8); */
+  }
+  
+  /* Main content styles */
+  .main {
+    position: relative;
+    z-index: 1; /* 배경 이미지 위로 올리기 */
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  /* Logo styles */
+  .logo {
+    display: flex;
+    margin-bottom: 50px;
+    flex-direction: column;
+  }
+  
+  .logo img {
+    width: 30vw; /* 로고 크기 조절 */
+  }
+  
+  /* Sidebar styles */
+  .GNB {
+    position: absolute;
+    left: 20px;
+    top: 50%; /* 상위 컨테이너의 중간으로 정렬 */
+    transform: translateY(-50%); /* 수직으로 정렬 */
+  }
+  
+  .menu-list {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .menu-list li {
+    margin-bottom: 15%;
+  }
+  
+  .menu-list li a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 40px;
+    font-weight: bold;
+    transition: .3s;
+  }
+  .menu-list li a:hover{
+    color: #ff3ec5;
+  }
+ 
+  /* .menu-list li a:hover .bg-image {
+    filter: brightness(0.5);
+  } */
+
+  .ts-img{
+    position: absolute;
+    z-index: 2;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    opacity: 0;
+    transition: .5s;
+  }
+  .menu-list li a:hover .ts-img{
+      opacity: 1;
+  }
+  
