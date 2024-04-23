@@ -1,0 +1,53 @@
+팀프로젝트 : 토이스토리
+1차모임 : 04-23
+메인페이지 : 다같이 작업
+-> 대문짝만하게 배경을깔고 중앙에 로고
+ 메인페이지를 가볍게 하고 각자 시리즈별 서브
+메뉴구성 : 사이드 1~4
+하단 : 픽사 sns 아이콘
+서브1 : 이은경
+서브2 : 정윤철
+서브3 : 이재윤
+서브4 : 임도연
+
+04-24
+메인페이지 작업
+이미지,영상 수집 ,발사믹발사
+index.html
+main.css
+main.js
+
+
+**************폰트****************
+1.Dancing Script : 디즈니 스러운 손글씨
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap');
+.dancing-script-<uniquifier> {
+  font-family: "Dancing Script", cursive;
+  font-optical-sizing: auto;
+  font-weight: <weight>;
+  font-style: normal;
+}
+
+2.Lugrasimo
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Lugrasimo&display=swap');
+.lugrasimo-regular {
+  font-family: "Lugrasimo", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+
+3. Pacifico
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Lugrasimo&family=Pacifico&display=swap');
+.pacifico-regular {
+  font-family: "Pacifico", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+
+4. Lobster 
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Lobster&family=Lugrasimo&family=Pacifico&display=swap');
+.lobster-regular {
+  font-family: "Lobster", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
