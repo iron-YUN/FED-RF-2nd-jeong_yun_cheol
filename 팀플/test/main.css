@@ -3,6 +3,11 @@
 @import url(./reset.css);
 @import url(./common.css);
 
+
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap');
+  /* font-family: "Dancing Script", cursive; */
+
+
 * {
     margin: 0;
     padding: 0;
@@ -16,19 +21,20 @@
   
   /* Background image */
   .bg-image {
-    background: url(./자료수집/IMG/fuck2.jpg) no-repeat center/cover;
+    background: url(./IMG/bg2.jpg) no-repeat center/cover;
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    /* filter: brightness(0.8); */
+    filter: brightness(0.8);
+    transition: filter 0.3s ease-in-out;
   }
   
   /* Main content styles */
   .main {
     position: relative;
-    z-index: 1; /* 배경 이미지 위로 올리기 */
+    z-index: 1; 
     padding: 20px;
     display: flex;
     justify-content: center;
@@ -39,7 +45,7 @@
   /* Logo styles */
   .logo {
     display: flex;
-    margin-bottom: 50px;
+    margin: 25px 0;
     flex-direction: column;
   }
   
@@ -50,9 +56,10 @@
   /* Sidebar styles */
   .GNB {
     position: absolute;
-    left: 20px;
-    top: 50%; /* 상위 컨테이너의 중간으로 정렬 */
-    transform: translateY(-50%); /* 수직으로 정렬 */
+    z-index: 1;
+    left: 2%;
+    top: 50%; 
+    transform: translateY(-50%);
   }
   
   .menu-list {
@@ -61,34 +68,29 @@
   }
   
   .menu-list li {
-    margin-bottom: 15%;
+    margin: 20% 0;
   }
   
   .menu-list li a {
-    text-decoration: none;
     color: #fff;
+    text-decoration: none;
+    font-family: "Dancing Script", cursive;
     font-size: 40px;
     font-weight: bold;
     transition: .3s;
   }
-  .menu-list li a:hover{
+  .menu-list li:hover a{
     color: #ff3ec5;
   }
- 
-  /* .menu-list li a:hover .bg-image {
-    filter: brightness(0.5);
-  } */
 
   .ts-img{
     position: absolute;
-    z-index: 2;
     top: 50%;
     left: 50%;
     transform: translate(-50%,-50%);
     opacity: 0;
-    transition: .5s;
+    pointer-events: none;
+    transition: opacity 0.3s ease-in-out;
   }
-  .menu-list li a:hover .ts-img{
-      opacity: 1;
-  }
+
   

@@ -207,7 +207,7 @@ function leftSlide(leftVal = "-330%") {
     // 함수호출시 전달값이 없는 경우엔 기본값으로 처리하고
     // 함수호출시 전달값이 있으면 그 전달될 값으로 처리한다!
     // 이것을 함수 전달변수 기본입력값 처리라고 한다!
-    console.log("왼쪽버튼이동left값:", leftVal);
+    // console.log("왼쪽버튼이동left값:", leftVal);
     // leftVal - li앞에 이동시 left값 설정변수
     // 1. 슬라이드 li 새로 읽기
     let eachOne = slide.querySelectorAll("li");
@@ -338,9 +338,9 @@ setTimeout(() => {
   let valFirst = leftVal * 1.1;
   // 오른쪽으로 이동할 기준값(기준위치값*0.9)
   let valSecond = leftVal * 0.9;
-  console.log("기준값:", leftVal);
-  console.log("기준값의 110%:", valFirst);
-  console.log("기준값의 90%:", valSecond);
+  // console.log("기준값:", leftVal);
+  // console.log("기준값의 110%:", valFirst);
+  // console.log("기준값의 90%:", valSecond);
   // left위치값 최초셋업! -> px단위 꼭 쓸것!!!
   dtg.style.left = leftVal + "px";
 
@@ -451,10 +451,10 @@ setTimeout(() => {
 
     // 대상의 left값 찍기(px단위를 parseInt()로 없애기!)
     let currentLeft = parseInt(dtg.style.left);
-    console.log("슬라이드left:", currentLeft, "X축순수이동값:", resultX);
+    // console.log("슬라이드left:", currentLeft, "X축순수이동값:", resultX);
     // 대상 슬라이드 이동기준 분기하기
     if (currentLeft < valFirst) {
-      console.log("왼쪽으로 이동!!!");
+      // console.log("왼쪽으로 이동!!!");
       // 오른쪽버튼 클릭시 왼쪽이동과 동일!
       // rightSlide() 함수 호출함!
       rightSlide();
@@ -462,7 +462,7 @@ setTimeout(() => {
       slideSeq = 3;
     } /// if ///
     else if (currentLeft > valSecond) {
-      console.log("오른쪽으로 이동!!!");
+      // console.log("오른쪽으로 이동!!!");
       // 왼쪽버튼 클릭시 오른쪽이동과 동일!
       // leftSlide() 함수 호출함!
       // 슬라이드 이동함수 호출시 드래그시 이동된값이
@@ -472,7 +472,7 @@ setTimeout(() => {
     } /// else if ///
     else {
       // valFirst와 valSecond의 사이범위
-      console.log("제자리!!!");
+      // console.log("제자리!!!");
       slide.style.left = "-220%";
       slide.style.transition = ".3s ease-in-out";
     } /// else ////
@@ -529,7 +529,7 @@ setTimeout(() => {
 
     // 드래그 슬라이드 이동함수 호출!
     moveDragSlide();
-    console.log("마우스 업!", lastX);
+    // console.log("마우스 업!", lastX);
   }); ///////// mouseup //////////
 
   // (3) 마우스 무브 이벤트 함수연결하기
@@ -539,7 +539,14 @@ setTimeout(() => {
   // (4) 마우스가 대상을 벗어나면 드래그상태값 false처리하기
   mFn.addEvt(dtg, "mouseleave", () => {
     // 드래그 상태값 false로 변경!
-    dFalse();
+    // 하단 컨트롤 mouseenter에서 처리하는 dragSts값 처리시
+    // mouseleave에서 처리하는 코드가 가장 나중에 처리하게 하려면
+    // 해당 코드는 setTimeout()gkatndp sjgsmsek!
+    // 결과적으로 이 코드는 큐(Queue)에 들어가서
+    // 기존 처리되는 일반 요청처리 코드가 모두 스택(stack)에서
+    // 처리가 끝날때까지 기다혔다가 큐에서 순서대로 스택으로 넘어가 처리된다!
+    setTimeout(dFalse,0);
+   
     // 과도한 드래그로 갑자가 아웃되면 lastX,lastY값이
     // 셋팅되지 못한다! 이것을 기존 요소의 위치값으로 보정함!
     // 단, style위치값 코드는 'px'단위가 있으므로 parseInt처리!
@@ -589,10 +596,15 @@ setTimeout(() => {
   //////////// touchmove /////////////
 
     // (4) 버튼,블릿에 오버시 자동처리호출셋팅 //
+    // (조건 : 드래그상태 변수인 dragSts 값이 true일때)
     mFn.qsaEl(selEl,'.controls').forEach((ele)=> 
     mFn.addEvt(ele,"mouseenter", ()=>{
-      moveDragSlide();
-      clearAuto();})//////
+      console.log('dragSts:',dragSts);
+      if(dragSts) {// 드래그중일때 처리
+        moveDragSlide();
+        clearAuto();
+      }
+    })///// /mouseenter /////
   );//////////////// forEach ///////
 
 
