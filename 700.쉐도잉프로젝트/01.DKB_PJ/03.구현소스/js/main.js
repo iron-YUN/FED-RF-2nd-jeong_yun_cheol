@@ -8,6 +8,9 @@ setElement();
 // 나의 함수 불러오기
 import myFn from "./my_function.js";
 
+// 드래그 슬라이드 불러오기 ///////
+import setSlide from "./drag_slide.js"
+
 // 부드러운 스크롤 불러오기
 import { startSS, setScrollPos } from "./smoothScroll23.js";
 
@@ -162,14 +165,13 @@ introMv.onclick = () => {
 /////////////////////////////////////////////////////////////
 
 // 5. 최신동영상 파트 데이터 태그 구성하여 화면 출력하기/////
-
 // 코드랩핑구역 ////////////////////////////////////////////
 (() => {
   //5-1. 변경대상 : .clip-box
   const clipBox = myFn.qs(".clip-box");
 
   //5-2. 생성코드 변수
-  let hcode = `<ul>`;
+  let hcode = `<ul class="slide">`;
   // 데이터만큼 순회하여 li코드 만들기 ////
   // 데이터 : dkbData.clipBox
   dkbData.clipData.forEach( v => {
@@ -189,3 +191,6 @@ introMv.onclick = () => {
   // 5-3. 화면출력하기 //////
   clipBox.innerHTML = hcode;
 })(); // 코드랩핑구역 종료 //////////////////////////////////
+
+// 드래그 슬라이드 태그 구성후 호출하기!
+setSlide('banbx');
