@@ -2,6 +2,7 @@
 
 @import url(./reset.css);
 @import url(./common.css);
+@import url(./core.css);
 
 
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap');
@@ -21,7 +22,7 @@
   
   /* Background image */
   .bg-image {
-    background: url(./IMG/bg2.jpg) no-repeat center/cover;
+    background: url(../IMG/bg/bg2.jpg) no-repeat center/cover;
     position: fixed;
     top: 0;
     left: 0;

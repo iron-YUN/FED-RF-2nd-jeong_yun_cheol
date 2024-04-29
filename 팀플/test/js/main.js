@@ -19,12 +19,13 @@ const showContent = () => {
     // TS 내용
     let tsContent = '';
 
-    // 반복문을 이용하여 내용 생성
+   
+    /////////////////////////////// a 태그 안에 "###" 대신 "./sub${i}.html" 고쳐서 넣으시오 ////////////////////////////////////////
     for (let i = 1; i <= 4; i++) {
         gnbContent += `
-        <li data-index="${i}"><a href="###">Toy Story ${i}</a></li>
+        <li data-index="${i}"><a href="./sub${i}.html">Toy Story ${i}</a></li>
         `;
-        tsContent += `<img src="./IMG/0${i}_ts.jpg" alt="ts${i}" class="ts-img">`;
+        tsContent += `<img src="./IMG/poster/0${i}_ts.jpg" alt="ts${i}" class="ts-img">`;
     }
     gnbContent += "</ul>";
 
