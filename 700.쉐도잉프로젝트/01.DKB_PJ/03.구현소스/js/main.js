@@ -9,7 +9,7 @@ setElement();
 import myFn from "./my_function.js";
 
 // 드래그 슬라이드 불러오기 ///////
-import setSlide from "./drag_slide.js"
+import setSlide from "./drag_slide_multi.js"
 
 // 부드러운 스크롤 불러오기
 import { startSS, setScrollPos } from "./smoothScroll23.js";
@@ -22,7 +22,7 @@ import * as dkbData from "../data/dkb_data.js";
 //// 구현코드 파트 ///////////////////////////////////
 
 // 1. 부드러운 스크롤 호출
-startSS();
+// startSS();
 
 // console.log('모듈로 메인 JS 호출!!!', document.querySelector('.top-menu'));
 

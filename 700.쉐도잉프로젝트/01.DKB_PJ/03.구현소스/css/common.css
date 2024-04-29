@@ -157,9 +157,8 @@
   cursor: pointer;
 }
 /* 버튼요소 */
-.abtn {
-  background-color: #000000;
-  border-radius: 50%;
+.ban-area .abtn {
+  /* background-color: #000000; */
 
   position: fixed;
   top: 0;
