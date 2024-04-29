@@ -11,7 +11,7 @@
 }
 /* 공사중 표시 */
 body * {
-  outline: 2px dashed #ccc;
+  /* outline: 2px dashed #ccc; */
 }
 .main-tit{
   font-size: 60px;
@@ -33,14 +33,17 @@ body * {
   top: 30vh;
 }
 .gnb ul li{
-  background-color: #0000003f;
-  margin: 10px 0 ;
+  margin: 5px 0 ;
   text-align: right;
 }
 .gnb ul li a{
+  padding: 0 10px;
+  box-sizing: border-box;
+  background-color: #0000003f;
   color: #fff;
   font-size: 20px;
   font-weight: bold;
+  line-height: 1.5;
 }
 /* 백그라운드 */
 /* position: fixed; */
