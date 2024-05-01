@@ -30,65 +30,24 @@ const elePage = document.querySelectorAll(".page");
 const totalCnt = elePage.length;
 console.log("대상:", elePage, totalCnt, "개");
 
-/*  나중에 업그레이드
-// 2.이벤트 연결함수/////////
-// DOM 함수객체//////
-// const domFn = {
-    // 요소선택함수
-    // (줄이기전 모양)qs : function(x){return document.querySelector(x)},
-    // qs : x => document.querySelector(x),
-    // qsa : x => document.querySelectorAll(x),
-//};/////// domFn 객체 //////
-*/
-
-//  2. 이벤트 등록하기 ////////////
-// 대상 : window
-// 전체 페이지 휠 이벤트의 대상은 window다!
-
 // 휠이벤트설정
 // 휠이벤트가 발생하면 wheelFn을 호출해라
 // window.addEventListener('wheel',wheelFn);
 window.addEventListener("wheel", wheelFn, { passive: false });
 
-/* 
- [window / document / body 세가지는 
-기본막기 불가 설정되어있음!!]
--> 이벤트 등록시 패지스모드가 true 로 설정됨
-셋팅방법 :
-요소.addEventListener(이벤트명,함수,{passive:true})
--> 기존엔 passive : false 였는데 이것의 기본값이
-true 로 변경됨.
- 의미는 기본기능 막기 못하게 설정됨!
-
- 우리가 변경하여 사용해야함!
- 요소.addEventListener(이벤트명,함수,{passive:false})
-*/
-
-
 //  [새로고침시 스크롤바 위치 인덱싱이 되므로
 // 맨위로 강제 이동하기 설정]
-//  scroll(x축이동,y축이동)
-
 setTimeout(() => {
     window.scroll(0,0);
 }, 500);
 
 // // 3. 함수 구현하기 ////////////////
-
-/*************************************** 
-    함수명: wheelFn
-    기능 : 마우스 휠 작동시 페이지이동
-***************************************/
 function wheelFn(e) {
-  // 이벤트전달변수(자동)
-  // 함수호출확인!
-  console.log("휠~~~!");
-
   // 1. 우리는 휠 기본기능을 막고
   // 자동으로 스크롤을 하나씩 되게 할 것이다.
-  e.preventDefault();
   // -> passive:flase설정해야함!
   // 왜? window니까!!!
+  e.preventDefault();
 
   // 2. 광휠금지장치 ////////
   if (stsWheel) {

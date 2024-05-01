@@ -33,4 +33,4 @@ function increasePercent() {
       window.location.href = "index.html";
     }, 300);
   }///// else /////
-} ////////////// increasePercent ///////////////////
+} ////////////// increasePercent ////////////////////

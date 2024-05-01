@@ -45,11 +45,19 @@ body * {
   font-weight: bold;
   line-height: 1.5;
 }
+#container {
+  transition: 1s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
 /* 백그라운드 */
 /* position: fixed; */
 #logo-area {
   background: url(../IMG/img2/bg_sky.jpg) no-repeat
-    center/cover;
+    center;
+}
+#summary-area{
+  background: url(../IMG/img2/bg_summary.jpg) no-repeat
+  center/cover;
 }
 #trailers-area{
   background: url(../IMG/img2/bg_TRAILERS.png) no-repeat
@@ -71,7 +79,6 @@ body * {
   background: url(../IMG/img2/bg_CREDITS.jpg) no-repeat
   center/cover;
 }
-
 #footer-area{
   background: url(../IMG/img2/bg_THANKS.jpg) no-repeat
   center/cover;
@@ -118,8 +125,6 @@ body * {
   margin: 0 auto;
   bottom: 0;
   height: 100vh;
-  aspect-ratio: 261/208;
-  background: url(../IMG/img2/chars.png) no-repeat center;
 }
 .chars-bg p {
   position: relative;
@@ -129,7 +134,7 @@ body * {
   background-color: #fff;
   color: #000;
   padding: 5% 10%;
-  border-radius: 10%;
+  border-radius: 50px;
 }
 .chars-bg a:first-child h1{
   position: absolute;

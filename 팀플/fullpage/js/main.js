@@ -9,7 +9,7 @@ window.addEventListener('wheel', function (e) {
 
   setTimeout(() => {
     scrollable = false;
-  }, 1000);
+  }, 500);
 
   // 내리면 양수, 올리면 음수
   const deltaY = e.deltaY || e.wheelDeltaY;
@@ -39,3 +39,4 @@ window.addEventListener('wheel', function (e) {
     }px)`;
   }
 });
+
