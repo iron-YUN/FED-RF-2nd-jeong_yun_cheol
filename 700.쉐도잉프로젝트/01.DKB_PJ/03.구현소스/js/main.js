@@ -9,10 +9,10 @@ setElement();
 import myFn from "./my_function.js";
 
 // 드래그 슬라이드 불러오기 ///////
-import setSlide from "./drag_slide_multi.js"
+import setSlide from "./drag_slide_multi.js";
 
 // 부드러운 스크롤 불러오기
-import { startSS, setScrollPos } from "./smoothScroll23.js";
+import SmoothScroll from "./smoothScroll23.js";
 
 // 데이터 셋팅 불러오기**************
 import * as dkbData from "../data/dkb_data.js";
@@ -21,12 +21,11 @@ import * as dkbData from "../data/dkb_data.js";
 ////////////////////////////////////////////////////////////////////////////////////////
 //// 구현코드 파트 ///////////////////////////////////
 
+
 // 1. 부드러운 스크롤 호출
-// startSS();
+const mySmooth = new SmoothScroll(document,60,20);
 
 // console.log('모듈로 메인 JS 호출!!!', document.querySelector('.top-menu'));
-
-
 
 // 3.인트로 동영상 파트 클릭시 동영상 태그넣기
 // 이벤트대상 === 변경대상 : .intro-mv-img
@@ -174,7 +173,7 @@ introMv.onclick = () => {
   let hcode = `<ul class="slide">`;
   // 데이터만큼 순회하여 li코드 만들기 ////
   // 데이터 : dkbData.clipBox
-  dkbData.clipData.forEach( v => {
+  dkbData.clipData.forEach((v) => {
     hcode += `
           <li>
             <div class="clip-mv-box">
@@ -193,4 +192,71 @@ introMv.onclick = () => {
 })(); // 코드랩핑구역 종료 //////////////////////////////////
 
 // 드래그 슬라이드 태그 구성후 호출하기!
-setSlide('banbx');
+setSlide("banbx");
+
+/*************************************************** 
+  메인 페이지용 도깨비 메뉴 스크롤이동 제이쿼리 구현
+***************************************************/
+// 메뉴 클릭 대상 : .spart-menu a
+$(".spart-menu a").click((e) => {
+  // a요소 클릭시 기본이동 막기
+  e.preventDefault();
+
+  // 1. 클릭한 a요소의 글자 읽어오기
+  let txt = $(e.target).text();
+  console.log(txt);
+
+  // 2.이동할 위치값 알아내기
+  let pos;
+  // 이동할 위치의 박스 아이디 매칭하기
+  switch (txt) {
+    case "미리보기":
+      pos = "#preview-area";
+      break;
+    case "프로그램 소개":
+      pos = "#intro-area";
+      break;
+    case "동영상":
+      pos = "#clip-video-area";
+      break;
+    case "현장 포토":
+      pos = "#real-photo-area";
+      break;
+    case "대표 포스터":
+      pos = "#main-photo-area";
+      break;
+  } //////////스위치 케이스////////
+  // 만약 해당된 요소가 없으면 여기도 돌아가!
+  // 위에서 할당 안되면 undefined이면 if문에서 false처리됨
+  // !()연산자로 반대로 뒤집으면 false일때 처리함!
+  if(!pos) return;
+
+  // 해당박스 아이디의 위치값 알아내기
+  // .offset().top; 제이쿼리 toop위치값정보
+  pos = $(pos).offset().top;
+  console.log("위치값:", pos);
+
+
+  // 3.스크롤 애니메이션 이동하기
+  // 제이쿼리는 이것을 정말 잘한다!
+  // $("html,body").animate({scrollTop:몇px},시간,이징,함수)
+  $("html,body").animate({ scrollTop: pos + "px" }, 800, "easeInOutQuint",
+  // 콜백함수 (애니후 호출되는 함수)
+  ()=>{
+    // 이동후 부드러운 스크롤 위치값 업데이트 필수
+    // 이것 안하면 위치이동후 스크롤시 튐!
+    // 생성자 함수 하위 객체변수로 등록된 함수를 호출함!
+    mySmooth.setScrollPos(pos);
+  }
+  );
+}); ///////////////// 도깨비 파트 메뉴 클릭함수
+
+$(".preview-box").css({
+  height: "200px",
+  overflow: "auto"
+})
+.on("wheel", e=>{
+  e.stopPropagation();
+})
+
+const smallSmooth = new SmoothScroll(myFn.qs(".preview-box"),60,30);
