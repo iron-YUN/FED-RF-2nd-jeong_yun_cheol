@@ -18,6 +18,11 @@ import SmoothScroll from "./smoothScroll23.js";
 import * as dkbData from "../data/dkb_data.js";
 // import { previewData } from '../data/dkb_data.js';
 
+// 서브박스 셋팅 코드 불러오기
+import showSubBox from "./sub_cont.js";
+// 박스 생성후 호출(큐로 보내면 스택실행후 호출!)
+setTimeout(showSubBox); // 시간을 0으로 쓰거나 안써도
+// 스택에 실행후 큐에서 가지고있다가 스택코드 실행이 모두 끝난후 호출하여 실행함!
 ////////////////////////////////////////////////////////////////////////////////////////
 //// 구현코드 파트 ///////////////////////////////////
 
