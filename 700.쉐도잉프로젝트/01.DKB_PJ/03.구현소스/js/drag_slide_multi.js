@@ -61,7 +61,7 @@ function slideFn(selEl) {
   // let indic = mFn.qsEl(sldWrap, ".indic");
 
   // 대상확인
-  console.log("대상", abtn);
+  // console.log("대상", abtn);
 
   // 1.4. 슬라이드 개수와 동일한 블릿동적생성
   // 대상: .indic -> indic변수
@@ -129,7 +129,7 @@ function slideFn(selEl) {
     // left값 / 한개당개수
     let outCnt = parseInt(slide.style.left) / sList[0].offsetWidth;
     outCnt = Math.abs(outCnt);
-    console.log("바깥에 나간개수", outCnt);
+    //console.log("바깥에 나간개수", outCnt);
 
     // 1. 오른쪽 버튼 여부 알아내기
     let isRight = this.classList.contains("ab2");
@@ -389,7 +389,7 @@ function slideFn(selEl) {
       // -> 히든박스 width - 전체슬라이드 width
       //  전체 슬라이드 width = li 한개당width * 슬라이드개수
       let limitSize = selEl.offsetWidth - oneSize * listLength;
-      console.log("마지막한계left", limitSize);
+      // console.log("마지막한계left", limitSize);  
 
       // 4-1. 맨앞에서 튕기기
       if (parseInt(dtg.style.left) > 0) {
@@ -507,11 +507,11 @@ function slideFn(selEl) {
     // (3) 한계 li크기로 현재 left 위치크기를 나누어서
     // 소수점 아래결과는 반올림해준다 -> 특정위치로 이동함
     let divideNum = parseInt(dtg.style.left) / oneSize;
-    console.log("나눈수", divideNum);
+    // console.log("나눈수", divideNum);
     divideNum = Math.round(divideNum);
-    console.log("나눈수의 반올림", divideNum);
+    // console.log("나눈수의 반올림", divideNum);
     divideNum = Math.abs(divideNum);
-    console.log("나눈수 반올림후 절대값", divideNum);
+    // console.log("나눈수 반올림후 절대값", divideNum);
 
     // 특정위치로 이동하기 : 한개당 크기 * 개수
     dtg.style.left = -(oneSize * divideNum) + "px";
