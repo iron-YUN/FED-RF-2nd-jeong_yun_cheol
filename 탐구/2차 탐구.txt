@@ -7,6 +7,9 @@ https://www.gdweb.co.kr/main/
 https://www.awwwards.com/
 
 
+
+
+
 2차 주제선정
 
 기아자동차**
@@ -108,37 +111,42 @@ http://www.kd.co.kr/kr/
 ================
 
 
-1. VWX (코오롱 골프클럽): 브랜드홈페이지***
-https://www.vwxgolf.com/
-2. 기아자동차 **
-https://www.kia.com/kr
 
-손목시계 브랜드
-3. 오메가 *
-https://www.omegawatches.co.kr/
-선택시 : 오메가 안의 하나의 브랜드를 선택해서 소개
-4.태그호이어 *
-https://www.tagheuer.com/kr/ko/
-
-5.아이리버
-https://www.iriver.co.kr/
-
-6.마샬
-https://www.marshall.com/kr/en
-7.브리츠
-https://www.britz.co.kr/
-8. BOSE
+2. BOSE
 https://www.bose.com/home
+특징 : 메인배너가 내가본 마지막 페이지에따라 쿠키로저장됨
+여러 배너들을 종합해서 슬라이드로 구현계획
+
+사이트에 네비바 및 각 컨텐츠 이동시 불편사항많음
+리뉴얼개념으로 약간의 디자인 및 기능 변경
 
 
+상단네비 : 기존페이지와 다르게 배경색 블랙 로고화이트
+큰 카테고리 : 스피커,해드폰,이어폰
+
+적용할 기능
+1)윈도우 스크롤 위치에따라 각 이미지들의 랜더링 애니메이션 적용
+2.
+
+기능참고 1
+마샬
+https://www.marshall.com/kr/en
+메인페이지 로고 와 동영상배치
+bose에 적용할 동영상
+ https://www.youtube.com/watch?v=qPx4_GuHI4w
+https://www.youtube.com/watch?v=cDxbnkgNphI
+https://www.youtube.com/watch?v=WnaO2K7JnOM
+
+카테고리를 이미지로 보여줌
 
 
-보류항목 : 
-3. 스마트학생복**
-https://www.smartzzang.com/
-아이비클럽 : 학생복*
-http://www.ivyclub.co.kr/page/index.html
-4. E-Land : 브랜드홈페이지**
-http://www.eland.co.kr/
+기능참고 2
+https://escape.cafe/
+-각 대분류 카테고리를 이미지로 드래그
+-해당 카테고리서브페이지를 들어가면 소분류 카테고리를 봄
+-스크롤 위치에따라 이미지가 옆으로 넘어감 (드래그 x)
+-스크롤 위치에따라 배경이미지의 높이값이 다름 : 부드러운스크롤 동시사용
+-배경사진 위에 큰 카테고리 메뉴를 보더박스로 만듬
+-메뉴바 사이드에 배치 / 로고는 상단 : 모바일화면시 메뉴바 상단이동
 
 
