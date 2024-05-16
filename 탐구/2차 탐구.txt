@@ -52,96 +52,36 @@ https://www.vwxgolf.com/
 ======================================================================
 
 
-
-5. 코오롱 워크웨어
-https://www.kolonworkwear.com/
-**모르겠음 : 탈락
-
-6. 삼성물산 : 패션부문
-https://www.samsungfashion.com/main.do
--일정한 데이터 뿌리기
-메뉴바 햄버거버튼 내려올때 위에서 옆으로 바뀜
-**너무 정보가 정신없음 - 탈락
-
-7. 현대렌탈서비스*
-https://www.hyundairs.co.kr/
-주된 동적요소 : 
-1.한 영역씩 넘어가는 스크롤 
-2.한장씩나오는 배너
-공지사항,매장찾기 등등
-
-9. 제주삼다수 :*
-제주특별자치도개발공사 - 삼다수홍보
-https://www.jpdc.co.kr/samdasoo/index.htm
-주된기능 : 
-1.메인페이지의 삼다수물명 하단내려옴 (버튼을가려서 불편함)
-2.인딕 + 탑이동 등 버튼요소
-3.스크롤 위치에따른 콘텐츠 나오기
-삼다수 색을 표현한 메인페이지에
-**무난하면서 심심한 사이트-
-
-10. 쟈뎅 :차 & 커피등 음료*
-http://jardin.co.kr/main/index.php
-주된 동적요소 : 
-1. 스크롤 위치에따른 콘텐츠 나오기(1회성)
-검색 리셋기능 부족
-브랜드에서 상단으로 튕김
-**서브페이지에 비해 내용이 없음 - 보류
-
-1. 리조트피플 : 보류 : 너무단순함
-https://www.resortpeople.net/#section1
--리조트 라는 하나의주제
-단점 : 정보가 너무 없음
-**탈락
-
-극동 : 브랜드홈페이지*
-http://www.kd.co.kr/kr/
--다양한 동적인 요소
--포인트색 핑크,화트,블랙의
--흘러가는 글자,마우스포인터색반전,stiky
-
-
-
-
-
-
-
-
-
-================
-
-
-
-2. BOSE
+BOSE
 https://www.bose.com/home
-특징 : 메인배너가 내가본 마지막 페이지에따라 쿠키로저장됨
+메인페이지 :원본 메인배너가 내가본 마지막 페이지에따라 쿠키로저장됨
 여러 배너들을 종합해서 슬라이드로 구현계획
 
-사이트에 네비바 및 각 컨텐츠 이동시 불편사항많음
-리뉴얼개념으로 약간의 디자인 및 기능 변경
-
-
-상단네비 : 기존페이지와 다르게 배경색 블랙 로고화이트
+카테고리를 이미지로 보여줌
 큰 카테고리 : 스피커,해드폰,이어폰
 
-적용할 기능
-1)윈도우 스크롤 위치에따라 각 이미지들의 랜더링 애니메이션 적용
-2.
+상단네비 : 블랙 로고
+BOSE코리아 상단네비 색상참고
+https://www.bose.co.kr/?gad_source=1&gclid=CjwKCAjwupGyBhBBEiwA0UcqaI_rDE6--9tAp9ErznXtNGd7ZWqM4Gt3-ynorWZqlAfiQ7WNk-WZAxoC6ngQAvD_BwE
 
-기능참고 1
-마샬
+이미지활용 기능
+윈도우 스크롤 위치에따라 각 이미지들 애니메이션 적용
+
+카테고리 메뉴바 보더박스 참고(이미지 위)
+https://escape.cafe/
+
+https://assets.bosecreative.com/transform/7bc70bbb-324a-49bc-9681-27be5161f26d/CREA-1005_QCH24_BoseBlack_0273?io=transform:crop,height:1350,width:1080,path:square,gravity:top&io=overlay:box,color:000,opacity:20&quality=95
+https://assets.bosecreative.com/transform/6af2af5e-698a-4d93-84e7-924f4625647c/sf_nav_flyout_SLMPS_blue_720x711_x2?io=transform:fit,height:1000,width:1000&io=overlay:box,color:000000,opacity:15&quality=95
+https://assets.bosecreative.com/transform/9e3cbf50-03ca-4c36-a1eb-7099a79692fe/CTP-47671_AntEdwardsTylerHerro_CollabsHubMarquee?io=transform:crop,height:1920,width:1920,path:square&io=overlay:box,color:000,opacity:20&quality=95
+
+메인페이지 로고 와 동영상배치 예시
 https://www.marshall.com/kr/en
-메인페이지 로고 와 동영상배치
-bose에 적용할 동영상
+적용할 동영상
  https://www.youtube.com/watch?v=qPx4_GuHI4w
 https://www.youtube.com/watch?v=cDxbnkgNphI
 https://www.youtube.com/watch?v=WnaO2K7JnOM
 
-카테고리를 이미지로 보여줌
 
-
-기능참고 2
-https://escape.cafe/
 -각 대분류 카테고리를 이미지로 드래그
 -해당 카테고리서브페이지를 들어가면 소분류 카테고리를 봄
 -스크롤 위치에따라 이미지가 옆으로 넘어감 (드래그 x)
