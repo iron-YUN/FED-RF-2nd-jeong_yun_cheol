@@ -87,6 +87,13 @@ mFn.qs(".gnb").innerHTML = `
   </ul>
 `;
 
+      // 햄버거 버튼 클릭시 .top-area
+      $(".ham").click(()=>{
+        $(".top-area").toggleClass("on");
+        // addClass(),removeClass(),toggleClass()
+        // js의 classList 와 유사
+      })
+
 } ////////////// makeMenu 함수 //////////////
 
 // 콤보박스 바인딩 함수 ////////////

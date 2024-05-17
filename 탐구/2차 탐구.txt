@@ -90,3 +90,11 @@ https://www.youtube.com/watch?v=WnaO2K7JnOM
 -메뉴바 사이드에 배치 / 로고는 상단 : 모바일화면시 메뉴바 상단이동
 
 
+
+
+@import url('https://fonts.googleapis.com/css2?family=Passion+One:wght@400;700;900&display=swap');
+ font-family: "Passion One", sans-serif;
+
+
+@import url('https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&family=Passion+One:wght@400;700;900&display=swap');
+font-family: "Inter Tight", sans-serif;
