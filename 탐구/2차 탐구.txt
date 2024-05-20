@@ -12,46 +12,6 @@ https://www.awwwards.com/
 
 2차 주제선정
 
-기아자동차**
-https://www.kia.com/kr
-
-스마트학생복**
-https://www.smartzzang.com/
-아이비클럽 : 학생복*
-http://www.ivyclub.co.kr/page/index.html
-
-주된 동적요소 : 
-무한 자동 드래그 + 슬라이드 + 끝에서튕기기
-단순 애니메이션
-서브안의 여러 카테고리
-매장찾기 검색
-고객문의 등 로그인기능 빼고 다있음
-데이터 돌려서 뿌려주기 가능
-** 자료가 의외로 많음
-
-E-Land : 브랜드홈페이지**
-http://www.eland.co.kr/
--같은 구조의 정보들 뿌리기 수월함
--단순한 메뉴 + 직관적이고 한눈에보이는 정보들
--어두운 배경색 으로 정보에 집중하기 편함
--메인페이지에 버튼+블릿+드래그 배너
-단점 : 직관적이나 드래그슬라이드 뺴고는 동적인 요소가 매우적음
--- 디자인을 조금 손봐야함
-
-4. VWX (코오롱 골프클럽): 브랜드홈페이지***
-https://www.vwxgolf.com/
-- 큰 이미지 & 동영상배경
-- 제품소개페이지 뿌려주기 수월함
-- 편리한 UI 
-- 스크린위치값에따른 동적요소 (많지는 않음)
-단점 : 정보가 부족한 서브페이지
-
-
-
-
-======================================================================
-
-
 BOSE
 https://www.bose.com/home
 메인페이지 :원본 메인배너가 내가본 마지막 페이지에따라 쿠키로저장됨
@@ -94,7 +54,28 @@ https://www.youtube.com/watch?v=WnaO2K7JnOM
 
 @import url('https://fonts.googleapis.com/css2?family=Passion+One:wght@400;700;900&display=swap');
  font-family: "Passion One", sans-serif;
-
-
 @import url('https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&family=Passion+One:wght@400;700;900&display=swap');
 font-family: "Inter Tight", sans-serif;
+
+
+메인페이지 구성
+전체 색상 : 배경 다크
+1.상단 네비바 : 로고박스 / 메뉴바
+ -로고박스 :  흰로고+어두운배경
+ -메뉴바 : 좌 우 로나눔
+   -좌 :
+    SHOP :오버시 카테고리 하위 (해드폰,이어버드,스피커,홈 시어터 등 하위메뉴나옴)
+        : SHOP을 누르면 전체메뉴페이지 이동
+        전체페이지 이동시 예) SHOP->ALL 식으로 페이지에 표시
+        각 카테고리 이동시 예) SHOP->ALL->해드폰 의 식으로 페이지에 표시
+   제품상세 : 페이지 바로이동 : 해당제품 라인업 클릭시 소개페이지 오픈
+    EXPLORE : 상세페이지로 이동
+    SUPPORT : 상세페이지로 이동
+
+   -우 : 검색+로그인+장바구니+위시리스트 등
+   New & Featured,Headphones,Earbuds,Speakers,Home Theater
+
+2.메인베너영역 : 전체동영상박스 + 중앙 동영상스티키로고 + 하단보더메뉴박스
+- 전체동영상박스 : 자동재생
+- 중앙 동영상스티키로고 : 스크롤시 보더메뉴박스까지 끌려내려옴 (로고배경으로 전체동영상과 같은속도의 영상)
+- 하단보더메뉴박스 : 메인 주력 메뉴리스트를 보더박스로 보이게함(배경없음) - 오버시 배경색채움
