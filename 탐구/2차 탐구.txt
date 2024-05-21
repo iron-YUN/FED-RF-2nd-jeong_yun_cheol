@@ -50,8 +50,6 @@ https://www.youtube.com/watch?v=WnaO2K7JnOM
 -메뉴바 사이드에 배치 / 로고는 상단 : 모바일화면시 메뉴바 상단이동
 
 
-
-
 @import url('https://fonts.googleapis.com/css2?family=Passion+One:wght@400;700;900&display=swap');
  font-family: "Passion One", sans-serif;
 @import url('https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&family=Passion+One:wght@400;700;900&display=swap');
@@ -59,20 +57,23 @@ font-family: "Inter Tight", sans-serif;
 
 
 메인페이지 구성
+원본페이지의 단점: 해당제품을 광고하는 페이지를 찾기가 매우힘듬
+이를 제품과 연결되는카테고리에 같이 등록
+예) 메인페이지 & 제품페이지 등 
+
 전체 색상 : 배경 다크
 1.상단 네비바 : 로고박스 / 메뉴바
  -로고박스 :  흰로고+어두운배경
  -메뉴바 : 좌 우 로나눔
-   -좌 :
-    SHOP :오버시 카테고리 하위 (해드폰,이어버드,스피커,홈 시어터 등 하위메뉴나옴)
-        : SHOP을 누르면 전체메뉴페이지 이동
+   -좌 :discover
+    All Products :오버시 카테고리 하위 (해드폰,이어버드,스피커,홈시어터 등 하위메뉴나옴)
+        :  All Products 누르면 전체메뉴페이지 이동
         전체페이지 이동시 예) SHOP->ALL 식으로 페이지에 표시
         각 카테고리 이동시 예) SHOP->ALL->해드폰 의 식으로 페이지에 표시
-   제품상세 : 페이지 바로이동 : 해당제품 라인업 클릭시 소개페이지 오픈
     EXPLORE : 상세페이지로 이동
-    SUPPORT : 상세페이지로 이동
+    SUPPORT : 상세페이지로 이동 - 보류
 
-   -우 : 검색+로그인+장바구니+위시리스트 등
+   -우 :아이콘!!!!! 검색+로그인+장바구니(+위시리스트)
    New & Featured,Headphones,Earbuds,Speakers,Home Theater
 
 2.메인베너영역 : 전체동영상박스 + 중앙 동영상스티키로고 + 하단보더메뉴박스
