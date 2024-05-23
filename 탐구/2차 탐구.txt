@@ -71,8 +71,24 @@ font-family: "Inter Tight", sans-serif;
 
    -우 :아이콘!!!!! 검색+로그인+장바구니(+위시리스트)
    New & Featured,Headphones,Earbuds,Speakers,Home Theater
+   ALL PRODUCTS
+HEADPHONES
+EARBUDS
+SPEAKERS
+HOME THEATER
+EXPLORE
+SUPPORT
 
 2.메인베너영역 : 전체동영상박스 + 중앙 동영상스티키로고 + 하단보더메뉴박스
 - 전체동영상박스 : 자동재생
 - 중앙 동영상스티키로고 : 스크롤시 보더메뉴박스까지 끌려내려옴 (로고배경으로 전체동영상과 같은속도의 영상)
 - 하단보더메뉴박스 : 메인 주력 메뉴리스트를 보더박스로 보이게함(배경없음) - 오버시 배경색채움
+
+
+메인페이지 바 
+https://vanholtz.co/work/studiomega/
+
+상세페이지 내용
+https://www.bose.com/pxp/bose-soundlink-max
+https://www.bose.com/pxp/bose-quietcomfort-ultra-headphones
+https://www.bose.com/pxp/bose-ultra-open-earbuds
