@@ -7,11 +7,7 @@ https://www.gdweb.co.kr/main/
 https://www.awwwards.com/
 
 
-
-
-
-2차 주제선정
-
+=====================2차 주제선정====================
 BOSE
 https://www.bose.com/home
 메인페이지 :원본 메인배너가 내가본 마지막 페이지에따라 쿠키로저장됨
@@ -49,12 +45,12 @@ https://www.youtube.com/watch?v=WnaO2K7JnOM
 -배경사진 위에 큰 카테고리 메뉴를 보더박스로 만듬
 -메뉴바 사이드에 배치 / 로고는 상단 : 모바일화면시 메뉴바 상단이동
 
-
+==============폰트============
 @import url('https://fonts.googleapis.com/css2?family=Passion+One:wght@400;700;900&display=swap');
  font-family: "Passion One", sans-serif;
 @import url('https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&family=Passion+One:wght@400;700;900&display=swap');
 font-family: "Inter Tight", sans-serif;
-
+==============폰트============
 
 메인페이지 구성
 원본페이지의 단점: 해당제품을 광고하는 페이지를 찾기가 매우힘듬
