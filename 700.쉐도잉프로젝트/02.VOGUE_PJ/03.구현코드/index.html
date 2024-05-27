@@ -12,14 +12,24 @@
       rel="shortcut icon"
       href="https://img.vogue.co.kr/vogue/common/vogue-favicon.ico?v=0.2"
       type="image/x-icon"
-    /> 
+    />
     <!-- 아이콘 CSS -->
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/fontisto@v3.0.4/css/fontisto/fontisto.min.css"
     />
-        <!-- 메인 CSS -->
-        <link rel="stylesheet" href="./css/main.css" />
+
+    <!-- 스와이퍼 css -->
+      <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+      />
+    <!-- 메인 CSS #main-css-->
+    <link id="main-css" rel="stylesheet" href="./css/main.css" />
+    
+      <!-- 스와이퍼 js -->
+      <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
     <!-- 1.리액트 기본 라이브러리 -->
     <script
       src="https://unpkg.com/react@18/umd/react.production.min.js"
@@ -33,6 +43,18 @@
     <!-- 3.리액트 바벨 라이브러리 -->
     <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
 
+    <!-- 아이템 카테고리 데이터 JS -->
+    <script
+      src="./js/data/category.js"
+      data-plugins="transform-es2015-modules-umd"
+      type="text/babel"
+    ></script>
+    <!-- 상단영역모듈 JS -->
+    <script
+      src="./js/components/Gallery.jsx"
+      data-plugins="transform-es2015-modules-umd"
+      type="text/babel"
+    ></script>
     <!-- 상단영역모듈 JS -->
     <script
       src="./js/components/TopArea.jsx"
@@ -42,6 +64,12 @@
     <!-- 메인영역모듈 JS -->
     <script
       src="./js/components/MainArea.jsx"
+      data-plugins="transform-es2015-modules-umd"
+      type="text/babel"
+    ></script>
+    <!-- 아이템영역모듈 JS -->
+    <script
+      src="./js/components/ItemsArea.jsx"
       data-plugins="transform-es2015-modules-umd"
       type="text/babel"
     ></script>
@@ -57,9 +85,6 @@
       data-plugins="transform-es2015-modules-umd"
       type="text/babel"
     ></script>
-
-
-
   </head>
   <body>
     <div id="root"></div>

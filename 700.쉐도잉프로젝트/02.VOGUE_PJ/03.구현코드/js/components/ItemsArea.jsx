@@ -1,6 +1,7 @@
 // 아이템페이지영역 컴포넌트
 
 // 아이템 카테고리 데이터 불러오기
+import { array } from "prop-types";
 import catData from "../data/category";
 
 export default function ItemsArea({ catName }) {
@@ -8,6 +9,30 @@ export default function ItemsArea({ catName }) {
   // 해당카테고리의 데이터 선택하여 담기
   const selData = catData[catName];
   console.log(selData);
+
+  // 태그처리 구분
+  const makeCode = (data) => {
+    console.log("배열인가?",Array.isArray(data));
+    // 배열 데이터는 태그 구성이 다름!
+    // runway카테고리만 다름
+    if(Array.isArray(data)){
+      return(
+        <h2>
+          <small>{data[0]}</small>
+          <br />
+          {data[1]}
+        </h2>
+      );
+    }/////// if ///////////
+    // 배열이 아닌경우
+    else{
+      return(
+        <h2>
+          {data}
+        </h2>
+      );
+    }/////////////else /////////
+  }; ////////////////////////////
 
   // 코드리턴구역
   return (
@@ -20,41 +45,43 @@ export default function ItemsArea({ catName }) {
           {/* 데이터적용2 :  */}
           <h2 className="cat-tit">{selData.제목}</h2>
           {/* <!-- 2-1-2. 서브메뉴(LNB:Local Navigation Bar) --> */}
-          
-            {selData.메뉴!="없음" &&
-              <nav className="lnb">
+          {/* 데이터적용3 : 서브메뉴넣기 */}
+
+          {selData.메뉴 != "없음" && (
+            <nav className="lnb">
               <ul>
-                {selData.메뉴.map(v=>(
-                <li>
-                  <a href="#">{v}</a>
-                </li>
+                {selData.메뉴.map((v) => (
+                  <li>
+                    <a href="#">{v}</a>
+                  </li>
                 ))}
               </ul>
-               </nav>}
-       
+            </nav>
+          )}
         </header>
         {/* <!-- 2-2. 카테고리 페이지 컨텐츠영역 --> */}
         <div className="cat-cont-area">
+          {/* 데이터적용4 : 컨텐츠 타이틀 넣기 */}
           <section className="pt2">
             <div className="cbx bgi bg1-1">
-              <h2></h2>
+              {makeCode(selData.타이틀[0])}
             </div>
             <div className="cbx bgi bg1-2">
-              <h2></h2>
+              {makeCode(selData.타이틀[1])}
             </div>
             <div className="cbx bgi bg1-3">
-              <h2></h2>
+              {makeCode(selData.타이틀[2])}
             </div>
           </section>
           <section className="pt2">
             <div className="cbx bgi bg2-1">
-              <h2></h2>
+              {makeCode(selData.타이틀[3])}
             </div>
             <div className="cbx bgi bg2-2">
-              <h2></h2>
+              {makeCode(selData.타이틀[4])}
             </div>
             <div className="cbx bgi bg2-3">
-              <h2></h2>
+              {makeCode(selData.타이틀[5])}
             </div>
           </section>
         </div>
