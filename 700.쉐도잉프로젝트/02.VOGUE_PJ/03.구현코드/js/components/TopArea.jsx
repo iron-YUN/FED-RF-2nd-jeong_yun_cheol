@@ -40,14 +40,17 @@ export default function TopArea({ changeMenu }) {
             <a href="#" className="fi fi-twitter" title="트위터">
               <span className="ir">트위터</span>
             </a>
-            <a href="#" className="fi fi-youtube-play" title="유튜브">
+            <a href="#" className="fi fi-youtube-play" title="유튜브"
+            >
               <span className="ir">유튜브</span>
             </a>
 
-            <a href="#" className="fi fi-laptop" title="로그인">
+            <a href="#" className="fi fi-laptop" title="로그인"
+            onClick={()=>chgMenuFn("login")}>
               <span className="ir">로그인</span>
             </a>
-            <a href="#" className="fi fi-user-secret" title="회원가입">
+            <a href="#" className="fi fi-user-secret" title="회원가입"
+            onClick={()=>chgMenuFn("member")}>
               <span className="ir">회원가입</span>
             </a>
             <a href="#" className="fi fi-camera" title="갤러리" 

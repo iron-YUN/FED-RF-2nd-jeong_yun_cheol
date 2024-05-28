@@ -4,6 +4,8 @@ import MainArea from "./components/MainArea";
 import ItemsArea from "./components/ItemsArea";
 import FooterArea from "./components/FooterArea";
 import Gallery from "./components/Gallery";
+import Login from "./components/Login";
+import Member from "./components/Member";
 // [1]메인페이지 전체 레이아웃 로딩 컴포넌트
 function Layout(){
   // 상태관리변수 설정구역 //
@@ -18,6 +20,10 @@ function Layout(){
     ? "./css/main.css" 
     : menu=="gallery" 
     ? "./css/gallery.css" 
+    : menu=="login" 
+    ? "./css/login.css" 
+    : menu=="member" 
+    ? "./css/member.css" 
     : "./css/items.css";
     // memu값이 홈인경우 메인css 로딩
     // gallery 값인경우 겔러리css 로딩
@@ -35,6 +41,10 @@ function Layout(){
             ?<MainArea />
             :menu=="gallery"
             ?<Gallery />
+            :menu=="login"
+            ?<Login />
+            :menu=="member"
+            ?<Member />
             :<ItemsArea catName={menu} />
         }
         
