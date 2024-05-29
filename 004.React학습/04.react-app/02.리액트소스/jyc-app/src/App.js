@@ -33,7 +33,7 @@ function App() {
         <img src="https://wimg.mk.co.kr/news/cms/202301/03/news-p.v1.20230103.300a5890ce7e4021a8bcf87a59c72c60_P1.jpg" className="App-logo" alt="logo" />
         </span>
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+         리액트 내꺼임
         </p>
         <a
           className="App-link"
