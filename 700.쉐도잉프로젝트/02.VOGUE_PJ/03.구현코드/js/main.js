@@ -28,6 +28,9 @@ function Layout(){
     // memu값이 홈인경우 메인css 로딩
     // gallery 값인경우 겔러리css 로딩
     // 기타메뉴인경우 아이템css 로딩
+
+    // 페이지 최상단이동코드
+    window.scrollTo(0,0);
   },[menu]);
 
 
@@ -42,9 +45,9 @@ function Layout(){
             :menu=="gallery"
             ?<Gallery />
             :menu=="login"
-            ?<Login />
+            ?<Login changeMenu={setMenu}/>
             :menu=="member"
-            ?<Member />
+            ?<Member changeMenu={setMenu}/>
             :<ItemsArea catName={menu} />
         }
         
