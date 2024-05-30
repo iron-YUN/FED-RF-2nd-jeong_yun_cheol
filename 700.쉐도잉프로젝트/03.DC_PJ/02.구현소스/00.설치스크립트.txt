@@ -13,6 +13,8 @@
     (4) npm i jquery-ui-touch-punch
     (5) npm i swiper
 
+    npm i react-router-dom@latest jquery jquery-ui-dist jquery-ui-touch-punch swiper
+
 3. 설치확인
 - 파일명: package.json
 - 항목명: "dependencies"

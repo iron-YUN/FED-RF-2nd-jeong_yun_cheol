@@ -21,6 +21,8 @@
         height: 100%;
         margin: 0;
         padding: 0;
+        overflow: hidden;
+        /* background-color: #000; */
       }
       body {
         /* background: #eee;
@@ -163,20 +165,36 @@
     <script>
       var swiper = new Swiper(".mySwiper", {
         spaceBetween: 0,
-        pagination: {
-          el: ".swiper-pagination",
-          clickable: true,
-        },
+        // pagination: {
+        //   el: ".swiper-pagination",
+        //   clickable: true,
+        // },
         loop: true,
+        effect: "cube",
+      grabCursor: true,
+        cubeEffect: {
+        shadow: false,
+        slideShadows: true,
+        // shadowOffset: 20,
+        // shadowScale: 0,
+      },
       });
       var swiper2 = new Swiper(".mySwiper2", {
         direction: "vertical",
         spaceBetween: 0,
-        pagination: {
-          el: ".swiper-pagination",
-          clickable: true,
-        },
+        // pagination: {
+        //   el: ".swiper-pagination",
+        //   clickable: true,
+        // },
         loop: true,
+        effect: "cube",
+        grabCursor: true,
+        cubeEffect: {
+        shadow: false,
+        slideShadows: true,
+        // shadowOffset: 20,
+        // shadowScale: 0,
+      },
       });
     </script>
   </body>
