@@ -1,6 +1,7 @@
 // 메인페이지 컴포넌트 ///
 import Banner from "../modules/Banner";
 import SecIntro from "../modules/SecIntro";
+import VidIntro from "../modules/VidIntro";
 
 export default function Main() {
     return (
@@ -11,6 +12,12 @@ export default function Main() {
 
         {/* 2.색션소개 컴포넌트 */}
         <SecIntro/>
+
+        {/* 3.비디오 소개 컴포넌트 
+        catName 카테고리네임
+        clsName 배경색 넣을 클래스
+        */}
+        <VidIntro catName="main" clsName="off" />
       </>
     );
   } ////////////// TopArea /////////////
