@@ -12,7 +12,7 @@ export default function ItemsArea({ catName }) {
 
   // 태그처리 구분
   const makeCode = (data) => {
-    console.log("배열인가?",Array.isArray(data));
+    // console.log("배열인가?",Array.isArray(data));
     // 배열 데이터는 태그 구성이 다름!
     // runway카테고리만 다름
     if(Array.isArray(data)){

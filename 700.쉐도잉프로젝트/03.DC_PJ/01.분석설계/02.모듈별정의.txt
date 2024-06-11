@@ -30,6 +30,14 @@
         상대적인 기능으로 구현함
         (메인 페이지에 배너가 실제로 2개 배치됨!)
 
+
+ ->> SwiperVid 플러그인 모듈 구조
+        Root>
+        div.swiper-slide.swiper-slide-active
+            > section.sw-inbox
+                > (div.vid-img > img + 폰트어썸 아이콘)
+                + (div.vid-tit > h4 + h3)
+
 [2] 섹션소개모듈
     - 모듈명: SecIntro (JS/CSS)
     (1) 구조정의 :

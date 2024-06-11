@@ -2,6 +2,7 @@
 import Banner from "../modules/Banner";
 import SecIntro from "../modules/SecIntro";
 import VidIntro from "../modules/VidIntro";
+import VidSwipe from "../modules/VidSwipe";
 
 export default function Main() {
     return (
@@ -18,6 +19,8 @@ export default function Main() {
         clsName 배경색 넣을 클래스
         */}
         <VidIntro catName="main" clsName="off" />
+        {/* 비디오 스와이퍼 컴포넌트 */}
+        <VidSwipe catName="main"/>
       </>
     );
   } ////////////// TopArea /////////////
