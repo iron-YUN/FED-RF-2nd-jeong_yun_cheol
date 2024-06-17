@@ -2,8 +2,47 @@ import React from "react";
 
 // 메뉴 데이터 불러오기
 import { gnbData } from "../../js/data/gnb";
+import { TotalMenu } from "../modules/TotalMenu";
+// 제이쿼리
+import $ from "jquery";
 
 function TopArea(props) {
+  // 전체메뉴 열기닫기 함수 //
+  const showHideMenu = (e)=>{
+    // console.log(e.currentTarget);
+    // 전체 메뉴 대상 : .mbox
+    // 1.메뉴 보이기/숨기기
+    $(".mbox").fadeToggle(300);
+    // fadeIn 서서히 나타남
+    // fadeOut 서서히 사라짐 - > display:none
+    // fadeToggle 나타남 사라짐 전환
+    
+    // 2.햄버거 버튼에 클래스 on 넣기/빼기
+    $(e.currentTarget).toggleClass("on");
+    // addClass 클래스넣기
+    // removeClass 클래스빼기
+    // toggleClass 둘다
+    // console.log($(e.currentTarget).is(".on"));
+
+    // 3. 비디오 재생/멈충 
+    // 대상: .bgm
+    let bgm = $(".bgm");
+    // 제이쿼리의 미디어를 선택후 실제 사용할때는
+    // get(0) 하고 난 후 사용한다
+
+    // 햄버거 버튼에 클래스"on" 있으면 재생
+    // 없으면 멈춤
+    $(e.currentTarget).is(".on")?
+    bgm.get(0).play()
+    : bgm.get(0).pause();
+    // play 재성 , pause 멈춤
+
+    // 비교해서 JS 선택후 바로 play 재성 , pause 멈춤 사용함
+    // document.querySelector(".bgm").play();
+    // document.querySelector(".bgm").pause();
+  };///////////////showHideMenu///////////////////
+
+  // 코드 리턴구역
   return (
     <>
       <div id="top-area">
@@ -23,10 +62,11 @@ function TopArea(props) {
               ))}
             </ul>
           </nav>
-          <div className="ham">
+          <div className="ham" onClick={showHideMenu}>
             <span></span> <span></span> <span></span>
           </div>
           {/* 전체메뉴 컴포넌트 */}
+          <TotalMenu/>
         </header>
       </div>
     </>

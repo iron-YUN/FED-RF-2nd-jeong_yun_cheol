@@ -1,7 +1,7 @@
 // DC PJ 캐릭터 상세페이지
 // -> 캐릭터 리스트로 부터 라우팅 이동하여 보이는 페이지
 
-import React from "react"; //rsf
+import React, { useEffect } from "react"; //rsf
 // 라우터로 전달한 state값을 읽기위한 객체
 import { useLocation } from "react-router-dom";
 
@@ -14,11 +14,19 @@ import "../../css/cat_detail.scss";
 function CatDetail() {
   // 라우터 호출시 전달한 값을 받는다!
   const loc = useLocation();
-const cname = loc.state.cname;
-const cdesc = loc.state.cdesc;
-const facts = loc.state.facts;
-console.log(facts,cname,cdesc);
+  const cname = loc.state.cname;
+  const cdesc = loc.state.cdesc;
+  const facts = loc.state.facts;
+  // console.log(facts,cname,cdesc);
 
+  // 화면랜더링 실행구역 /////
+  // 매번실행해야 이미 생성된 컴포넌트의 
+  // 랜더링 실행구역기 작동한다!
+  useEffect(()=>{
+    window.scrollTo(0,0);
+  });
+
+  /////// 리턴구역
   return (
     <>
       {/* 1.배너모듈  */}
@@ -31,7 +39,14 @@ console.log(facts,cname,cdesc);
           <h2>{cname}</h2>
           {/* 캐릭터소개  */}
           <div className="cdsc">
-            <p>{cdesc}</p>
+            {
+              // 문자데이터중 "^"로 잘라서 배열로만들고 각각
+              // p태그로 랩핑해준다!
+              cdesc.split("^").map((v, i) => (
+                <p key={i}>{v}</p>
+              ))
+              //  console.log(cdesc.split("^"))
+            }
           </div>
         </div>
         {/* 2-2.캐릭터명세  */}
@@ -41,9 +56,15 @@ console.log(facts,cname,cdesc);
             {/* 테이블 */}
             <table>
               <tbody>
-                <tr>
-                  <td>{facts}</td>
-                </tr>
+                {facts.split("^").map((v, i) => (
+                  <tr key={i}>
+                    {v.split(":").map((p, j) => (   
+                      <td key={j}>{p}
+                      {j == 0 && " : "}
+                      </td>
+                    ))}
+                  </tr>
+                ))}
               </tbody>
             </table>
           </div>
