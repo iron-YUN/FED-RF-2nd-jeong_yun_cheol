@@ -1,5 +1,6 @@
 // 메인페이지 컴포넌트 ///
 import Banner from "../modules/Banner";
+import CatList from "../modules/CatList";
 import SecIntro from "../modules/SecIntro";
 import VidIntro from "../modules/VidIntro";
 import VidSwipe from "../modules/VidSwipe";
@@ -19,8 +20,10 @@ export default function Main() {
         clsName 배경색 넣을 클래스
         */}
         <VidIntro catName="main" clsName="off" />
-        {/* 비디오 스와이퍼 컴포넌트 */}
+        {/* 4.비디오 스와이퍼 컴포넌트 */}
         <VidSwipe catName="main"/>
+         {/* 5. 캐릭터 리스트 컴포넌트 */}
+         <CatList/>
       </>
     );
   } ////////////// TopArea /////////////

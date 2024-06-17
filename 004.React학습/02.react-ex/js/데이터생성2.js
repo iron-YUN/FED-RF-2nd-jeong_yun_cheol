@@ -10,10 +10,12 @@ let category = ["modern","casual"];
 let gname = ["워닝드레스","워스비버든","코코샤스넬라","포코로와드"];
 let gprice = ["123000","224000","253000","340000","520000"];
 
-// 개수익어오기
+// 개수읽어오기
 let categoryNum = category.length;
 let gnameNum = gname.length;
 let gpriceNum = gprice.length;
+
+
 
 // 호출시 : rdm[아이템개수]
 let rdm = (x)=> Math.floor(Math.random()*x);
