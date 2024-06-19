@@ -5,6 +5,9 @@ import React, { useEffect, useLayoutEffect } from "react";
 import Banner from "../modules/Banner";
 import FashionIntro from "../modules/FashionIntro";
 
+// 제이쿼리
+import $ from "jquery";
+
 // 자동휠 함수 불러오기
 import * as wFn from "../../js/func/auto_wheel";
 
@@ -15,18 +18,23 @@ function MainCont(props) {
 
     // document / body / window 이 세가지는
     // 이벤트를 등록하고 삭제할 수 있도록
-    // 여기서 이벤트를 걸어준다!
+    // 1. 자동 휠함수 이벤트 연결하기
     window.addEventListener("wheel", wFn.wheelFn);
 
-    // 2.메뉴+인디케이터 이벤트 기능설정함수 호출
+    // 2. 메뉴+인디케이터 이벤트 기능설정함수 호출
     wFn.evtFn();
 
-    // 3.등장요소 css초기화 함수호출
+    // 3. 등장요소 CSS초기화 함수호출
     wFn.initSet();
 
     // 컴포넌트 소멸시 이벤트삭제하기
     return () => {
       console.log("메인소멸!");
+      // 1. 자동 휠함수 이벤트 삭제하기
+      window.removeEventListener("wheel", wFn.wheelFn);
+      // 2. 상단이동 이벤트 제거하기
+      // 제이쿼리 이벤트 제거는 off(이벤트명) 메서드
+      $("#logo a").off("click");
     };
   }, []);
   // useLayoutEffect(()=>{

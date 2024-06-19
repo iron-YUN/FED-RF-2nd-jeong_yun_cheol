@@ -1,7 +1,7 @@
 // 상단영역 컴포넌트 ///
-
+import React, { useState, useEffect, useNavigate } from "react";
 // GNB 데이터 불러오기
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { menu } from "../data/gnb";
 
 // 상단영역 CSS 불러오기
@@ -16,6 +16,7 @@ import $ from "jquery";
 export default function TopArea() {
   // 이동함수 ////
   const goNav = useNavigate();
+
   // 사용시 goNav(라우터주소,{전달객체})
   // 전달객체 없으면 비워놓음!
   // 사용법: 반드시 useNavigate()메서드를 변수에 담아
@@ -30,7 +31,7 @@ export default function TopArea() {
 
   // 검색 관련 함수들 ///////////
   // 1. 검색창 보이기함수
-  const showSearch = (e)=>{
+  const showSearch = (e) => {
     // 기본기능막기
     e.preventDefault();
     // 1. 검색창 보이기
@@ -41,31 +42,29 @@ export default function TopArea() {
   }; ////// showSearch 함수 ///////
 
   // 2. 검색창에 엔터키 누르면 검색함수 호출
-  const enterKey = e => {
+  const enterKey = (e) => {
     // e.keyCode는 숫자, e.key문자로 리턴함
     // console.log(e.key,e.keyCode);
-    if(e.key == "Enter"){
+    if (e.key == "Enter") {
       // 입력창의 입력값 읽어오기 : val()사용
       let txt = $(e.target).val().trim();
       console.log(txt);
       // 빈값이 아니면 검색함수 호출(검색어전달!)
-      if(txt!=''){
+      if (txt != "") {
         // 입력창 비우고 부모박스 닫기
         $(e.target).val("").parent().hide();
         // 검색 보내기
         goSearch(txt);
-
       } /// if ///
     } //// if ////
-
   }; ///////// enterKey //////////
 
   // 3. 검색페이지로 검색어와 함께 이동하기함수
-  const goSearch = txt => {
+  const goSearch = (txt) => {
     console.log("나는 검색하러 간다규~!!!");
     // 라우터 이동함수로 이동하기
     // 네비게이트메서드(라우터주소,{state:{보낼객체}})
-    goNav("search",{state:{keyword:txt}});
+    goNav("search", { state: { keyword: txt } });
   }; /////////// goSearch //////////////
 
   //// 코드 리턴구역 //////////////

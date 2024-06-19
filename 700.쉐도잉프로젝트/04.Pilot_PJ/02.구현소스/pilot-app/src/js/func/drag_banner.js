@@ -105,7 +105,7 @@ export function dragBanner() {
   ///////////////////////////////////////
   let banTxt = {
     ban1: "Men's Season<br>Collection",
-    ban2: "2023 Special<br>Collection",
+    ban2: "2024 Special<br>Collection",
     ban3: "GongYoo<br>Collection",
     ban4: "T-Shirt<br>Collection",
     ban5: "Shoes<br>Collection",
@@ -123,7 +123,7 @@ export function dragBanner() {
     // console.log("글자등장~~~!", banTxt[currCls]);
 
     // 기존h2태그는 삭제
-    $('.btit').remove();
+    $(".btit").remove();
 
     // 타이틀을 현재 배너에 추가함
     currBan.append(`<h2 class="btit">${banTxt[currCls]}</h2>`);
@@ -134,8 +134,9 @@ export function dragBanner() {
     if (currCls === "ban2" || currCls === "ban3") leftVal = "70%";
 
     // css/ animate 코드
-    currBan.find('.btit')
-    .css({        
+    currBan
+      .find(".btit")
+      .css({
         position: "absolute",
         top: "55%", // 약간아래
         left: leftVal,
@@ -145,15 +146,17 @@ export function dragBanner() {
         textShadow: "1px 1px 3px #777",
         whiteSpace: "nowrap",
         opacity: 0, // 처음에 투명
-    })
-    .animate({
-        top:"50%",
-        opacity: 1
-    },1000,'easeInOutQuart');
+      })
+      .animate(
+        {
+          top: "50%",
+          opacity: 1,
+        },
+        1000,
+        "easeInOutQuart"
+      );
   }; ///////////// showTit 함수 /////////
-
 
   // 첫배너 등장호출
   setTimeout(showTit, 1000);
-
 } /////////// dragBanner 함수 //////////////
