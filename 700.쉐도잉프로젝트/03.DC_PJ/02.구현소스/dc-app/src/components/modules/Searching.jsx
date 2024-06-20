@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 // 폰트어썸
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -10,32 +10,74 @@ import "../../css/searching.scss";
 // 데이터 불러오기 : 캐릭터 리스트 데이터
 import { catListData } from "../data/swiper_cat";
 
-
 // 캐릭터 리스트 결과 컴포넌트
 import SearchingCat from "./SearchingCat";
 
-function Searching({kword}) {
-    // kword - 전달받은 키워드
-    console.log("kword:", kword);
-    console.log("data:", catListData);
+function Searching({ kword }) {
+  // kword - 전달받은 키워드
+  console.log("kword:", kword);
+  console.log("data:", catListData);
 
+  // 키워드에따라 검색결과가 달라지므로
+  // 핵심 데이터인 검색어를 상태관리변수로 만든다!!
+  //  ((상태관리변수)) ////////////////////
+  // [1] 검색어 상태관리변수
+  const [kw, setKw] = useState(kword);
+  // 초기값으로 전달받은 검색어 변수를 넣어준다!
+  // [2] 정렬기준 상태관리변수
+  const [sort, setSort] = useState("asc");
+  // 값 : 오름차순 - asc / 내림차순 - desc
+  /* 
+  정렬 기준에서 "어센딩(Ascending)"과 "디센딩(Descending)"은 정렬 순서를 나타내는 용어입니다. 이 두 용어의 뜻은 다음과 같습니다:
 
-    // 검색어가 있는 데이터 필터하기
-    const newList = catListData.filter(v=>{
-        // 속성중 캐릭터 이름 중 검색(v.cname)
-        // 검색어는 모두 영어일 경우 소문자처리함
-        let newVal = v.cname.toLocaleLowerCase();
-        // 전달받은 키워드도 소문자처리
-        let key = kword.toLocaleLowerCase();
-        // 문자열이 있는 값만 배열로 재수집!
-        if(newVal.indexOf(key) !== -1) return true;
-        // 문자열.indexOf(문자) 문자열위치번호 리턴함
-        // 그런데 결과가 없으면 -1을 리턴함!
-        // 그래서 -1이 아닐경우 true를 리턴하면
-        // filter에서 변수에 저장할 배열로 수집된다!
-    }); //////////////// filter ///////////////////
-    console.log("newList:", newList);
-    /* 
+어센딩(Ascending):
+
+오름차순 정렬을 의미합니다.
+값이 작은 것에서 큰 것의 순서로 정렬됩니다.
+예: 1, 2, 3, 4, 5 또는 A, B, C, D, E.
+디센딩(Descending):
+
+내림차순 정렬을 의미합니다.
+값이 큰 것에서 작은 것의 순서로 정렬됩니다.
+예: 5, 4, 3, 2, 1 또는 E, D, C, B, A.
+이러한 정렬 방식은 숫자뿐만 아니라 문자, 날짜 등 다양한 데이터 타입에 적용될 수 있습니다.
+  */
+
+  // 검색어가 있는 데이터 필터하기
+  // filter() 는 검색결과가 항상 배열로 나온다.
+  const newList = catListData.filter((v) => {
+    // 속성중 캐릭터 이름 중 검색(v.cname)
+    // 검색어는 모두 영어일 경우 소문자처리함
+    let newVal = v.cname.toLocaleLowerCase();
+    // 전달받은 키워드도 소문자처리
+    // ((중요)) 상태변수인 kw로 대체한다!!!
+    let key = kw.toLocaleLowerCase();
+    // 문자열이 있는 값만 배열로 재수집!
+    if (newVal.indexOf(key) !== -1) return true;
+    // 문자열.indexOf(문자) 문자열위치번호 리턴함
+    // 그런데 결과가 없으면 -1을 리턴함!
+    // 그래서 -1이 아닐경우 true를 리턴하면
+    // filter에서 변수에 저장할 배열로 수집된다!
+  }); //////////////// filter ///////////////////
+
+  // [ 결과내 재검색 : 데이터 항목중 aliment 값으로 검색함 ]
+
+  // [ 정렬기능 추가하기 ] ////////////
+  // (1) 오름차순일 경우
+  if (sort == "asc") {
+    newList.sort((a, b) =>
+      a.cname > b.cname ? 1 : a.cname < b.cname ? -1 : 0
+    );
+  } //// if /////
+  // (2) 내림차순일 경우
+  else if (sort == "desc") {
+    newList.sort((a, b) =>
+      a.cname > b.cname ? -1 : a.cname < b.cname ? 1 : 0
+    );
+  } //// else if //////
+
+  console.log("newList:", newList);
+  /* 
         변수 = 배열.filter(v=>{
             if(v.속성명.indexOf(검색어)!=-1) return true
         })
@@ -60,8 +102,25 @@ function Searching({kword}) {
               title="Open search"
             />
             {/* 입력창 */}
-            <input id="schin" type="text" placeholder="Filter by Keyword"
-            defaultValue={kword} />
+            <input
+              id="schin"
+              type="text"
+              placeholder="Filter by Keyword"
+              defaultValue={kword}
+              // 앤터키를 눌렀을때 검색실행
+              // 검색어 상태변수만 업데이트하면 끝!!
+              // -> setKw(검색어)
+              onKeyUp={(e) => {
+                if (e.key == "Enter") {
+                  // 검색어 상태값 변경
+                  setKw(e.target.value);
+                  // 처음 검색시 정렬은 기본정렬 오름차순(asc)
+                  // setSort("asc");
+                  // 정렬선택박스 선택값변경
+                  document.querySelector("#sel").value="asc";
+                }//// if /////
+              }}
+            />
           </div>
           {/* 1-2. 체크박스구역 */}
           <div className="chkbx">
@@ -77,7 +136,14 @@ function Searching({kword}) {
                   <li>
                     Heroes
                     {/* 숨긴 체크박스 */}
-                    <input type="checkbox" id="hero" className="chkhdn" />
+                    <input type="checkbox" id="hero" className="chkhdn"
+                    // 체크변경시 change 이벤트발생
+                    onChange={(e)=>{
+                      // 체크박스의 checked속성은
+                      // 체크시 true , 불체크시 false 리턴
+                      console.log(e.target.checked);
+                    }}
+                    />
                     {/* 디자인노출 라벨 */}
                     <label htmlFor="hero" className="chklb"></label>
                   </li>
@@ -106,14 +172,23 @@ function Searching({kword}) {
           <h2 className="restit">BROWSE CHARACTERS</h2>
           {/* 2-2. 정렬선택박스 */}
           <aside className="sortbx">
-            <select name="sel" id="sel" className="sel">
-              <option value="0">A-Z</option>
-              <option value="1">Z-A</option>
+            <select
+              name="sel"
+              id="sel"
+              className="sel"
+              // 값을 변경할때 이벤트발생
+              onChange={(e) => {
+                console.log(e.target.value);
+                setSort(e.target.value);
+              }}
+            >
+              <option value="asc">A-Z</option>
+              <option value="desc">Z-A</option>
             </select>
           </aside>
           {/* 2-3. 캐릭터 리스트 컴포넌트 : 
             데이터 상태변수 중 첫번째값만 보냄 */}
-            <SearchingCat dt={newList} />
+          <SearchingCat dt={newList} />
         </div>
       </section>
     </>

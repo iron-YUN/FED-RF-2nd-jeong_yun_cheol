@@ -18,6 +18,7 @@ import { useRef, useState } from "react";
 
 export function SwiperBan({ cat }) {
   // cat 카테고리명
+  // console.log("카테고리명",cat);
   // 리스트만들기 함수 ////
   const makeList = (num) => {
     // num
@@ -31,7 +32,7 @@ export function SwiperBan({ cat }) {
               style={{ width: "100%", height: "100%", objectFit: "cover" }}
               muted
               loop
-              className={cat+"-vid"}
+              className={cat + "-vid"}
               //   autoPlay
             />
           ) : (
@@ -70,17 +71,17 @@ export function SwiperBan({ cat }) {
           // swp 는 내부로 전달되는 스와이퍼 자신 객체
           // activeIndex 는 loop 에 오류됨
           // realIndex 는 loop 에도 잘 나옴
+          if (cat == "style") return;
           // 현재 진짜 순번
           let idx = swp.realIndex;
           // 현재 하위 요소
           let tg = swp.slides[idx];
           console.log("슬라이드 순번:", idx);
           console.log("현재슬라이드 요소:", tg);
-          if(swp.realIndex==0){
-              document.querySelector(`.${cat}-vid`).play();
-          }
-          else{
-              document.querySelector(`.${cat}-vid`).pause();
+          if (swp.realIndex == 0) {
+            document.querySelector(`.${cat}-vid`).play();
+          } else {
+            document.querySelector(`.${cat}-vid`).pause();
           }
         }}
       >
