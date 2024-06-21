@@ -12,11 +12,12 @@ function MainArea({ page }) {
     <>
       {/* 조건출력으로 페이지별 분기 */}
       {page == "main" && <MainCont />}
-      {(
-      page == "men" ||
+      {
+      (page == "men" ||
       page == "women" ||
-      page == "style")
-       && <Fashion subCat={page} />}
+      page == "style") 
+      
+      && <Fashion subCat={page} />}
     </>
   );
 }

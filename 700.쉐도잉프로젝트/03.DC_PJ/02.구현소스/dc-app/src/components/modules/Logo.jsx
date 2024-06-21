@@ -1,11 +1,11 @@
-//DC.com 로고 컴포넌트 
+// DC.com 로고 컴포넌트
 import React from "react";
 
 // 이미지 경로 데이터 불러오기
-import {isrc} from '../data/img_src';
+import { isrc } from "../data/img_src";
 
 export default function Logo({logoStyle}){
-    // logoStyle : 상단 하단 로고 구분코드 
+    // logoStyle : 상단, 하단 로고 구분코드
     // 코드 값 : top(상단), bottom(하단)
     console.log(isrc.logo, logoStyle);
 
@@ -25,17 +25,18 @@ export default function Logo({logoStyle}){
     };
 
     // 로고 이미지 스타일 객체
-    const imgStyle ={
+    const imgStyle = {
         top: {width:"45px"},
-        bottom:{width:"80px"},
+        bottom: {width:"80px"},
     };
 
 
-    // 코드리턴구역
-    return(
+    // 코드 리턴 구역 ////////
+    return (        
         <h1 style={myStyle[logoStyle]}>
-            <img style={imgStyle[logoStyle]} src={isrc.logo} alt="DC Logo" />
+            <img
+            style={imgStyle[logoStyle]}
+            src={isrc.logo} alt="DC Logo" />
         </h1>
-    )
-
-}////////// logo ///////////////////
+    );
+} ///////////// Logo ///////////////
