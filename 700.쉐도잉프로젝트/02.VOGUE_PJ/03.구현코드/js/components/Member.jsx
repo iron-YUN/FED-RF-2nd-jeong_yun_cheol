@@ -1,16 +1,17 @@
-// 보그JS 회원가입 컴포넌트
+// 보그 JS 회원가입 컴포넌트 //////
 
 // 유효성 검사함수 불러오기
 import validateFn from "../validation";
 
-export default function Member({changeMenu}){
+export default function Member({changeMenu}) {
   // changeMenu - 상태변수메서드 setMenu전달
 
-    // 페이지 랜더링 후 실행구역 ////
-    React.useEffect(()=>validateFn(changeMenu),[]);
-    // 코드리턴
-    return (
-        <div id="main-area">
+  // 페이지 랜더링 후 실행구역 ///
+  React.useEffect(()=>validateFn(changeMenu),[]);
+
+  // 코드 리턴구역 /////////
+  return (
+    <div id="main-area">
       <main className="main-area ibx">
         {/* <!-- 2-1. 회원가입 페이지 상단영역 --> */}
         <header className="ctop">
@@ -23,7 +24,9 @@ export default function Member({changeMenu}){
             <ul>
               {/* <!-- 아이디 --> */}
               <li>
-                <label htmlFor="mid" className="itit">아이디</label>
+                <label htmlFor="mid" className="itit">
+                  아이디
+                </label>
                 <input
                   type="text"
                   name="mid"
@@ -35,7 +38,9 @@ export default function Member({changeMenu}){
               </li>
               {/* <!-- 비밀번호 --> */}
               <li>
-                <label htmlFor="mpw" className="itit">비밀번호</label>
+                <label htmlFor="mpw" className="itit">
+                  비밀번호
+                </label>
                 <input
                   type="password"
                   name="mpw"
@@ -48,7 +53,9 @@ export default function Member({changeMenu}){
               </li>
               {/* <!-- 비밀번호확인 --> */}
               <li>
-                <label htmlFor="mpw2" className="itit">비밀번호확인</label>
+                <label htmlFor="mpw2" className="itit">
+                  비밀번호확인
+                </label>
                 <input
                   type="password"
                   name="mpw2"
@@ -60,7 +67,9 @@ export default function Member({changeMenu}){
               </li>
               {/* <!-- 이름 --> */}
               <li>
-                <label htmlFor="mnm" className="itit">이름</label>
+                <label htmlFor="mnm" className="itit">
+                  이름
+                </label>
                 <input
                   type="text"
                   name="mnm"
@@ -78,14 +87,16 @@ export default function Member({changeMenu}){
                 <label htmlFor="gen2">여성</label>
                 <input type="radio" name="gen" id="gen2" checked />
                 {/* <!-- 라디오버튼의 name 속성을 
-                          같은 이름으로 쓰면 그룹핑되어
-                          하나만 선택된다! 
-
-                          checked 속성 - 기본체크설정 -->*/}
+                            같은 이름으로 쓰면 그룹핑되어
+                            하나만 선택된다! 
+  
+                            checked 속성 - 기본체크설정 -->*/}
               </li>
               {/* <!-- 이메일 --> */}
               <li>
-                <label htmlFor="email1" className="itit">이메일</label>
+                <label htmlFor="email1" className="itit">
+                  이메일
+                </label>
                 <input
                   type="text"
                   id="email1"
@@ -125,5 +136,5 @@ export default function Member({changeMenu}){
         <section id="conf"></section>
       </main>
     </div>
-    );
-}///////////////////////
+  );
+} /////////// Member 컴포넌트 /////////////

@@ -10,11 +10,12 @@ export default function Series() {
     <>
       {/* 1. 배너 컴포넌트 */}
       <Banner catName="SERIES" />
-      {/* 2. 비디오소개 컴포넌트 */}
+
+      {/* 2. 시리즈페이지 비디오소개 */}
       <VidIntro catName="MOVIES" clsName="on" />
+
       {/* 3. 비디오스와이프 컴포넌트 */}
       <VidSwipe catName="movies" />
-      
     </>
   );
 } /////////// Series /////////////////////

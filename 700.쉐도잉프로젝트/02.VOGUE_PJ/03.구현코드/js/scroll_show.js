@@ -1,5 +1,4 @@
-// 보그PJ스크롤 등장함수
-
+// 보그 PJ 스크롤 등장함수 - scroll_show.js
 export default function scrollShowFn() {
   // DOM 함수 객체 //////////////
   const myFn = {
@@ -37,4 +36,4 @@ export default function scrollShowFn() {
     // 기준값보다 크면 원상복귀(숨김-on빼기)
     else ele.classList.remove("on");
   } ///////////// addOn 함수 //////////////
-} ////////////// scrollShowFn ////////////
+} //////////// scrollShowFn /////////////////

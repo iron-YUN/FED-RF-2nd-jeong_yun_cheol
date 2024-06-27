@@ -30,14 +30,6 @@
         상대적인 기능으로 구현함
         (메인 페이지에 배너가 실제로 2개 배치됨!)
 
-
- ->> SwiperVid 플러그인 모듈 구조
-        Root>
-        div.swiper-slide.swiper-slide-active
-            > section.sw-inbox
-                > (div.vid-img > img + 폰트어썸 아이콘)
-                + (div.vid-tit > h4 + h3)
-
 [2] 섹션소개모듈
     - 모듈명: SecIntro (JS/CSS)
     (1) 구조정의 :
@@ -92,7 +84,24 @@
             ( section.vidbx > 
                 div.playvid >
                     h2.ifrtit + iframe + button )
+
+        ->> [ SwiperVid 플러그인 모듈 구조 ]
+        Root>
+        div.swiper-slide.swiper-slide-active
+            > section.sw-inbox
+                > (div.vid-img > img + 폰트어썸 아이콘)
+                + (div.vid-tit > h4 + h3)
+                    
+                
+
     (2) 객체화 :
+        1) 비디오 스와이프 모듈 정보 : data/vid_swipe.js
+        (catTit)    
+        {
+            카테고리명: 타이틀정보
+        }
+
+        2) 스와이퍼 리스트 정보 : data/swiper_vid.js
         {
             isrc:"",
             vsrc:"",
@@ -125,9 +134,6 @@
                         section.sw-inbox2 > img
                         +
                         div.cat-tit2 > h3
-
-
-
         
     (2) 객체화 :
         {
@@ -172,8 +178,9 @@
 
 [7] 검색모듈 : 개별 모듈
     - 모듈명: Searching (JS/CSS/data)
-    -> 검색페이지는 별도로 구성함
-    (SearchPage 모듈명으로 만들것)
+    -> 검색페이지는 별도로 구성함!
+    (SearchPage 모듈명으로 만들것임)
+
     (1) 구조정의 :
         검색옵션 모음 + 캐릭터리스트 모듈
         

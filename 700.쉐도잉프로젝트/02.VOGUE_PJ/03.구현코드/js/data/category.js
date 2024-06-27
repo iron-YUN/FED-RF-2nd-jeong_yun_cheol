@@ -1,5 +1,6 @@
-// 아이템 카테고리 데이터
-const catData={
+// 아이템 카테고리 데이터 - category.js ///
+
+const catData = {
     "fashion": {
         "제목": "Fashion",
         "메뉴": ["전체", "트렌드", "아이템", "피플", "화보"],
@@ -75,7 +76,7 @@ const catData={
             ["Ready To Wear 2021 F/W","Comme des Garçons"],
             ["Ready To Wear 2021 F/W","Chloé"],
             ["Ready To Wear 2021 F/W","Balmain"],
-            ["Ready To Wear 2021 F/W","Loewe"],
+            ["Ready To Wear 2021 F/W","Loewe"]
         ]
     },
     "shopping": {
@@ -104,7 +105,7 @@ const catData={
             "덴마크 보석 디자이너만의 ‘바로크 펑크’ 기술"
         ]
     }
-}
+};
 
-// 내보내기
+// 내보내기 ////
 export default catData;

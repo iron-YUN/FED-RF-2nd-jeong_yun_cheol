@@ -65,5 +65,6 @@ const comboData = {
     "corp5-6": "https://www.cjtelenix.com/index.asp",
   },
 };
-//   데이터 내보내기
+
+// 데이터 내보내기
 export default comboData;

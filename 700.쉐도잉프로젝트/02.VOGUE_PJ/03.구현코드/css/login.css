@@ -201,10 +201,10 @@ font-family: 'Roboto Condensed', sans-serif;
 #top-area {
   position: relative;
   z-index: 1;
-  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.21);
-  /**************************************************** 
-    상단영역 겉박스에 클래스 on 슬림메뉴
-   ****************************************************/
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+  /****************************************** 
+    상단영역 겉박스에 클래스 on줄경우 슬림메뉴
+  ******************************************/
 }
 #top-area.on {
   position: fixed;
@@ -216,7 +216,7 @@ font-family: 'Roboto Condensed', sans-serif;
   /* 1. 상단영역 최소높이 해제 */
   /* 2. 상단메뉴 없애기 */
   /* 4. 로고 박스 */
-  /* 6. GNB박스 */
+  /* 5. GNB박스 */
 }
 #top-area.on .top-area {
   min-height: 50px;
@@ -239,7 +239,6 @@ font-family: 'Roboto Condensed', sans-serif;
 #top-area.on .gnb {
   min-height: 45px;
   padding-top: 5px;
-  /* GNB메뉴 ul */
   /* GNB메뉴 a */
 }
 #top-area.on .gnb ul {
@@ -323,7 +322,7 @@ font-family: 'Roboto Condensed', sans-serif;
   border-right: 1px solid #e5e5e5;
 }
 .tmenu .sideMenu .smbx > li:first-child > a {
-  cursor: default;
+  cursor: text;
 }
 .tmenu .sideMenu .smbx > li .smsub {
   position: absolute;
@@ -362,6 +361,7 @@ font-family: 'Roboto Condensed', sans-serif;
   min-height: 46px;
   padding: 0 30px;
   /* GNB ul박스 */
+  /* GNB a요소 */
 }
 .gnb ul {
   /* 플렉스박스 */
@@ -371,30 +371,30 @@ font-family: 'Roboto Condensed', sans-serif;
   /* 플렉스 줄바꿈설정 */
   flex-wrap: wrap;
   /* 사이간격 속성 -> gap: 위아래 양쪽 (flex에서 사용함)
-      -> 숫자를 하나만 쓰면 양방향이 모두같은수치 셋팅 */
+        -> 숫자를 하나만 쓰면 양방향이 모두같은수치 셋팅 */
   gap: 0 45px;
   /* GNB li 리스트 */
 }
 .gnb ul li {
   /* padding-right: 45px; 
-  -> 사이간격을 li에 패딩으로 안주고
-  부모요소인 flex박스에서 gap속성으로 준다! */
+    -> 사이간격을 li에 패딩으로 안주고
+    부모요소인 flex박스에서 gap속성으로 준다! */
   font-family: "Roboto Condensed", sans-serif;
   line-height: 40px;
-  /* GNB a요소 */
 }
-.gnb ul li a,
-.gnb ul li i {
-  transition: color 0.2s linear;
+.gnb ul li:last-child i {
+  font-weight: bold;
+  cursor: pointer;
 }
-.gnb ul li a:hover,
-.gnb ul li i:hover {
+.gnb ul li:last-child i:hover {
   color: red;
 }
-.gnb ul li:last-child > i {
-  font-weight: bold;
-  padding-top: 12px;
-  cursor: pointer;
+.gnb a {
+  /* 트랜지션 */
+  transition: color 0.2s linear;
+}
+.gnb a:hover {
+  color: red;
 }
 
 /****************** 2.메인영역 ******************/
@@ -410,6 +410,7 @@ font-family: 'Roboto Condensed', sans-serif;
   background-color: #000;
   padding: 70px;
   box-sizing: border-box;
+  /* 글씨체 공통 */
   font-family: "Roboto", nbg;
 }
 .footer-area .blogo {

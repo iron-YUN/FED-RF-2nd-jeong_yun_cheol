@@ -1,14 +1,16 @@
-// 보그 JS 로그인 컴포넌트 ///
+// 보고 JS 로그인 컴포넌트 ///////
 
 // 로그인 유효성검사 JS 불러오기
 import validateLogin from "../valid_login";
- // changeMenu - 상태변수메서드 setMenu전달
-export default function Login({changeMenu}) {
 
- // 페이지 랜더링 후 실행구역 ////
- React.useEffect(()=>validateLogin(changeMenu),[]);
+export default function Login({changeMenu}) {  
+  // changeMenu - 상태변수메서드 setMenu전달
 
-  // 코드리턴구역
+  // 페이지 랜더링 후 실행구역 ///
+  React.useEffect(()=>validateLogin(changeMenu),[]);
+
+
+  // 코드 리턴구역 //////////
   return (
     <div id="main-area">
       <main className="main-area ibx">
@@ -20,15 +22,15 @@ export default function Login({changeMenu}) {
         {/* <!-- 2-2. 갤러리 페이지 컨텐츠 박스 --> */}
         <section className="scont">
           {/* <!-- form 요소 :  
-            입력데이터를 전송하기위한 요소
-            속성
-            action - 전송할 처리페이지
-            method - post : post방식 전달설정
-                    get : get방식 전달설정
+                  입력데이터를 전송하기위한 요소
+                  속성
+                  action - 전송할 처리페이지
+                  method - post : post방식 전달설정
+                          get : get방식 전달설정
 
-            (get방식:url로 키=값 쌍으로 데이터전달)
-            (post방식:페이지로 데이터를 전달하는 숨김방식) -->*/}
-
+                  (get방식:url로 키=값 쌍으로 데이터전달)
+                  (post방식:페이지로 데이터를 전달하는 숨김방식)
+              -->*/}
           <form action="process.php" method="post" className="logF">
             {/* <!-- 아이디박스 --> */}
             <div className="minput">
@@ -55,8 +57,8 @@ export default function Login({changeMenu}) {
             {/* <!-- 버튼영역 --> */}
             <div className="btnbx">
               <input type="submit" id="sbtn" value="LOGIN" />
-              {/* <!-- type-"submit" 서브밋버튼
-               전체 form요소의 데이터를 action
+              {/* <!-- type-"submit" 서브밋버튼 
+                      전체 form요소의 데이터를 action
                       페이지로 전달함! -->*/}
             </div>
             {/* <!-- 기타링크 --> */}
@@ -79,4 +81,4 @@ export default function Login({changeMenu}) {
       </main>
     </div>
   );
-} ////////////// Login 컴포넌트 /////////
+} //////////// Login 컴포넌트 //////////////
