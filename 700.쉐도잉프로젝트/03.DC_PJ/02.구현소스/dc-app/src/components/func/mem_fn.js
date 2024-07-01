@@ -35,7 +35,7 @@ const initData = () => {
                   "pwd":"1111",
                   "unm":"Tom",
                   "eml":"tom@gmail.com"
-              },
+              }
               ]
               `
     );
