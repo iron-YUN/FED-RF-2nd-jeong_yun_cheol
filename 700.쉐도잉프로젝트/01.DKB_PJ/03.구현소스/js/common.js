@@ -26,8 +26,24 @@ export default function setElement() {
   const spartMenu = mFn.qs("#spart-menu");
   const footerArea = mFn.qs("#footer-area");
 
+// 문자형 태그를 실제 태그로 변환하는 함수
+const stringsToHtml = x => {
+  // 1.브라우저 메모리에 div 태그 생성
+  let ele = document.createElement("div");
+  // 2.생성된 태그내부에 html 로 문자형태그 삽입
+  ele.innerHTML = x;
+  // 3.생성된 html 태그 리턴
+  // -> 내부의 생성코드만 보내준다
+  return ele.firstElementChild;
+};
+
   // 2. 코드넣기 ///////
   topArea.innerHTML = comData.topArea;
+  // 전체네버 코드넣기
+  // 선택요소 앞에 삽입 brfore()
+  // 뒤에삽입 after() 
+  // 단, html로 문자형 태그를 변환해야함!
+  topArea.after(stringsToHtml(comData.navArea));
   banArea.innerHTML = comData.banArea;
   spartMenu.innerHTML = comData.spartMenu;
   footerArea.innerHTML = comData.footerArea;
@@ -99,6 +115,9 @@ function makeMenu() {
       $(".ham").click(()=>{
         console.log("나야나!");
         $(".top-area").toggleClass("on");
+        
+        // 독입된 gnb 에도 토글~
+        $(".gnb").toggleClass("on");
         // 제이쿼리 클래스 관련 메서드:
         // addClass()/removeClass()/toggleClass()
         // -> js의 classList객체 하위 메서드와 유사
