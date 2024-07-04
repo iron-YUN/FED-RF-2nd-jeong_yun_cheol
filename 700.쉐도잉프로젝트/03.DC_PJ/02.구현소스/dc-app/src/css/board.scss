@@ -54,12 +54,12 @@
   padding: 10px;
   /*위아래, 양쪽*/
   /*
-      padding은 안쪽 공간-> 기존박스가 커짐
-      padding: 위 오른 아래 왼;(4개)
-      padding: 위 오른왼 아래;(3개)
-      padding: 위아래 오른왼;(2개)
-      padding: 모든방향;(1개)
-   */
+		padding은 안쪽 공간-> 기존박스가 커짐
+		padding: 위 오른 아래 왼;(4개)
+		padding: 위 오른왼 아래;(3개)
+		padding: 위아래 오른왼;(2개)
+		padding: 모든방향;(1개)
+	*/
 }
 
 /* 보드 메인리스트 a요소 말줄임표시하기 */
@@ -111,11 +111,11 @@
 }
 
 /*
-   가상 클래스 중
-   :first-child - 첫번째 자식
-   :last-child - 두번째 자식
-   :nth-child(숫자) - 숫자번째 자식 (짝수 even, 홀수 odd 사용)
-   단, 자식 태그의 종류가 한가지 여야함~!!!!
+	가상 클래스 중
+	:first-child - 첫번째 자식
+	:last-child - 두번째 자식
+	:nth-child(숫자) - 숫자번째 자식 (짝수 even, 홀수 odd 사용)
+	단, 자식 태그의 종류가 한가지 여야함~!!!!
 */
 /*짝수번째 배경색 넣기*/
 .dtbl tbody tr:nth-child(even) td {
