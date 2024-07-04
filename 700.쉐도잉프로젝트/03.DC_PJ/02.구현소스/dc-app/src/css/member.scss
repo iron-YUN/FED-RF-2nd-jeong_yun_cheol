@@ -12,6 +12,7 @@
   border: 1px solid #555;
   margin: 0 auto;
   font-family: "Ubuntu Condensed", sans-serif;
+
   h2 {
     text-align: center;
     text-decoration: underline;
@@ -19,6 +20,7 @@
     padding: 15px;
     font-size: 30px;
   }
+
   li {
     position: relative;
     padding: 25px;
@@ -47,6 +49,7 @@
     padding: 5px 0;
     font-weight: bold;
   }
+
   .sbtn {
     padding: 15px;
     background-color: #0d6efd;
@@ -59,9 +62,9 @@
     margin-right: 9%;
     cursor: pointer;
     transition: 0.3s;
-    &:hover {
-      background-color: #fd7e14;
-    }
+  }
+  .sbtn:hover {
+    background-color: #fd7e14;
   }
   ul {
     li:last-child {

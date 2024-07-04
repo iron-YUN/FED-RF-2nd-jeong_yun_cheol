@@ -1,5 +1,6 @@
+// 회원가입 페이지 컴포넌트 - Member.jsx
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 // 로컬스토리지 생성 JS
 import { initData } from "../func/mem_fn";
@@ -7,7 +8,11 @@ import { initData } from "../func/mem_fn";
 // 회원가입 CSS 불러오기
 import "../../css/member.scss";
 
-function Member(props) {
+function Member() {
+  // 라우터 이동 네비게이트
+  const goNav = useNavigate();
+  // goNav(라이터주소,state변수)
+
   // [ 회원가입 페이지 요구사항 ]
   // 1. 각 입력항목별로 유효성검사를 실행함
   // 2. 상태체크를 통하여 적절한 유효성검사시
@@ -42,6 +47,8 @@ function Member(props) {
   const [userNameError, setUserNameError] = useState(false);
   // 5. 이메일변수
   const [emailError, setEmailError] = useState(false);
+
+  console.log(">>>>", userIdError);
 
   // [ 아이디관련 메시지 프리셋 ] ////
   const msgId = [
@@ -148,7 +155,7 @@ function Member(props) {
     // 실제 userId 상태변수값이 업데이트 돼야만
     // 화면에 출력된다!
     setUserId(val);
-  }; //////////////changeUserId/////////////////////////
+  }; ////////// changeUserId 함수 ////////////
 
   // 2. 비밀번호 유효성 검사 ///////////
   const changePwd = (e) => {
@@ -167,7 +174,7 @@ function Member(props) {
 
     // 4. 기존입력값 반영하기
     setPwd(val);
-  }; ///////// changeUserPwd 함수 //////////
+  }; ///////// changePwd 함수 //////////
 
   // 3. 비밀번호확인 유효성 검사 ///////////
   const changeChkPwd = (e) => {
@@ -243,63 +250,78 @@ function Member(props) {
     else return false;
   }; /////////// totalValid 함수 ///////////
 
-  // [서브밋 기능함수]
+  // [ 서브밋 기능함수 ] ////////////////
   const onSubmit = (e) => {
-    // 1. 기본 서브밋 막기
+    // 1. 기본서브밋 막기
     e.preventDefault();
-    // 2. 유효성 검사 전체 통과시
-    console.log("최종검사", totalValid());
 
+    console.log("최종검사:", totalValid());
+
+    // 2. 유효성검사 전체 통과시
     if (totalValid()) {
       console.log("모두통과! 저장!");
 
       // [회원정보를 로컬스토리지에 저장하기]
-      // 1.로컬스 체크함수호출(없으면 생성)
+
+      // 1. 로컬스 체크함수호출(없으면 생성!)
       initData();
-      // 2.로컬스 변수할당
+
+      // 2. 로컬스 변수할당
       let memData = localStorage.getItem("mem-data");
-      // 3.로컬스 객체변환
+
+      // 3. 로컬스 객체변환
       memData = JSON.parse(memData);
 
       // 최대수를 위한 배열값 뽑기 (idx항목)
-      let temp = memData.map(v=>v.idx);
-      // 다음번호는 항상 최대수+1 이다.
-      console.log("다음번호",Math.max(...temp)+1);
-      // 4.새로운 데이터 구성하기
+      let temp = memData.map((v) => v.idx);
+      // 다음 번호는 항상 최대수+1이다!
+      console.log("다음번호:", Math.max(...temp) + 1);
+
+      // 4. 새로운 데이터 구성하기
       let newData = {
-        idx: Math.max(...temp)+1,
+        idx: Math.max(...temp) + 1,
         uid: userId,
         pwd: pwd,
         unm: userName,
         eml: email,
       };
-      // 5.데이터 추가하기 : 배열에 데이터 추가 push()
+
+      // 5. 데이터 추가하기 : 배열에 데이터 추가 push()
       memData.push(newData);
-      // 6.로컬스에 반영하기
-      localStorage.setItem("mem-data", JSON.stringify(memData));
-    } ////////if////
-    // 3. 불통과시 ////
+
+      // 6. 로컬스에 반영하기 : 문자화해서 넣어야함!
+      localStorage.setItem("mem-data", 
+      JSON.stringify(memData));
+
+      // 7. 회원가입 환영메시지 + 로그인 페이지 이동
+      // 버튼 텍스트에 환영메시지
+      document.querySelector(".sbtn").innerText = 
+      "Thank you for joining us!";
+      // 1초후 페이지 이동 : 라우터 Navigate로 이동함
+      setTimeout(()=>{
+        goNav("/login");
+        // 주의: 경로앞에 슬래쉬(/) 안쓰면
+        // 현재 Memeber 경로 하위 경로를 불러옴
+      },1000);
+      
+    } ///////// if /////////
+    // 3. 불통과시 /////
     else {
-      alert("change your input");
-    } ///////////
-  }; /////////// onSubmit //////////////
+      alert("Change your input!");
+    } //// else ///////////
+  }; /////////// onSubmit 함수 //////////
 
   // 최대수 테스트
-  const arr = [
-    { idx: "100" },
-    { idx: "77" },
-    { idx: "3" },
-    { idx: "44" },
-    { idx: "5" },
-  ];
-// const newArr = arr.map(v => v.idx);
-// ...배열변수 -> 스프레드 연산자로 배열값만 가져온다!
-// const maxValue = Math.max(...newArr);
-// const minValue = Math.min(...newArr);
-// const maxValue = Math.max("77","55","44");
-// console.log(newArr);
-// console.log("최대수",maxValue);
-// console.log("최소수",minValue);
+  //   const arr = [{"idx":"100"}, {"idx":"77"}, {"idx":"3"}, {"idx":"44"}, {"idx":"5"}];
+  //   const newArr = arr.map(v=>v.idx);
+  //   // ...배열변수 -> 스프레드 연산자로 배열값만 가져온다!
+  //   const maxValue = Math.max(...newArr);
+  //   const minValue = Math.min(...newArr);
+  // //   const maxValue = Math.max("77","55","33");
+  //   console.log(newArr);
+  //   console.log("최대수:",maxValue);
+  //   console.log("최소수:",minValue);
+
   // 코드리턴 구역 //////////////////
   return (
     <div className="outbx">
@@ -314,15 +336,14 @@ function Member(props) {
                 type="text"
                 maxLength="20"
                 placeholder="Please enter your ID"
+                // defaultValue="ㅎㅎㅎ"
                 value={userId}
                 onChange={changeUserId}
               />
               {
                 //   에러일 경우 메시지 출력
                 // 조건문 && 출력요소
-                // 조건추가 : userId가 입력전일때 안보임처리
-                // userId가 입력전엔 false로 리턴됨!
-                userIdError && userId && (
+                userIdError && (
                   <div className="msg">
                     <small
                       style={{
@@ -366,9 +387,7 @@ function Member(props) {
               {
                 // 에러일 경우 메시지 출력
                 // 조건문 && 출력요소
-                // 조건추가 : pwd가 입력전일때 안보임처리
-                // pwd가 입력전엔 false로 리턴됨!
-                pwdError && pwd && (
+                pwdError && (
                   <div className="msg">
                     <small
                       style={{
@@ -394,9 +413,7 @@ function Member(props) {
               {
                 // 에러일 경우 메시지 출력
                 // 조건문 && 출력요소
-                // 조건추가 : chkPwd가 입력전일때 안보임처리
-                // chkPwd가 입력전엔 false로 리턴됨!
-                chkPwdError && chkPwd && (
+                chkPwdError && (
                   <div className="msg">
                     <small
                       style={{
@@ -422,9 +439,7 @@ function Member(props) {
               {
                 // 에러일 경우 메시지 출력
                 // 조건문 && 출력요소
-                // 조건추가 : userName가 입력전일때 안보임처리
-                // userName가 입력전엔 false로 리턴됨!
-                userNameError && userName && (
+                userNameError && (
                   <div className="msg">
                     <small
                       style={{
@@ -450,9 +465,7 @@ function Member(props) {
               {
                 // 에러일 경우 메시지 출력
                 // 조건문 && 출력요소
-                // 조건추가 : email가 입력전일때 안보임처리
-                // email가 입력전엔 false로 리턴됨!
-                emailError && email && (
+                emailError && (
                   <div className="msg">
                     <small
                       style={{
@@ -460,13 +473,12 @@ function Member(props) {
                         fontSize: "10px",
                       }}
                     >
-                      {msgEtc.req}
+                      {msgEtc.email}
                     </small>
                   </div>
                 )
               }
             </li>
-
             <li style={{ overflow: "hidden" }}>
               <button className="sbtn" onClick={onSubmit}>
                 Submit
