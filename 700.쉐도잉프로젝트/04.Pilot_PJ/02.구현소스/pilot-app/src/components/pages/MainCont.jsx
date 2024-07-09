@@ -1,5 +1,5 @@
 // 메인페이지 컨텐츠 컴포넌트 - MainCont.jsx
-import React, { useEffect, useLayoutEffect } from "react";
+import React, { useEffect, useLayoutEffect, useState } from "react";
 
 // 모듈 불러오기
 import Banner from "../modules/Banner";
@@ -12,6 +12,8 @@ import $ from "jquery";
 import * as wFn from "../../js/func/auto_wheel";
 
 function MainCont(props) {
+
+
   // 화면 랜더링 실행구역 ///////
   useEffect(() => {
     console.log("useEffect");
