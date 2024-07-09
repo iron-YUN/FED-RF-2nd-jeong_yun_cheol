@@ -1,10 +1,15 @@
 import React, { useContext } from "react";
 
-// 카트리스트 css
+// 카트 리스트 CSS
 import "../../css/cart_list.scss";
 import { pCon } from "./pCon";
-function CartList({}) {
-const  myCon  = useContext(pCon);
+
+function CartList(props) {
+
+    // 컨텍스트 사용
+    const myCon = useContext(pCon);
+
+    ///// 코드리턴구역 /////////////
   return (
     <section id="cartlist" style={{right: "0px"}}>
       <a href="#" className="cbtn cbtn2"
@@ -12,8 +17,7 @@ const  myCon  = useContext(pCon);
         e.preventDefault();
         // 카트 상태값 업데이트
         myCon.setCartSts(false);
-      }}
-      >
+      }}>
         <span>닫기버튼</span>
       </a>
       <table>
@@ -31,6 +35,7 @@ const  myCon  = useContext(pCon);
             <th>합계</th>
             <th>삭제</th>
           </tr>
+          {/* 카트데이터 연동파트 */}
           <tr>
             <td>
               <img src={process.env.PUBLIC_URL+"/images/goods/women/m8.png"} alt="item" />
@@ -48,7 +53,7 @@ const  myCon  = useContext(pCon);
                   </button>
                   <b className="btn-cnt">
                     <img src={process.env.PUBLIC_URL+"/images/cnt_up.png"} alt="증가" />
-                    <img src="/images/cnt_down.png" alt="감소" />
+                    <img src={process.env.PUBLIC_URL+"/images/cnt_down.png"} alt="감소" />
                   </b>
                 </span>
               </div>
@@ -59,7 +64,7 @@ const  myCon  = useContext(pCon);
                 ×
               </button>
             </td>
-          </tr>
+          </tr>          
           <tr>
             <td colSpan="6">총합계 :</td>
             <td>662,000원</td>
