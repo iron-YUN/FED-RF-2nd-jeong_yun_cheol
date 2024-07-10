@@ -4,12 +4,19 @@ import { addComma } from "../../js/func/common_fn";
 import $ from "jquery";
 import { pCon } from "./pCon";
 
-function ItemDetail({ cat, ginfo, dt, setGinfo, gIdx }) {
-  // cat - 카테고리
-  // ginfo - 상품정보
+function ItemDetail({ tot, setTot, dt }) {
+  // tot - 상품토탈정보
+  // setTot - 상품토탈정보 업데이트함수
   // dt - 상품데이터
-  // setGinfo - ginfo값 변경메서드
+
+  // 상품정보 개별 셋업 ////
+  // cat - 카테고리
+  let cat = tot.cat;
+  // ginfo - 상품정보
+  let ginfo = tot.ginfo;
   // gIdx - 상품고유번호
+  let gIdx = tot.idx;
+
   console.log(cat, ginfo, gIdx);
 
   // 전역 카트 사용여부값 업데이트 사용위해 전역 컨텍스트 사용
@@ -102,6 +109,11 @@ function ItemDetail({ cat, ginfo, dt, setGinfo, gIdx }) {
           e.preventDefault();
           // 창닫기
           $(".bgbx").hide();
+          // 창닫을때 초기화하기!
+          // 수량초기화!
+          $("#sum").val(1);
+          // 총합계 초기화
+          $("#total").text(addComma(ginfo[3]) + "원");
         }}
       >
         <span className="ir">닫기버튼</span>
@@ -151,9 +163,8 @@ function ItemDetail({ cat, ginfo, dt, setGinfo, gIdx }) {
                         console.log(res);
                         // 상품상세모듈 전달 상태변수 변경
                         // find에서 받은값은 객체값
-                        // 그중 ginfo속성값만 필요함!
-                        setGinfo(res.ginfo);
-                        // 카테고리값은 바꿀필요없음!
+                        // 상품토탈정보로 모든 객체값을 업데이트함
+                        setTot(res);
                       }}
                     >
                       <img
@@ -283,15 +294,21 @@ function ItemDetail({ cat, ginfo, dt, setGinfo, gIdx }) {
 
                   // 로컬스에 객체 데이터 추가하기
                   locals.push({
-                    num: 1,
                     idx: gIdx,
                     cat: cat,
                     ginfo: ginfo,
+                    cnt: $("#sum").val(),
                   });
+                  /************************** 
+                    [데이터 구조정의]
+                  1. idx : 상품고유번호
+                  2. cat : 카테고리
+                  3. ginfo : 상품정보
+                  4. cnt : 상품개수
+                  **************************/
 
                   // 로컬스에 문자화하여 입력하기
-                  localStorage.setItem(
-                    "cart-data", JSON.stringify(locals));
+                  localStorage.setItem("cart-data", JSON.stringify(locals));
 
                   // 카트 상태값 변경
                   myCon.setCartSts(true);
