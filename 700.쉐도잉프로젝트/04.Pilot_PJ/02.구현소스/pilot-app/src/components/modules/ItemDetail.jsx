@@ -109,7 +109,7 @@ function ItemDetail({ tot, setTot, dt }) {
           e.preventDefault();
           // 창닫기
           $(".bgbx").hide();
-          // 창닫을때 초기화하기!
+          // 창닫을때 초기화하기!  
           // 수량초기화!
           $("#sum").val(1);
           // 총합계 초기화
@@ -283,66 +283,71 @@ function ItemDetail({ tot, setTot, dt }) {
                 className="btn"
                 onClick={() => {
                   // [ 로컬스 카트 데이터 넣기 ]
-                  // 1.로컬스 없으면 만들어라!
+                  // 1. 로컬스 없으면 만들어라!
                   if (!localStorage.getItem("cart-data")) {
                     localStorage.setItem("cart-data", "[]");
                   } //// if /////
 
-                  // 2.로컬스 읽어와서 파싱하기
+                  // 2. 로컬스 읽어와서 파싱하기
                   let locals = localStorage.getItem("cart-data");
                   locals = JSON.parse(locals);
 
-                  // 3.기존 데이터 중 동일한 데이터 거르기
+                  // 3. 기존 데이터 중 동일한 데이터 거르기
                   // 파싱된 로컬스 데이터 중 idx항목을 검사하여
                   // gIdx로 넣을 상품 idx와 같은 것이 있으면
                   // 메시지와 함께 리턴처리하여 입력을 막아준다!
 
-                  // [방법1]
-                  // 배열 중복검사시 사용하는 메서드 : some()
-                  // some 중복데이터 발생시 true리턴 해서 구분해준다
+                  // [ 방법1 ]
+                  // 배열 중복검사시 사용하는 메서드: some()
+                  // -> some()은 중복데이터 발생시 true리턴
+                  // 시켜서 구분해준다!
                   // let retSts = locals.some(v=>{
                   //   if(v.idx==gIdx) return true;
                   // });
 
-                  // [방법2]
+                  // [ 방법2 ]
                   // 배열.includes(비교값)
-                  // 주의! : 배열값이 단일값이어야 비교됨
-                  // 예) let aa [11,22,33]
-                  // aa.includes(22) -> 있으면 결과 true
-                  // idx 값만 모아서 다른 배열만들기
+                  // 주의사항: 배열값이 단일값이어야 비교가된다!
+                  // 예) let aa = [11,22,33]
+                  // aa.includes(22) -> 있으면 결과 true!
+
+                  // idx값만 모아서 다른 배열만들기
                   let newLocals = locals.map(v=>v.idx);
-                  console.log("idx새배열",newLocals);
+                  console.log("idx새배열:",newLocals);
+
                   // 인클루드 비교
                   let retSts = newLocals.includes(gIdx);
 
-                  console.log("중복상태",retSts);
+                  console.log("중복상태:",retSts);
                   if(retSts){
-                    // 메시지보이기
-                    alert("너 이미 담은거야~!");
-                    // 함수나가기
+                    // 메시지 보이기
+                    alert("이미 선택하신 상품입니다!");
+                    // 함수 나가기
                     return;
-                  }///// if /////
+                  } ///// if //////
 
                   // 4.로컬스에 객체 데이터 추가하기
                   locals.push({
                     idx: gIdx,
                     cat: cat,
                     ginfo: ginfo,
-                    cnt: $("#sum").val(),
+                    cnt: $("#sum").val()
                   });
                   /************************** 
                     [데이터 구조정의]
-                  1. idx : 상품고유번호
-                  2. cat : 카테고리
-                  3. ginfo : 상품정보
-                  4. cnt : 상품개수
+                    1. idx : 상품고유번호
+                    2. cat : 카테고리
+                    3. ginfo : 상품정보
+                    4. cnt : 상품개수
                   **************************/
 
                   // 로컬스에 문자화하여 입력하기
-                  localStorage.setItem("cart-data", JSON.stringify(locals));
+                  localStorage.setItem(
+                    "cart-data", JSON.stringify(locals));
 
-                  // 로컬스 카트데이터 카트 상태값 변경
-                  myCon.setLocalsCart(localStorage.getItem("cart-data"));
+                  // 로컬스 카트데이터 상태값 변경!
+                  myCon.setLocalsCart(
+                    localStorage.getItem("cart-data"));
                   // 카트리스트 생성 상태값 변경!
                   myCon.setCartSts(true);
                 }}

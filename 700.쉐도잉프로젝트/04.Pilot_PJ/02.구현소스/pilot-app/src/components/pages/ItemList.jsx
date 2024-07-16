@@ -19,6 +19,8 @@ function ItemList() {
   // 상품토탈정보
   const [tot, setTot] = useState(itemListData[0]); 
 
+
+
   // 화면랜더링구역 ////////
   useEffect(() => {
     // 전체 스크롤바 살리기

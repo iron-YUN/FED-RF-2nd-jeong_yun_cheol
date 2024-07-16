@@ -49,7 +49,7 @@ export const TopArea = memo(({ loginMsg, loginSts, logoutFn, goPage }) => {
   // 사용시 goNav(라우터주소,{전달객체})
   // 전달객체 없으면 비워놓음!
   // 사용법: 반드시 useNavigate()메서드를 변수에 담아
-  // 이동할 라우터 주소를 쓰면 이동한다cd
+  // 이동할 라우터 주소를 쓰면 이동한다
   // 예) goNav('/news') -> 뉴스페이지이동
   // 예) goNav('news') -> 뉴스페이지이동
   // 예) goNav('/') -> 첫페이지이동
