@@ -1,0 +1,6 @@
+* 프로젝트 진행관련 깃허브 주소
+
+1팀 : https://github.com/seongeon0620/busJava_final.git
+2팀 : https://github.com/LJzero-dev/potted.git
+3팀 : https://github.com/hju1110/h2h
+4팀 : https://github.com/juyoungb/git_shoeshort.git
