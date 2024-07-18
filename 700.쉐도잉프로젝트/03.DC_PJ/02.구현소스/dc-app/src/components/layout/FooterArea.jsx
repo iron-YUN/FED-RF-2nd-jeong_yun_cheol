@@ -41,9 +41,8 @@ export const FooterArea = memo(() => {
         </li>
         <li>© & ™ DC. ALL RIGHTS RESERVED</li>
       </ul>
-      {/* 날씨정보 */}
-      <Weather/>
-      {/* <Weather2/> */}
+      {/* 날씨정보 컴포넌트 */}
+      <Weather2 />
     </footer>
   );
 }); /////////// FooterArea /////////////////////
