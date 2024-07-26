@@ -41,15 +41,25 @@ export default function Board() {
   ///////// [ 상태관리 변수 ] //////////////
   // [1] 페이지 번호
   const [pageNum, setPageNum] = useState(1);
+
   // [2] 기능모드
   const [mode, setMode] = useState("L");
-  // (1) 리스트 모드(L) : List Mode
-  // (2) 글보기 모드(R) : Read Mode
-  // (3) 글쓰기 모드(W) : Write Mode
-  // (4) 수정 모드(M) : Modify Mode (삭제포함)
+  // 1) 리스트 모드(L) : List Mode
+  // 2) 글보기 모드(R) : Read Mode
+  // 3) 글쓰기 모드(W) : Write Mode
+  // 4) 수정 모드(M) : Modify Mode (삭제포함)
+
   // [3] 검색어 저장변수 : 배열[기준,검색어]
   const [keyword, setKeyword] = useState(["", ""]);
   console.log(keyword);
+
+  // [4] 정렬기준값 상태변수 : 값 (asc(-1) /desc(1))
+  const [sort, setSort] = useState(1);
+  // -> 기존셋팅값에 1올곱하면 원래값, -1 곱하면 반대값셋팅
+
+  // [5] 정렬 항목값 상태변수 : 값 idx / tit
+  const [sortCta, setSortCta] = useState("idx");
+
   // [ 참조변수 ] ///
   // [1] 전체 개수 - 매번 계산하지 않도록 참조변수로!
   const totalCount = useRef(baseData.length);
@@ -97,9 +107,17 @@ export default function Board() {
     // 새로 데이터를 담은 후 바로 전체개수 업데이트 필수!
     totalCount.current = orgData.length;
 
+    // 내림차순 / 오름차순 셋팅값변수
+
     // 2. 정렬 적용하기 : 내림차순
+    // sort값이 1이면 desc(현재상태유지)
+    // sort값이 -1이면 asc(부호 반대 변경)
+    // 정렬항목은 sortCta값에 따름("idx"/"tit")
+    const chgVal = (x) =>
+       (sortCta == "idx" ? Number(x[sortCta]) : x[sortCta]);
+
     orgData.sort((a, b) =>
-      Number(a.idx) > Number(b.idx) ? -1 : Number(a.idx) < Number(b.idx) ? 1 : 0
+      chgVal(a) > chgVal(b) ? -1 * sort : chgVal(a) < chgVal(b) ? 1 * sort : 0
     );
 
     // 3. 일부 데이터만 선택
@@ -181,7 +199,7 @@ export default function Board() {
       case "List":
         setMode("L");
         // 검색시에도 전체 데이터나오게 함
-        setKeyword(["",""]);
+        setKeyword(["", ""]);
         break;
       // 서브밋일 경우 함수호출!
       case "Submit":
@@ -376,6 +394,10 @@ export default function Board() {
             pgPgNum={pgPgNum}
             pgPgSize={pgPgSize}
             setKeyword={setKeyword}
+            sort={sort}
+            setSort={setSort}
+            sortCta={sortCta}
+            setSortCta={setSortCta}
           />
         )
       }
@@ -469,6 +491,10 @@ const ListMode = ({
   pgPgNum,
   pgPgSize,
   setKeyword,
+  sort,
+  setSort,
+  sortCta,
+  setSortCta,
 }) => {
   /******************************************* 
     [ 전달변수 ] - 2~5까지 4개는 페이징전달변수
@@ -477,6 +503,13 @@ const ListMode = ({
     3. unitSize : 게시판 리스트 당 레코드 개수
     4. pageNum : 현재 페이지번호
     5. setPageNum : 현재 페이지번호 변경 메서드
+    6.  pgPgNum : 페이지번호
+    7.  pgPgSize : 페이징의 페이지크기
+    8.  setKeyword : 검색어
+    9.  sort : 정렬기준
+    10.  setSort : 정렬기준셋팅
+    11.  sortCta : 정렬항목
+    12.  setSortCta : 정렬항목셋팅
   *******************************************/
 
   // 코드리턴구역 //////////////////////
@@ -488,9 +521,18 @@ const ListMode = ({
           <option value="cont">Contents</option>
           <option value="unm">Writer</option>
         </select>
-        <select name="sel" id="sel" className="sel">
-          <option value="0">Descending</option>
-          <option value="1">Ascending</option>
+        <select
+          name="sel"
+          id="sel"
+          className="sel"
+          onChange={() => setSort(sort * -1)}
+        >
+          <option value="0" selected={sort == 1 ? true : false}>
+            Descending
+          </option>
+          <option value="1" selected={sort == -1 ? false : true}>
+            Ascending
+          </option>
         </select>
         <input id="stxt" type="text" maxLength="50" />
         <button
@@ -510,7 +552,7 @@ const ListMode = ({
               // 검색후엔 첫페이지로 보내기
               setPageNum(1);
               // 검색후엔 페이지 번호 초기화
-              pgPgNum.current =1;
+              pgPgNum.current = 1;
             } else {
               alert("Please enter a keyword");
             }
@@ -518,6 +560,17 @@ const ListMode = ({
         >
           Search
         </button>
+
+        {/* 정렬기준 선택 */}
+        <select
+          name="sort_cta"
+          id="sort_cta"
+          className="sort_cta"
+          style={{ float: "right", translate: "0 5px" }}
+        >
+          <option value="idx" selected={sortCta=="idx"?true:false}>Recent</option>
+          <option value="tit" selected={sortCta=="tit"?true:false}>Title</option>
+        </select>
       </div>
       <table className="dtbl" id="board">
         <thead>
@@ -533,8 +586,7 @@ const ListMode = ({
         <tfoot>
           <tr>
             <td colSpan="5" className="paging">
-              {
-                totalCount.current > 0 &&
+              {totalCount.current > 0 && (
                 <PagingList
                   totalCount={totalCount}
                   unitSize={unitSize}
@@ -543,7 +595,7 @@ const ListMode = ({
                   pgPgNum={pgPgNum}
                   pgPgSize={pgPgSize}
                 />
-              }
+              )}
             </td>
           </tr>
         </tfoot>
