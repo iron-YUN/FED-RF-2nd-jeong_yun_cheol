@@ -114,7 +114,7 @@ export default function Board() {
     // sort값이 -1이면 asc(부호 반대 변경)
     // 정렬항목은 sortCta값에 따름("idx"/"tit")
     const chgVal = (x) =>
-       (sortCta == "idx" ? Number(x[sortCta]) : x[sortCta]);
+       (sortCta == "idx" ? Number(x[sortCta]) : x[sortCta].toLowerCase());
 
     orgData.sort((a, b) =>
       chgVal(a) > chgVal(b) ? -1 * sort : chgVal(a) < chgVal(b) ? 1 * sort : 0
@@ -393,6 +393,7 @@ export default function Board() {
             setPageNum={setPageNum}
             pgPgNum={pgPgNum}
             pgPgSize={pgPgSize}
+            keyword={keyword}
             setKeyword={setKeyword}
             sort={sort}
             setSort={setSort}
@@ -490,6 +491,7 @@ const ListMode = ({
   setPageNum,
   pgPgNum,
   pgPgSize,
+  keyword,
   setKeyword,
   sort,
   setSort,
@@ -505,7 +507,8 @@ const ListMode = ({
     5. setPageNum : 현재 페이지번호 변경 메서드
     6.  pgPgNum : 페이지번호
     7.  pgPgSize : 페이징의 페이지크기
-    8.  setKeyword : 검색어
+    8.  keyword : 검색어
+    8.  setKeyword : 검색어셋팅
     9.  sort : 정렬기준
     10.  setSort : 정렬기준셋팅
     11.  sortCta : 정렬항목
@@ -534,7 +537,18 @@ const ListMode = ({
             Ascending
           </option>
         </select>
-        <input id="stxt" type="text" maxLength="50" />
+        <input id="stxt" type="text" maxLength="50" 
+        onKeyUp={(e)=>{
+          // e.keyCode 는 번호로 13
+          // e.key 는 문자로 Enter
+          // console.log(e.keyCode)
+          // console.log(e.key)
+          if(e.key == "Enter"){
+            $(e.currentTarget).next().trigger("click")
+          }
+        }
+      }
+        />
         <button
           className="sbtn"
           onClick={(e) => {
@@ -560,12 +574,34 @@ const ListMode = ({
         >
           Search
         </button>
-
+          {
+            // 키워드가 있는 경우에 전체 리스트 들어가기 버튼 출력
+            keyword[0] !==""&&
+            <button className="back-total-list"
+            onClick={(e)=>{
+              // 검색어 초기화
+              setKeyword(["",""]);
+              // 검색어삭제
+              $(e.currentTarget).siblings("#stxt").val("");
+              // 검색항목 초기화
+              $(e.currentTarget).siblings("#cta").val("tit");
+              // 정렬초기화
+              setSort(1);
+              // 정렬항목초기화
+              setSortCta("idx");
+              // 첫페이지변경
+              setPageNum(1);
+            }}>
+              Back to Total List
+            </button>
+          }
         {/* 정렬기준 선택 */}
         <select
           name="sort_cta"
           id="sort_cta"
           className="sort_cta"
+          onChange={(e)=>
+            setSortCta(e.currentTarget.value)}
           style={{ float: "right", translate: "0 5px" }}
         >
           <option value="idx" selected={sortCta=="idx"?true:false}>Recent</option>
