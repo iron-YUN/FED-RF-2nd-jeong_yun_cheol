@@ -84,21 +84,10 @@ export default function Board() {
   // 페이징의 페이징 개수 : 한번에 보여줄 페이징개수
   const pgPgSize = 3;
 
-  //   검색 기능을 위한 리듀서 함수 ////
-  const reducerFn = (gval, action) => {
-   // gval -지가 벨류래.....의 줄임말
-   // -> 리듀서변수가 들어옴
-   // 기존값을 활용하여 업데이트 하기위해 들어옴
-   console.log("지발",gval);
-
-    // 1.구조분해 할당으로 객체의 배열값 받기
+  const reducerFn = (state, action) => {
     const [key, ele] = action.type;
-   //  배열값 구조 : [구분문자열 , ]
-    //  action.type 은 리듀서 호출시 보낸 객체값 (배열임!)
-    console.log("key:", key, "\nele:", ele);
-    //  2. key 값에 따라 분기하기
+    console.log("key:", key, "\ne:", ele);
     switch (key) {
-      // (1) 검색일 경우 실행코드
       case "search":
         {
           // 검색기준값 읽어오기
@@ -121,10 +110,8 @@ export default function Board() {
           else {
             alert("Please enter a keyword!");
           }
-          // 리턴코드 값은 리듀서 변수에 할당.
-          return gval +(gval!=""?"*":"")+ txt;
         }
-      // (2) 전체리스트 돌아가기 실행코드
+        return true;
       case "back":
         {
           // 검색어 초기화
@@ -140,12 +127,11 @@ export default function Board() {
           // 첫페이지번호변경
           setPageNum(1);
         }
-        // 리턴코드 값은 리듀서 변수에 할당.
-        return gval;
+        return false;
     }
   };
-  //   검색기능 지원 후크 리듀서 : useReducer
-  const [memory, dispach] = useReducer(reducerFn, "");
+
+  const [state, dispach] = useReducer(reducerFn, null);
 
   /*********************************************** 
  * [ 리듀서 후크 : useReducer ]
@@ -560,7 +546,6 @@ function 컴포넌트() {
             sortCta={sortCta}
             setSortCta={setSortCta}
             dispach={dispach}
-            memory={memory}
           />
         )
       }
@@ -662,7 +647,6 @@ const ListMode = ({
   sortCta,
   setSortCta,
   dispach,
-  memory,
 }) => {
   /******************************************* 
     [ 전달변수 ] - 2~5까지 4개는 페이징전달변수
@@ -717,9 +701,7 @@ const ListMode = ({
         <button
           className="sbtn"
           onClick={(e) => {
-            // 리듀서 메서드호출
             dispach({ type: ["search", e.target] });
-            // 보낼값 구성 : [구분문자열 ,이벤트발생요소]
           }}
         >
           Search
@@ -750,7 +732,6 @@ const ListMode = ({
           <option value="idx">Recent</option>
           <option value="tit">Title</option>
         </select>
-        <b>{memory}</b>
       </div>
       <table className="dtbl" id="board">
         <thead>
