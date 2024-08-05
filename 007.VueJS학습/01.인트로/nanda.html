@@ -21,7 +21,14 @@
         <!-- 원래는 컴포넌트 구성하지만
          여기서는 연습용으로 태그를 직접구성함! -->
          <!-- 1.타이틀 로고 파트 -->
-          <section class="part"></section>
+          <section class="part">
+            <!-- 1-1.샵명 -->
+             <h1 class="tit" v-text="bigTit"></h1>
+             <!-- v-text 디랙티브 : 텍스트출력속성 -->
+            <!-- 1-2.로고 -->
+             <div class="logo" v-html="logo"></div>
+             <!-- v-html 디랙티브 : 태그출력속성 -->
+          </section>
          <!-- 2.배너파트 -->
           <section class="part"></section>
          <!-- 3.상품리스트파트 -->
