@@ -1,3 +1,5 @@
+-- https://www.w3schools.com/mysql/trymysql.asp?filename=trysql_select_columns
+
 -- 주석
 -- DB는 크게 2가지 DDL / DML 
 -- DMK 은 크루드! CRUD creat(insert) / read(select) / update / delete
