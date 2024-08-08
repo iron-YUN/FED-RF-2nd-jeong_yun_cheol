@@ -84,19 +84,19 @@ export default function Board() {
   // 페이징의 페이징 개수 : 한번에 보여줄 페이징개수
   const pgPgSize = 3;
 
-  //   검색 기능을 위한 리듀서 함수 ////
+  // 검색 기능을 위한 리듀서 함수 ////
   const reducerFn = (gval, action) => {
-    // gval -지가 벨류래.....의 줄임말
-    // -> 리듀서변수가 들어옴
-    // 기존값을 활용하여 업데이트 하기위해 들어옴
-    console.log("지발", gval);
+    // gval - 지가 벨류레...의 줄임말...
+    // -> 리듀서변수가 들어옴 (왜 들어와???)
+    // 기존값을 활용하여 업데이트 하기 위해 들어옴!
+    console.log("지발:", gval);
 
-    // 1.구조분해 할당으로 객체의 배열값 받기
+    // 1. 구조분해 할당으로 객체의 배열값 받기
     const [key, ele] = action.type;
-    //  배열값 구조 : [구분문자열 , ]
-    //  action.type 은 리듀서 호출시 보낸 객체값 (배열임!)
+    // 배열값 구조 : [구분문자열, 이벤트발생대상요소]
+    // action.type은 리듀서 호출시 보낸 객체값(배열임!)
     console.log("key:", key, "\nele:", ele);
-    //  2. key 값에 따라 분기하기
+    // 2. key값에 따라 분기하기
     switch (key) {
       // (1) 검색일 경우 실행코드
       case "search": {
@@ -120,10 +120,22 @@ export default function Board() {
         else {
           alert("Please enter a keyword!");
         }
-        // 리턴코드 값은 리듀서 변수에 할당.
-        return gval + (gval != "" ? "*" : "") + txt;
+        // 리턴코드값은 리듀서 변수에 할당!
+        return (
+          // 숙제: *문자열이 있으면 split으로 잘라서
+          // 배열로 만들고 배열값중 현재 입력된 txt가
+          // 배열중에 없으면 새로 등록하고 있으면
+          // 등록하지 않는다를 코드로 작성할것!
+          // 힌트1: 등록않는다는 gval만 넣으면 됨
+          // 힌트2: 배열값 중 단순비교는 includes()사용!
+          gval.indexOf("*")!==-1
+          ? gval.split("*").includes(txt)
+          ? gval
+          : gval + (gval != "" ? "*" : "") + txt
+          : gval + (gval != "" ? "*" : "") + txt
+        );
       }
-      // (2) 전체리스트 돌아가기 실행코드
+      // (2) 전체리스트 돌아기기 실행코드
       case "back":
         {
           // 검색어 초기화
@@ -139,13 +151,13 @@ export default function Board() {
           // 첫페이지번호변경
           setPageNum(1);
         }
-        // 리턴코드 값은 리듀서 변수에 할당.
+        // 리턴코드값은 리듀서 변수에 할당!
         return gval;
 
-         // (3) 기존 키워드 재검색일 경우 실행코드
+        // (3) 기존 키워드 재검색일 경우 실행코드
       case "again": {
         // 검색기준값 읽어오기
-        let creteria = $(ele).siblings(".cta").val();
+        let creteria = $("#cta").val();
         console.log("기준값:", creteria);
         // 검색어 읽어오기
         let txt = $(ele).text();
@@ -166,12 +178,26 @@ export default function Board() {
         else {
           alert("Please enter a keyword!");
         }
-        // 리턴코드 값은 리듀서 변수에 할당.
-        return gval + (gval != "" ? "*" : "") + txt;
+        // 리턴코드값은 리듀서 변수에 할당!
+        // 리턴코드값은 리듀서 변수에 할당!
+        return (
+          // 숙제: *문자열이 있으면 split으로 잘라서
+          // 배열로 만들고 배열값중 현재 입력된 txt가
+          // 배열중에 없으면 새로 등록하고 있으면
+          // 등록하지 않는다를 코드로 작성할것!
+          // 힌트1: 등록않는다는 gval만 넣으면 됨
+          // 힌트2: 배열값 중 단순비교는 includes()사용!
+          gval.indexOf("*")!==-1
+          ? gval.split("*").includes(txt)
+          ? gval
+          : gval + (gval != "" ? "*" : "") + txt
+          : gval + (gval != "" ? "*" : "") + txt
+        );
       }
     }
   };
-  //   검색기능 지원 후크 리듀서 : useReducer
+
+  // 검색기능 지원 후크 리듀서 : useReducer
   const [memory, dispach] = useReducer(reducerFn, "");
 
   /*********************************************** 
@@ -202,7 +228,10 @@ function 컴포넌트() {
     } />
   );
 } ///// 컴포넌트끝 ///////
-  ***********************************************/
+
+
+
+
 
   /********************************************** 
         함수명: bindList
@@ -463,7 +492,10 @@ function 컴포넌트() {
         // 첫번째 셋팅값 전송url에는 서버에 셋팅된
         // 포스트 방식 전송명인 /xxx를 하위경로에 써준다!
         axios
-          .post("http://localhost:8080/xxx", formData)
+          .post(
+            "https://express-server-r4ufitp63-tombap8s-projects.vercel.app/xxx",
+            formData
+          )
           .then((res) => {
             // res는 성공결과 리턴값 변수
             const { fileName } = res.data;
@@ -744,9 +776,9 @@ const ListMode = ({
         <button
           className="sbtn"
           onClick={(e) => {
-            // 리듀서 메서드호출
+            // 리듀서 메서드 호출
             dispach({ type: ["search", e.target] });
-            // 보낼값 구성 : [구분문자열 ,이벤트발생요소]
+            // 보낼값구성 : [구분문자열, 이벤트발생요소]
           }}
         >
           Search
@@ -757,7 +789,9 @@ const ListMode = ({
             <button
               className="back-total-list"
               onClick={(e) => {
+                // 리듀서 메서드 호출
                 dispach({ type: ["back", e.target] });
+                // 보낼값구성 : [구분문자열, 이벤트발생요소]
               }}
             >
               Back to Total List
@@ -771,28 +805,49 @@ const ListMode = ({
           id="sort_cta"
           className="sort_cta"
           onChange={(e) => setSortCta(e.currentTarget.value)}
-          value={sortCta}
           style={{ float: "right", translate: "0 5px" }}
+          value={sortCta}
         >
           <option value="idx">Recent</option>
           <option value="tit">Title</option>
         </select>
-        <button style={{ position: "relative" }}>History</button>
-        <ol style={{ position: "absolute",lineHeight:"1.7" }}>
+        <button style={{ position: "relative" }}
+        onClick={(e)=>{
+          // 클릭시 하위 ol 보이기
+          $(e.currentTarget).find("ol").show();
+        }}
+        >
+          History
+          <ol 
+          style={
+            {
+              position: "absolute",
+              lineHeight: "1.7",
+              padding: "5px 15px",
+              border: "1px solid gray",
+              borderRadius: "10px",
+              backgroundColor: "#f8f8ffcc",
+              display: "none",
+            }}
+            onMouseLeave={(e)=>{
+              // 아웃시 숨기기
+              $(e.currentTarget).hide();
+            }}
+            >
           {
-          memory.indexOf("*") !== -1 &&
-           memory.split("*").map(v=>
-           <li>
-             <b
-             onClick={(e)=>{
-              // 리듀서 메서드호출
+            memory.indexOf("*")!==-1 &&
+            memory.split("*").map(
+              v=><li>
+                  <b
+                    onClick={(e)=>{
+                      // 리듀서 메서드 호출
             dispach({ type: ["again", e.target] });
-            // 보낼값 구성 : [구분문자열 ,이벤트발생요소]
-             }}>{v}</b>
-           </li>
-          )
-           }
-           </ol>
+            // 보낼값구성 : [구분문자열, 이벤트발생요소]
+                    }}
+                  >{v}</b>
+                </li>)
+          }</ol>
+        </button>
       </div>
       <table className="dtbl" id="board">
         <thead>

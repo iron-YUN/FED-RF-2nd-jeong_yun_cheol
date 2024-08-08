@@ -13,52 +13,51 @@
     </style>
     <script>
       window.addEventListener("DOMContentLoaded", () => {
-        // console.log("로딩완료");
-        // 1.택스트 바인딩 //
+        console.log("로딩완료!");
+
+        // 1. 텍스트 바인딩 /////////
         new Vue({
           // (1) 적용할 요소 설정 속성 : el
           // el 속성명은 element에서 나온말
-          // 정해진 이름!!
+          // 이것은 정해진 이름이다!
           el: "#app1",
           // (2) 데이터 설정 속성 : data
-          // 데이터 변수 셋팅 구역
+          // 데이터 변수 셋팅구역
           data: {
-            // 여기는 객체형식으로 데이터를 내가 셋팅한다!
-            message: "나는 뷰JS를 잘쓰는 프론트앤드 개발자다!",
-            yo: "🎵요!",
+            // 여기는 객체형식으로 데이터를
+            // 내가 셋팅한다!
+            message: "나는 뷰JS를 잘 쓰는 프론트엔드 개발자다!",
+            yo: "😎요🤓",
           },
           // (3) 함수설정 속성 : methods
           methods: {
             // 글자변경함수
             // [형식]
-            // 함수명 :  function(){구현부}
-            // 함수명 :  ()=>{구현부}
+            // 함수명 : function(){구현부}
+            // 함수명 : ()=>{구현부}
             // 함수명(){구현부}
             // changeTxt: function(){},
             // changeTxt: ()=>{},
             changeTxt(e) {
-              // (1) 메서드 내부의 this 는 뷰인스턴스 자신을 가리킴
-              // console.log("나야나",this);
-              // console.log("나야나",e);
-              // console.log("나야나",e.currentTarget);
-              console.log("나야나", e.target);
-              // 버튼이름 변경하기!
-              e.target.innerText = "변경사항이 반영되었습니다!";
-              e.target.style.backgroundColor = "lightblue";
-              e.target.style.border = "none";
-              // (2) 뷰인스턴스 속성값 변경하기
-              // this 키워드는 뷰인스턴스 자신!
-              this.message = "너는 누규?";
-              this.yo = "뿡!";
-              // 사용중인 머스태쉬의 출력변수의 값을 변경하면
-              // 실시간으로 변경이 반영된다! -> 리랜더링
-            }, //// changeTxt /////
-          }, //// methods /////
-        }); ///////// Vue ///////////
+              // 메서드 내부의 this 는 뷰인스턴스 자신을 가리킴
+              console.log("나야나!", e.target);
+              // (1)버튼이름 변경하기!
+              e.target.innerText = "변경사항이 반영되었습니다~!!!";
+              e.target.style.backgroundColor = "lime";
+              // (2)뷰인스턴스 속성값 변경하기
+              // this키워드는 뷰인스턴스 자신!
+              this.message = "너는 누구냐?";
+              this.yo = "~헐~";
+              // 사용중인 머스태쉬의 출력 변수의 값을 변경하면
+              // 실시간으로 변경이 반영된다!
+              // -> 리랜더링됨!!!
+            }, // changeTxt함수 ///
+          }, /// methods ///
+        }); ///// Vue /////
 
-        //2. 반복 렌더링
+        // 2. 반복 렌더링 ////////////////
         new Vue({
-          // 1.대상
+          // 1. 대상
           el: "#app2",
           // 2. 데이터
           data: {
@@ -68,47 +67,39 @@
             goods: [
               {
                 상품명: "나이키",
-                코드: "nike168525",
+                코드: "nike2544",
                 가격: "155,000원",
               },
               {
-                상품명: "뉴발란스",
-                코드: "new324509",
-                가격: "229,000원",
+                상품명: "프로스펙스",
+                코드: "pros3388",
+                가격: "256,000원",
               },
-              {
-                상품명: "아디다스",
-                코드: "add4327908",
-                가격: "309,000원",
-              },
-              {
-                상품명: "퓨마",
-                코드: "pu3924",
-                가격: "239,000원",
-              },
-            ],
-          },
-        }); ////////// Vue //////
+            ], /// goods ///
+          }, /// data ///
+        }); // Vue //////
 
-        // 3. 이벤트 사용하기
+        // 3. 이벤트 사용하기 //////////////
         new Vue({
-          // (1) 대상
+          // 1. 대상
           el: "#app3",
-          // (2) 메서드
+          // 2. 메서드
           methods: {
             myClick(e) {
               let tg = e.target;
               console.log("버튼클릭!", tg, this, this.$el);
-              //   1.버튼글자변경
-              tg.innerText - "놀자";
-              // 2.잠시후 해당요소 아래에 새로운 html 넣기
+              // 1. 버튼글자변경
+              tg.innerText = "놀랐지?";
+              // 2. 2초후에 해당 요소 아래에
+              // 새로운 html넣기
               setTimeout(() => {
-                // 뷰인스턴스 자신은  this
-                // 인스턴스 자신의 요소는 $el 으로 표시하여 선택함
+                // 뷰인스턴스 자신은 this
+                // 인스턴스 자신의 요소는
+                // $el 로 표시하여 선택함!
                 // div#app3 요소를 나타냄
-                this.$el.innerHTML += "<div>하하</div>";
+                this.$el.innerHTML += "<div>하하하</div>";
               }, 2000);
-            }, ////myClick////////
+            }, /// myClick ///
             myOver() {
               // 현재 이벤트 대상
               let cEvt = event.target;
@@ -119,43 +110,43 @@
               setTimeout(() => {
                 cEvt.innerText = "클릭해봐~!";
               }, 2000);
-            },///////myOver///////
+            }, // myOver ///
             overClick(txt) {
-              //txt - 전달변수
+              // txt - 전달변수
               console.log("오버클릭:", txt);
               // 기존 인스턴스 루트요소에 html 넣기
               this.$el.innerHTML += `<h1>내가 ${txt}야!</h1>`;
-            },///////overClick//////
-          }, /////method //////
-        }); ////////Vue ///
+            }, /// overClick ///
+          }, /// methods ////
+        }); //// Vue ///
 
-        // 4. 입력 양식과 동기화하기
+        // 4. 입력 양식과 동기화하기 ////
         new Vue({
-            // (1)대상
-            el : "#app4",
-            // (2)데이터
-            data:{
-                msg : "여기에 입력해봐요!!",
+            // 1. 대상
+            el: "#app4",
+            // 2. 데이터
+            data: {
+                msg: '여기에 입력해봐요~~~!',
             },
-        });/////Vue/////////
+
+        }); ///// Vue ///////////////
 
         // 5. 조건분기하기 //////////
         new Vue({
-          // (1)대상선정
+          // 1. 대상선정
           el: '#app5',
-          // (2)변수셋팅
+          // 2. 변수셋팅
           data: {
             show: false,
             // show변수에 false를 담고 이것을
             // v-if 조건문 디렉티브에 사용하면
             // true이면 출력하고 false 이면 아예지운다!
-          },
-        });/////Vue///////
+          }, /// data ///
+        }); /// Vue ///
 
-      }); ///////// load //강//////////
+      }); //////// load //////////////
     </script>
   </head>
-
   <body>
     <h1>Vue JS 기초연습</h1>
 
@@ -165,7 +156,8 @@
     <div id="app1">
       <p>{{message}}</p>
       <p>
-        세상은{{yo}} 너희가{{yo}} 아는바{{yo}} 그{{yo}} 세상이{{yo}} 아님{{yo}}
+        세상은{{yo}} 너희가{{yo}} 아는바{{yo}} 그{{yo}} 세상이{{yo}}
+        아니란다!{{yo}}
       </p>
       <!-- 
             {{}} 중복중괄호는 콧수염 표시자(Mustasch)
@@ -180,7 +172,7 @@
             예) if(){}, for(){}, let x = "ㅎㅎ"
          -->
 
-      <!-- 기능을 가진 버튼 생성 -->
+      <!-- 기능을 가진 버튼을 생성함 -->
       <button v-on:click="changeTxt">변경하기</button>
       <!-- 
             [ 뷰JS 인스턴스 내부의 요소 속성만들기 ]
@@ -189,7 +181,7 @@
             v-on:이벤트명 = "함수"
             v-bind:value = "값"
             v-if="코드"
-          -->
+        -->
     </div>
     <hr />
 
@@ -199,17 +191,23 @@
       <ol>
         <li v-for="배우명 in list">{{배우명}}</li>
       </ol>
-      <!-- 배열안에 반복괴는 객체 데이터 찍기 -->
-      <!-- 배열은 for문에서 (값,숫번) 순으로 순회함 -->
+
+      <!-- 배열안에 반복되는 객체 데이터 찍기 -->
+      <!-- 배열은 for문에서 (값,순번) 순으로 순회함 -->
       <div v-for="(item,idx) in goods">
         <h4>{{"아이템번호 : " + (idx + 1)}}</h4>
         <ul>
-          <!-- 바깥쪽 for 문에 item 에담긴 객체값을 순회하여 찍음 -->
-          <!-- 객체는 for문에서 (값,속성명) 순으로 순회한다 
-              v-for="(val,name) in item"
-              val 과 name 은 순서가 중요하고 변수명은 내가 지어도된다
-              그러가 item 은 바깥 for문에서 전달되는 변수명이므로 그대로 써야함-->
-          <li v-for="(val,name) in item">{{name + ": " + val}}</li>
+          <!-- 바깥쪽 for문의 item에 담긴
+                객체값을 순회하여 찍음! -->
+          <!-- 객체는 for문에서 
+                    (값,속성명) 순으로 순회한다 
+                    v-for="(val,name) in item"
+                    여기서 val과 name 은 순서가 중요하고
+                    변수명은 내가 지어도 된다!
+                    그.러.나... item은 바깥for문에서
+                    전달되는 변수명이므로 그대로 써야함!
+                -->
+          <li v-for="(val,name) in item">{{name + " : " + val}}</li>
         </ul>
       </div>
       <!-- 
@@ -242,20 +240,26 @@
 
     <h2>3. 이벤트 사용하기</h2>
     <div id="app3">
-      <button @click="myClick">클릭해봐</button>
+      <!-- <button v-on:click="myClick">클릭해봐~!</button> -->
+      <button @click="myClick">클릭해봐~!</button>
       <!-- 
             v-on:이벤트명="값"
             축약형
             @이벤트명="값"
          -->
-      <button @mouseover="myOver" @click="overClick('후계자')">오버해봐</button>
-      <!-- 이벤트값으로 함수명 뒤에 소괄호를 써서 호출형으로 해도 바로 실행되지 않고 이벤트 호출시에만 실행된다 -->
+      <button @mouseover="myOver" 
+      @click="overClick('후계자')">
+        오버해봐!
+      </button>
+      <!-- 이벤트값으로 함수명뒤에 소괄호를 써서
+    호출형으로 해도 바로 실행되지 않고 이벤트 호출시에만
+실행된다! -->
     </div>
     <hr />
 
     <h2>4. 입력 양식과 동기화하기</h2>
     <div id="app4">
-        <input type="text" v-model="msg"/>
+        <input type="text" v-model="msg" />
         <!-- 
         v-model 디렉티브 속성은 요소 자신의 값이
         타겟값으로 반영되게 해준다!
